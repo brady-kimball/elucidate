@@ -22,6 +22,19 @@ and sufficient CSS styling:
 - Voting on annotations and comments
 - Production README
 
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
+
+[wireframes]: docs/wireframes
+[components]: docs/component-hierarchy.md
+[sample-state]: docs/sample-state.md
+[api-endpoints]: docs/api-endpoints.md
+[schema]: docs/schema.md
+
 ## Implementation Timeline
 ### Phase 1: Backend setup and Frontend user authentication (2 days)
 **objective:** Working Rails project with front-end authentication
