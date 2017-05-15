@@ -29,7 +29,7 @@ and sufficient CSS styling:
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: /wireframes
+[wireframes]: /docs/wireframes
 [components]: /component-hierarchy.md
 [sample-state]: /sample-state.md
 [api-endpoints]: /api-endpoints.md
