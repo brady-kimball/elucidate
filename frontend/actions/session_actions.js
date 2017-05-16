@@ -4,6 +4,7 @@ import * as APIUtil from '../util/session_api_util';
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
 
 // Synchronous action creators
 
@@ -15,6 +16,10 @@ export const receiveCurrentUser = (currentUser) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });
 
 

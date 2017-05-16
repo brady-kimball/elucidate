@@ -6,22 +6,16 @@ import { LogInFormContainer, SignUpFormContainer }
 class AuthFormModal extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       modalOpen: false,
       type: this.props.type
     };
-
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
   }
 
-  switchAuthType() {
-    let otherType = (this.state.type === "login" ? "signup" : "login");
-    this.setState({type: otherType});
-  }
-
   closeModal() {
+    this.props.clearErrors();
     this.setState({ modalOpen: false });
   }
 
@@ -29,20 +23,9 @@ class AuthFormModal extends React.Component {
     this.setState({ modalOpen: true });
   }
 
-  placeForm() {
-    if (this.state.type === "login") {
-      return <LogInFormContainer />;
-    } else {
-      return <SignUpFormContainer />;
-    }
-  }
-
-  buttonText() {
-    if (this.props.type === "login") {
-      return "Log In";
-    } else {
-      return "Sign Up";
-    }
+  switchAuthType() {
+    let otherType = (this.state.type === "login" ? "signup" : "login");
+    this.setState({type: otherType});
   }
 
   switchButtonText() {
@@ -53,16 +36,45 @@ class AuthFormModal extends React.Component {
     }
   }
 
+  renderErrors() {
+    let errors = this.props.errors;
+    if (errors.length > 0) {
+      let errorItems = errors.map((error, idx) => (
+        <li key={idx}>{error}</li>
+      ));
+      return(
+        <section className = "errors">
+          <span>Whoops!</span>
+          <ul>
+            {errorItems}
+          </ul>
+        </section>
+      );
+    }
+    return null;
+  }
+
+  renderForm() {
+    if (this.state.type === "login") {
+      return <LogInFormContainer />;
+    } else {
+      return <SignUpFormContainer />;
+    }
+  }
+
   render() {
     return(
       <div>
-        <button onClick={this.openModal}>{this.buttonText()}</button>
+        <button onClick={this.openModal}>
+          {this.props.type === "login" ? "Log In" : "Sign Up"}
+        </button>
 
         <Modal
           contentLabel="Auth Form"
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
-          {this.placeForm()}
+          {this.renderErrors()}
+          {this.renderForm()}
           <span onClick={this.switchAuthType.bind(this)}>
             {this.switchButtonText()}
           </span>

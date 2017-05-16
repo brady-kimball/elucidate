@@ -12,16 +12,16 @@ class SignUpForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.signup(this.state);
+  }
+
   update(property) {
     return e => {
       e.preventDefault();
       this.setState({[property]: e.target.value});
     };
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.signup(this.state);
   }
 
   render() {

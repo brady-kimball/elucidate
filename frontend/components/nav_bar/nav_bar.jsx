@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AuthFormModal from '../auth_form/auth_form_modal';
+import AuthFormModalContainer from '../auth_form/auth_form_modal_container';
 
 class NavBar extends React.Component {
 
   logout(e) {
     e.preventDefault();
-    this.props.logout()
+    this.props.logout();
   }
+
   render() {
     if (this.props.currentUser) {
       return(
@@ -18,8 +19,8 @@ class NavBar extends React.Component {
     } else {
       return(
         <nav>
-          <AuthFormModal type="login" />
-          <AuthFormModal type="signup" />
+          <AuthFormModalContainer type="login" />
+          <AuthFormModalContainer type="signup" />
         </nav>
       );
     }

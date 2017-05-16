@@ -1,3 +1,12 @@
+<script type="text/javascript">
+  <% if is_logged_in? %>
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+  <% end %>
+</script>
+
 <div id="root">
   <span>Something is wrong!</span>
   <br>

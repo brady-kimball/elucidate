@@ -6,11 +6,16 @@ import Modal from 'react-modal';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
+  if (window.currentUser) {
+    const preloadedState = { session: { currentUser: window.currentUser } };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   const root = document.getElementById("root");
   Modal.setAppElement(document.body);
-  store = configureStore();
   window.store = store;
-
 
   ReactDOM.render(<Root store={store}/>, root);
 });
