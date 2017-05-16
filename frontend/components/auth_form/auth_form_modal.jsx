@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import LogInFormContainer from './log_in_form_container';
+import { LogInFormContainer, SignUpFormContainer }
+  from './log_in_form_container';
 
 class AuthFormModal extends React.Component {
   constructor(props) {

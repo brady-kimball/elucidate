@@ -20,11 +20,12 @@ class LogInForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
+    console.log(this.state);
   }
 
   render() {
     return(
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input  type="text"
                 placeholder="Enter username or email"
                 value={this.state.userIdentifier}
