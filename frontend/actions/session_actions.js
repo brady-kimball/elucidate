@@ -1,5 +1,7 @@
 import * as APIUtil from '../util/session_api_util';
 
+// Action types, implemented so app breaks if misspelled
+
 export const RECEIVE_USER = "RECEIVE_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
