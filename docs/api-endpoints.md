@@ -10,6 +10,7 @@
 
 ### Users
 
+- `GET /api/users`
 - `POST /api/users`
 - `PATCH /api/users`
 
