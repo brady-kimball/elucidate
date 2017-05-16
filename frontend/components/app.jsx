@@ -1,9 +1,10 @@
 import React from 'react';
-
+import NavBarContainer from './nav_bar/nav_bar_container';
 
 const App = (props) => (
   <div>
-    <h1> React is working </h1>
+    <NavBarContainer />
+    <h1>React is working!</h1>
   </div>
 );
 
