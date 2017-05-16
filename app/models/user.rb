@@ -3,14 +3,20 @@ class User < ApplicationRecord
             :session_token, presence: true
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :email, format: { with: /^\w*@\w*.\w*$/ }
-  validates :user, format: { with: /^[^@]*$/ }
+  validates :email, format: {
+    with: /\A\w*@\w*.\w*\z/,
+    message: "must be of form 'example@website.domain'"
+  }
+  validates :username, format: {
+    with: /\A[^@]*\z/,
+    message: "cannot contain special characters"
+  }
   after_initialize :ensure_session_token
 
   attr_reader :password
 
   def self.generate_session_token
-    SecureRandom::base64_urlsafe(16)
+    SecureRandom::urlsafe_base64(16)
   end
 
   def self.find_by_credentials(username, email, password)
