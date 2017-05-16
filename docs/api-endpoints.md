@@ -29,16 +29,16 @@
 - `DELETE /api/tracks/:id`
 
 ### Annotations
-- `GET /api/tracks/:id/annotations`
-- `POST /api/tracks/:id/annotations`
-- `PATCH /api/tracks/:id/annotations/:id`
-- `DELETE /api/tracks/:id/annotations/:id`
+- `GET /api/annotations`
+- `POST /api/annotations`
+- `PATCH /api/annotations/:id`
+- `DELETE /api/annotations/:id`
 
 ### Comments
-- `GET /api/tracks/:id/annotations/:id/comments`
-- `POST /api/tracks/:id/annotations/:id/comments`
-- `PATCH /api/tracks/:id/annotations/:id/comments/:id`
-- `DELETE /api/tracks/:id/annotations/:id/comments/:id`
+- `GET /api/comments`
+- `POST /api/comments`
+- `PATCH /api/comments/:id`
+- `DELETE /api/comments/:id`
 
 ### Genres
 - `GET /api/genres`
