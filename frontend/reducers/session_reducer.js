@@ -28,3 +28,5 @@ const sessionReducer = (state = defaultState, action) => {
       return state;
   }
 };
+
+export default sessionReducer;
