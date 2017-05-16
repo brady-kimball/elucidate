@@ -44,12 +44,9 @@ class AuthFormModal extends React.Component {
         <button onClick={this.openModal}>{this.buttonText()}</button>
 
         <Modal
+          contentLabel="Auth Form"
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
-
-            <h2>Im a modal!</h2>
-            <p>modal modal modal modal modal</p>
-            <p>mooooooooodal!</p>
             {this.placeForm()}
         </Modal>
       </div>
