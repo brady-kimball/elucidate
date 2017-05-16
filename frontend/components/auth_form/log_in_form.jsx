@@ -20,7 +20,6 @@ class LogInForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state);
-    console.log(this.state);
   }
 
   render() {
@@ -40,4 +39,4 @@ class LogInForm extends React.Component {
   }
 }
 
-export default LogInForm
+export default LogInForm;

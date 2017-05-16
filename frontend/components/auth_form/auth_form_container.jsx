@@ -2,14 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogInForm from './log_in_form';
 import SignUpForm from './sign_up_form';
-import { login } from '../../actions/session_actions';
+import { login, signup } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
 
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: (user) => dispatch(login(user))
+  login: (user) => dispatch(login(user)),
+  signup: (user) => dispatch(signup(user))
 });
 
 export const LogInFormContainer = connect(

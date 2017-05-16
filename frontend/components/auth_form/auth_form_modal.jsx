@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { LogInFormContainer, SignUpFormContainer }
-  from './log_in_form_container';
+  from './auth_form_container';
 
 class AuthFormModal extends React.Component {
   constructor(props) {
@@ -9,10 +9,16 @@ class AuthFormModal extends React.Component {
 
     this.state = {
       modalOpen: false,
+      type: this.props.type
     };
 
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+  }
+
+  switchAuthType() {
+    let otherType = (this.state.type === "login" ? "signup" : "login");
+    this.setState({type: otherType});
   }
 
   closeModal() {
@@ -24,10 +30,10 @@ class AuthFormModal extends React.Component {
   }
 
   placeForm() {
-    if (this.props.type === "login") {
-      return <LogInFormContainer />
+    if (this.state.type === "login") {
+      return <LogInFormContainer />;
     } else {
-      return <span>Nothing to see here</span>
+      return <SignUpFormContainer />;
     }
   }
 
@@ -36,6 +42,14 @@ class AuthFormModal extends React.Component {
       return "Log In";
     } else {
       return "Sign Up";
+    }
+  }
+
+  switchButtonText() {
+    if (this.state.type === "login") {
+      return "Need to register? Sign up here >>";
+    } else {
+      return "Already signed up? Log in here >>";
     }
   }
 
@@ -48,7 +62,10 @@ class AuthFormModal extends React.Component {
           contentLabel="Auth Form"
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
-            {this.placeForm()}
+          {this.placeForm()}
+          <span onClick={this.switchAuthType.bind(this)}>
+            {this.switchButtonText()}
+          </span>
         </Modal>
       </div>
     );
