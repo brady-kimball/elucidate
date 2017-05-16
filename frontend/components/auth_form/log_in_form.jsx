@@ -24,7 +24,7 @@ class LogInForm extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form className="auth-form" onSubmit={this.handleSubmit}>
         <input  type="text"
                 placeholder="Enter username or email"
                 value={this.state.userIdentifier}

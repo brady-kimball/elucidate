@@ -11,16 +11,16 @@ class NavBar extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
-        <section>
+        <nav>
           <button onClick={this.logout.bind(this)}>Log Out</button>
-        </section>
+        </nav>
       );
     } else {
       return(
-        <section>
+        <nav>
           <AuthFormModal type="login" />
           <AuthFormModal type="signup" />
-        </section>
+        </nav>
       );
     }
   }
