@@ -13,7 +13,7 @@ class User < ApplicationRecord
     SecureRandom::base64_urlsafe(16)
   end
 
-  def self.find_by_credentials(username, password)
+  def self.find_by_credentials(username, email, password)
     @user = User.find_by(username: username)
     #TODO: Sign in by email also??
     # Check for username and emails being unique?
@@ -24,7 +24,7 @@ class User < ApplicationRecord
     if @user && @user.is_password?(password)
       return @user
     end
-    
+
     nil
   end
 
