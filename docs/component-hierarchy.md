@@ -5,11 +5,17 @@
 
 **HomeContainer**
  - Home
- - NavBar
 
  **Home**
+ - NavBarContainer
  - TrackIndexContainer
  - GenreIndexContainer
+
+ **NavBar Container**
+ - NavBar
+
+ **NavBar**
+ - NavBar
 
  **GenreIndexContainer**
  -Genre
