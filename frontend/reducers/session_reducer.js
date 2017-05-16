@@ -7,7 +7,7 @@ const defaultState = {
 };
 
 const sessionReducer = (state = defaultState, action) => {
-  Object.freeze(state);
+  Object.freeze(state); // Ensure previous state does not get mutated
 
   switch(action.type) {
     case RECEIVE_USER:
