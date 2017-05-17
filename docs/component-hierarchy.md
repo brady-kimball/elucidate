@@ -1,46 +1,60 @@
 ## Component Hierarchy
+**Entry**
+-Root
+
+**Root**
+App
+
+**App**
+- NavBarContainer
+
+**NavBar Container**
+- NavBar
+
+**NavBar**
+- NavBar
+
+**AuthFormModalContainer**
+- AuthFormModal
+
+**AuthFormModal**
+- AuthFormContainer
 
 **AuthFormContainer**
- - AuthForm
+- LogInForm
+- SignUpForm
 
 **HomeContainer**
  - Home
 
- **Home**
- - NavBarContainer
+**Home**
  - TrackIndexContainer
  - GenreIndexContainer
 
- **NavBar Container**
- - NavBar
-
- **NavBar**
- - NavBar
-
- **GenreIndexContainer**
+**GenreIndexContainer**
  -Genre
 
- **TrackIndexContainer**
+**TrackIndexContainer**
  - TrackIndex
 
- **TrackContainer**
+**TrackContainer**
  -Track
  -AnnotationContainer
 
- **Annotation Container**
+**Annotation Container**
  - AnnotationItemContainer
  - AnnotationFormContainer
 
- **AnnotationFormContainer**
+**AnnotationFormContainer**
  -AnnotationForm
 
- **AnnotationItemContainer**
+**AnnotationItemContainer**
  - AnnotationItem
  - CommentContainer
  - CommentFormContainer
 
- **CommentContainer**
-- CommentIndex
+**CommentContainer**
+ - CommentIndex
 
 
 ## Routes
