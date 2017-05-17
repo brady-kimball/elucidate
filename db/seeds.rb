@@ -20,3 +20,27 @@ guest = User.create(
   avatar: "app/assets/images/default-avatar.png",
   password: "password"
 );
+
+
+Track.destroy_all
+
+t1 = Track.create(
+  title: "test",
+  artist: "test_artist",
+  user_id: guest.id,
+  lyrics: "doo doo doo doo doo"
+)
+
+t2 = Track.create(
+  title: "test2",
+  artist: "test_artist2",
+  user_id: guest.id,
+  lyrics: "doo dooasdf doo doo doo"
+)
+
+t2 = Track.create(
+  title: "test3",
+  artist: "test_artist2",
+  user_id: guest.id,
+  lyrics: "doo dooasdf doo doo doo"
+)

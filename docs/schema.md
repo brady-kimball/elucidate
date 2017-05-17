@@ -15,13 +15,13 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
-body        | text      | not null
+lyrics      | text      | not null
 artist      | string    | not null
 user_id     | integer   | not null, foreign key (references users), indexed
 writers     | string    |
 producers   | string    |
 editors     | string    |
-link        | string    | 
+link        | string    |
 
 ## annotations
 column name | data type | details

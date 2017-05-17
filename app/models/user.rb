@@ -11,6 +11,12 @@ class User < ApplicationRecord
     with: /\A[^@]*\z/,
     message: "cannot contain special characters"
   }
+
+  has_many :tracks,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Track
+
   after_initialize :ensure_session_token
 
   attr_reader :password
