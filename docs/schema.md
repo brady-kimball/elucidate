@@ -18,6 +18,10 @@ title       | string    | not null
 body        | text      | not null
 artist      | string    | not null
 user_id     | integer   | not null, foreign key (references users), indexed
+writers     | string    |
+producers   | string    |
+editors     | string    |
+link        | string    | 
 
 ## annotations
 column name | data type | details
