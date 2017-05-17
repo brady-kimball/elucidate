@@ -5,8 +5,6 @@ import { allTracks } from '../../reducers/selectors.js';
 import { fetchTracks } from '../../actions/track_actions';
 
 const mapStateToProps = state => {
-  console.log(state.tracks);
-  console.log(allTracks(state.tracks));
   return {
     tracks: allTracks(state.tracks),
     trackSlice: state.tracks

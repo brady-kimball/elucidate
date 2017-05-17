@@ -3,12 +3,7 @@ import { allTracks } from '../../reducers/selectors.js';
 
 class TrackIndex extends React.Component {
   componentWillMount() {
-    console.log("I mounted");
     this.props.fetchTracks();
-  }
-
-  componentWillReceiveProps(props) {
-    console.log(props);
   }
 
   renderTracks() {
