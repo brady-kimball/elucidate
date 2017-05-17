@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import TrackIndexContainer from './track_index/track_index_container';
 
 const App = (props) => (
-  <div>
+  <div className="app">
     <NavBarContainer />
     <Switch>
       <Route path="/" component={TrackIndexContainer} />
