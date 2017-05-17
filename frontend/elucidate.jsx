@@ -4,6 +4,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import Modal from 'react-modal';
 import * as TrackActions from './actions/track_actions';
+import {allTracks} from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Modal.setAppElement(document.body);
   window.store = store;
   window.trackActions = TrackActions;
+  window.allTracks = allTracks;
 
   ReactDOM.render(<Root store={store}/>, root);
 });
