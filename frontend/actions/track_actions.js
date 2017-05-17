@@ -19,9 +19,9 @@ export const receiveTrack = (track) => ({
   track
 });
 
-export const destroyTrack = (track) => ({
+export const destroyTrack = (id) => ({
   type: DESTROY_TRACK,
-  track
+  id
 });
 
 export const receiveErrors = (errors) => ({
@@ -53,6 +53,6 @@ export const updateTrack = track => dispatch => {
 
 export const deleteTrack = id => dispatch => {
   return APIUtil.deleteTrack(id).then(
-    track => dispatch(destroyTrack(track))
+    track => dispatch(destroyTrack(track.id))
   );
 };
