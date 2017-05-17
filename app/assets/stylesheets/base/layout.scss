@@ -104,3 +104,11 @@ input[type="text"] {
 input[type="search"] {
 	padding: 5px;
 }
+
+input[type="search"] {
+	border: none;
+	padding: 0.4rem 2rem 0.3rem 0.5rem;
+	box-shadow: 0 0 3px #e9e9e9 inset;
+	font-weight: 500;
+	background: white;
+}

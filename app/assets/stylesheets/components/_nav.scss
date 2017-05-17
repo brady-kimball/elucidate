@@ -2,13 +2,23 @@ nav {
   background-color: yellow;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: sans-serif;
   height: 50px;
+  width: 100%;
+
+  .search {
+    margin: 0.3rem;
+  }
+
+  .logo {
+    cursor: pointer;
+  }
 
   .nav-right {
     display: flex;
     justify-content: space-around;
-    flex: .3;
+    flex: .27;
     max-width: 200px;
     min-width: 150px;
 

@@ -1,0 +1,29 @@
+.track-index{
+
+  margin: 10px 0;
+
+
+
+  h3 {
+    margin: 0;
+    font-size: 14px;
+    font-family: $sans-serif;
+  }
+
+  li {
+    cursor: pointer;
+    border-bottom: 1px solid $dark-gray;
+    text-align: center;
+    font-size: 16px;
+    font-family: $sans-serif;
+
+    &:first-child {
+      border-top: 2px solid black;
+    }
+  }
+
+  .top-three-track {
+    font-weight: bold;
+    font-size: 20px;
+  }
+}

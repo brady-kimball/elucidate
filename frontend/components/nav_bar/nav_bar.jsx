@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import AuthFormModalContainer from '../auth_form/auth_form_modal_container';
 
 class NavBar extends React.Component {
@@ -18,35 +18,52 @@ class NavBar extends React.Component {
     this.props.login(_guest);
   }
 
-  render() {
+  logoClick(e) {
+    e.preventDefault();
+    this.props.history.push("/");
+  }
+
+  authButtons() {
     if (this.props.currentUser) {
       return(
-        <nav className="group">
-
-          <section className="nav-right">
-            <button className="auth-button"
-                    onClick={this.logout.bind(this)}>
-              Log Out
-            </button>
-          </section>
-        </nav>
+        <section className="nav-right">
+          <button className="auth-button"
+                  onClick={this.logout.bind(this)}>
+            Log Out
+          </button>
+        </section>
       );
     } else {
       return(
-        <nav className="group">
-
-          <section className="nav-right">
-            <button onClick={this.guestLogin.bind(this)}
-                    className="auth-button">
-              Guest
-            </button>
-            <AuthFormModalContainer type="login" />
-            <AuthFormModalContainer type="signup" />
-          </section>
-        </nav>
+        <section className="nav-right">
+          <button onClick={this.guestLogin.bind(this)}
+            className="auth-button">
+            Guest
+          </button>
+          <AuthFormModalContainer type="login" />
+          <AuthFormModalContainer type="signup" />
+        </section>
       );
     }
   }
+
+  render() {
+    return(
+      <nav>
+        <section className="search">
+          <input type="search"
+                  placeholder="Search..."/>
+        </section>
+
+        <section className="logo"
+                  onClick={this.logoClick.bind(this)}>
+          <span>Fancy Logo</span>
+        </section>
+
+        {this.authButtons()}
+      </nav>
+    );
+  }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

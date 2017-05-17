@@ -32,7 +32,7 @@ class TrackIndex extends React.Component {
   render() {
     return(
       <section className="track-index">
-        <h1>Top Songs</h1>
+        <h3>Top Songs</h3>
         <ul>
           {this.renderTracks()}
         </ul>
