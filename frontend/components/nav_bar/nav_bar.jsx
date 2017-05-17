@@ -49,7 +49,7 @@ class NavBar extends React.Component {
 
   render() {
     return(
-      <nav>
+      <nav className="nav-major">
         <section className="search">
           <input type="search"
                   placeholder="Search..."/>

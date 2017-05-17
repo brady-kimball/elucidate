@@ -1,11 +1,16 @@
 nav {
+  text-transform: uppercase;
+}
+
+.nav-major {
   background-color: yellow;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: sans-serif;
-  height: 50px;
+  height: 41px;
   width: 100%;
+  font-size: 14px;
 
   .search {
     margin: 0.3rem;
@@ -18,12 +23,26 @@ nav {
   .nav-right {
     display: flex;
     justify-content: space-around;
-    flex: .27;
+    flex: .33;
     max-width: 200px;
     min-width: 150px;
 
     .auth-button {
       margin: auto 0px;
     }
+  }
+}
+
+.nav-minor {
+  display: flex;
+  background: black;
+  color: white;
+  height: 39px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+
+  span {
+    font-family: $sans-serif;
   }
 }
