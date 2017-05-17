@@ -1,15 +1,11 @@
 ```js
 {
-  currentUser: {
-    id: 1,
-    username: "app-academy"
-  },
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    addTrack: {errors: ["artist can't be blank"]}
-    addAnnotation: {errors: []}
-    addComment: {errors: []}
+  session: {
+    currentUser: {
+      id: 1,
+      username: "app-academy"
+    },
+    errors: ["Username cannot be blank"]
   },
   tracks: {
     1: {
