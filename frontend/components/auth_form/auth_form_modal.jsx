@@ -51,6 +51,7 @@ class AuthFormModal extends React.Component {
 
   switchAuthType() {
     let otherType = (this.state.type === "login" ? "signup" : "login");
+    this.props.clearErrors();
     this.setState({type: otherType});
   }
 
