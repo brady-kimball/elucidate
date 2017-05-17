@@ -13,3 +13,10 @@ u1 = User.create(
   avatar: "app/assets/images/testAvatar.png",
   password: "password"
 )
+
+guest = User.create(
+  username: "guest",
+  email: "guest@junk.com",
+  avatar: "app/assets/images/default-avatar.png",
+  password: "password"
+);

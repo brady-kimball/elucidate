@@ -9,6 +9,15 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
+  guestLogin(e) {
+    e.preventDefault();
+    let _guest = {
+      userIdentifier: "guest",
+      password: "password"
+    };
+    this.props.login(_guest);
+  }
+
   render() {
     if (this.props.currentUser) {
       return(
@@ -27,6 +36,10 @@ class NavBar extends React.Component {
         <nav className="group">
 
           <section className="nav-right">
+            <button onClick={this.guestLogin.bind(this)}
+                    className="auth-button">
+              Guest
+            </button>
             <AuthFormModalContainer type="login" />
             <AuthFormModalContainer type="signup" />
           </section>
