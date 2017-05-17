@@ -10,7 +10,7 @@
   tracks: {
     1: {
       title: "Sample Track",
-      body: "La la la la doo doo doo",
+      lyrics: "La la la la doo doo doo",
       artist: "Mozart",
       user_id: 1
     }
