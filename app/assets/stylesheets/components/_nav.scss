@@ -1,0 +1,17 @@
+nav {
+  background-color: yellow;
+  display: flex;
+  justify-content: space-between;
+  font-family: sans-serif;
+  height: 50px;
+
+  .nav-right {
+    display: flex;
+    justify-content: space-around;
+    flex: .2;
+
+    .auth-button {
+      margin: auto 0px;
+    }
+  }
+}

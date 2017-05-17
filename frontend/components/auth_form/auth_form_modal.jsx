@@ -12,6 +12,32 @@ class AuthFormModal extends React.Component {
     };
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.modalCustomStyles = {
+      overlay : {
+        position         : 'fixed',
+        top              : 0,
+        left             : 0,
+        right            : 0,
+        bottom           : 0,
+        display          : 'flex',
+        alignItems       : 'center',
+        justifyContent   : 'center',
+        backgroundColor  : 'rgba(90,98,107,.9)'
+      },
+      content : {
+        position    : 'null', // to override default styles
+        top         : 'null',
+        left        : 'null',
+        right       : 'null',
+        bottom      : 'null',
+        border      : '2px solid #5B6675',
+        background  : '#fff',
+        padding     : '20px 15px',
+        maxWidth    : '560px',
+        minWidth    : '400px',
+        height      : 'auto'
+      }
+    };
   }
 
   closeModal() {
@@ -64,7 +90,7 @@ class AuthFormModal extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="auth-button">
         <button onClick={this.openModal}>
           {this.props.type === "login" ? "Log In" : "Sign Up"}
         </button>
@@ -72,12 +98,15 @@ class AuthFormModal extends React.Component {
         <Modal
           contentLabel="Auth Form"
           isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}>
-          {this.renderErrors()}
-          {this.renderForm()}
-          <span onClick={this.switchAuthType.bind(this)}>
-            {this.switchButtonText()}
-          </span>
+          onRequestClose={this.closeModal}
+          style={this.modalCustomStyles}>
+          <section className="auth-form">
+            {this.renderErrors()}
+            {this.renderForm()}
+            <span onClick={this.switchAuthType.bind(this)}>
+              {this.switchButtonText()}
+            </span>
+          </section>
         </Modal>
       </div>
     );
