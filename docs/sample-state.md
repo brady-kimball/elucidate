@@ -13,7 +13,8 @@
       lyrics: "La la la la doo doo doo",
       artist: "Mozart",
       user_id: 1
-    }
+    },
+    errors: []
   },
   annotations: {
     1: {
