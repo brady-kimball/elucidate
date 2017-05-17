@@ -9,6 +9,8 @@ nav {
     display: flex;
     justify-content: space-around;
     flex: .2;
+    max-width: 200px;
+    min-width: 150px;
 
     .auth-button {
       margin: auto 0px;

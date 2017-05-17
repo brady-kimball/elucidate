@@ -36,5 +36,12 @@
   "bugs": {
     "url": "https://github.com/brady-kimball/elucidate/issues"
   },
-  "homepage": "https://github.com/brady-kimball/elucidate#readme"
+  "homepage": "https://github.com/brady-kimball/elucidate#readme",
+  "engines": {
+    "node": "6.10.1",
+    "npm": "3.10.10"
+  },
+  "scripts": {
+    "postinstall": "webpack"
+  }
 }
