@@ -1,12 +1,11 @@
 import React from 'react';
 import NavBarContainer from './nav_bar/nav_bar_container';
-import { Switch, Route }
+import { Switch, Route } from 'react-router-dom';
 
 const App = (props) => (
   <div>
     <NavBarContainer />
     <Switch>
-      <Route path="/" component= { } />
     </Switch>
   </div>
 );

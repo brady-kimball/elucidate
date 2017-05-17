@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://elucidate-me.herokuapp.com/
 [trello]: https://trello.com/b/Me91V9CP/elucidate
 
 ## Minimum Viable Product
