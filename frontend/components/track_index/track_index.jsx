@@ -1,6 +1,7 @@
 import React from 'react';
 import { allTracks } from '../../reducers/selectors.js';
 import { withRouter } from 'react-router-dom';
+import TrackIndexItem from './track_index_item';
 
 class TrackIndex extends React.Component {
   componentWillMount() {
@@ -9,24 +10,12 @@ class TrackIndex extends React.Component {
 
   renderTracks() {
     return this.props.tracks.map( (track, idx) => {
-      let className = "";
-      if (idx < 3) {
-        className = "top-three-track";
-      }
       return(
-        <li className={className}
-            key={track.id}
-            onClick={this.showTrack(track.id)}>
-          {track.title}
-        </li>
+        <TrackIndexItem key={track.id}
+                        track={track}
+                        idx={idx + 1} />
       );
     });
-  }
-
-  showTrack(id) {
-    return(
-      e => this.props.history.push(`/tracks/${id}`)
-    );
   }
 
   render() {
@@ -41,4 +30,4 @@ class TrackIndex extends React.Component {
   }
 }
 
-export default withRouter(TrackIndex);
+export default TrackIndex;

@@ -1,29 +1,89 @@
 .track-index{
 
   margin: 10px 0;
-
-
-
-  h3 {
-    margin: 0;
-    font-size: 14px;
-    font-family: $sans-serif;
+  h3, h5 {
+    font-size: 1rem;
+    font-weight: 400;
   }
 
-  li {
-    cursor: pointer;
-    border-bottom: 1px solid $dark-gray;
-    text-align: center;
-    font-size: 16px;
-    font-family: $sans-serif;
+  .track-index-item{
+    border-bottom: 1px solid $light-gray;
+
+    &:hover {
+      background: $lightest-gray;
+    }
 
     &:first-child {
       border-top: 2px solid black;
     }
-  }
 
-  .top-three-track {
-    font-weight: bold;
-    font-size: 20px;
+
+
+    &:nth-child(-n+3) {
+      .track-num {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+          border-radius: 50%;
+          border: .2em solid #000;
+          width: 2em;
+          min-width: 2em;
+          height: 2em;
+          text-align: center;
+          line-height: 1.5
+        }
+      }
+
+      figure {
+        height: 80px;
+        width: 80px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+
+    &:not(:nth-child(-n+3)) {
+      figure {
+        height: 56px;
+        width: 56px;
+      }
+      h3, h5 {
+        display: inline;
+      }
+      h5:before {
+        content: " by "
+      }
+    }
+
+    .track-row{
+      margin: 0 8px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-family: $sans-serif;
+      font-weight: bold;
+
+      .track-num {
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 16px;
+      }
+
+      figure {
+        border: 1px solid black;
+        margin-right: 8px;
+      }
+
+
+
+    }
+
   }
 }
