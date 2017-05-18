@@ -2,6 +2,9 @@ import React from 'react';
 
 class TrackForm extends React.Component {
   componentWillMount() {
+    if (this.props.track && (this.props.currentUser.id !== this.props.track.user_id)) {
+      this.props.history.replace(`/tracks/${this.props.match.params.trackId}`);
+    }
     if (!(this.props.track)) {
       this.props.fetchSingleTrack(this.props.match.params.trackId).then(
         () => this.setState(this.initializeState())
@@ -42,7 +45,11 @@ class TrackForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.track) {
-      this.props.updateTrack(this.state);
+      let updatedTrack = Object.assign(
+        {},this.state,{id: this.props.track.id}
+      );
+      debugger
+      this.props.updateTrack(updatedTrack);
     } else {
       this.props.createTrack(this.state);
     }
