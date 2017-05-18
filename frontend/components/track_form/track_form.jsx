@@ -36,7 +36,7 @@ class TrackForm extends React.Component {
             <small> * required</small>
             <form onSubmit={this.handleSubmit.bind(this)}>
               <header>
-                <h2>Primary info</h2>
+                <h2>Track Info</h2>
                 <hr className="hr-bottom"/>
               </header>
               <section className="song-info-col primary-info-section">

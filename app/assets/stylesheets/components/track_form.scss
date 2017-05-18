@@ -62,12 +62,18 @@
 
         textarea{
           min-height: 600px;
+          border: 1px solid $dark-gray;
           background: white;
           color: black;
           font-weight: bold;
           font-size: 14px;
           width: 100%;
           max-width: 100%;
+        }
+
+        input[type=text]:focus, textarea:focus {
+          box-shadow: 0 0 7px $yellow;
+          border: 1px solid $yellow;
         }
 
         label {

@@ -20,6 +20,10 @@ class TrackShow extends React.Component {
       return <p className="lyric-text">{lines}</p>;
   }
 
+  editButton() {
+
+  }
+
   render() {
     let track = this.props.track || {};
     return(
@@ -34,7 +38,7 @@ class TrackShow extends React.Component {
           </section>
 
           <section className="col secondary-col">
-
+            //Annotations and abouts :)
           </section>
         </main>
       </div>
