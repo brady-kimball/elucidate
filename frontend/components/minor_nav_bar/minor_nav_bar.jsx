@@ -34,8 +34,12 @@ class MinorNavBar extends React.Component {
         </section>
         {this.renderAddTrack()}
         <section className="me-links outside-link">
-          <i className="fa fa-github fa-lg" aria-hidden="true"></i>
-          <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+          <a href="https://github.com/brady-kimball/elucidate">
+            <i className="fa fa-github fa-lg" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/brady-kimball/">
+            <i className="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+          </a>
         </section>
       </nav>
     );
