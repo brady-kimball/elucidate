@@ -10,16 +10,27 @@ class TrackShow extends React.Component {
     super(props);
   }
 
+  renderLyrics() {
+    let track = this.props.track || {};
+    let lyrics = track.lyrics || "";
+
+    let lines = lyrics.split("\n").map(function(line, n){
+          return (n === 0) ? [line] : [<br />, line];
+      });
+      return <p className="lyric-text">{lines}</p>;
+  }
+
   render() {
     let track = this.props.track || {};
-    let extraData = {}
     return(
       <div className="song-show">
         <TrackShowHeader track={track} />
 
-        <main className="song-body">
-          <section className="col primary-col lyrics">
-
+        <main className="song-body col-layout">
+          <section className="col primary-col lyrics-container">
+            <section className="lyrics">
+              {this.renderLyrics()}
+            </section>
           </section>
 
           <section className="col secondary-col">

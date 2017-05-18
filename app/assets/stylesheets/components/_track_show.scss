@@ -1,4 +1,6 @@
 .song-show{
+  background-color: #f7f7f7;
+
   .song-header {
     width: 100%;
     height: 270px;
@@ -94,6 +96,15 @@
   }
 
   .song-body {
+    background-color: #fff;
+    .lyrics {
+      margin: 30px;
 
+      .lyric-text {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+    }
   }
 }
