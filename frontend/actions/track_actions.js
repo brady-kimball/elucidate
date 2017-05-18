@@ -37,6 +37,12 @@ export const fetchTracks = () => dispatch => {
   );
 };
 
+export const fetchSingleTrack = (id) => dispatch => {
+  return APIUtil.fetchSingleTrack(id).then(
+    track => dispatch(receiveTrack(track))
+  );
+};
+
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
     returnedTrack => dispatch(receiveTrack(returnedTrack)),
