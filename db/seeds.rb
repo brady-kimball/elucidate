@@ -138,10 +138,6 @@ t2 = Track.create(
   title: "Sign of the Times",
   artist: "Harry Styles",
   user_id: guest.id,
-  writers: "",
-  producers: "",
-  editors: "",
-  link: "",
   lyrics: "[Verse 1]
 Just stop your crying, it's a sign of the times
 Welcome to the final show

@@ -1,4 +1,5 @@
 import React from 'react';
+import TrackShowHeader from './track_show_header';
 
 class TrackShow extends React.Component {
   componentWillMount() {
@@ -11,25 +12,11 @@ class TrackShow extends React.Component {
 
   render() {
     let track = this.props.track || {};
+    let extraData = {}
     return(
       <div className="song-show">
-        <article className="song-header">
-          <section className="col-layout song-header-inner">
-            <section className="song-info primary-col">
-              <figure  className="song-art">
-                Art
-              </figure>
-              <section className="song-info-container">
-                <h1>{track.title}</h1>
-                <h2>{track.artist}</h2>
-              </section>
-            </section>
+        <TrackShowHeader track={track} />
 
-            <section className="site-info secondary-col">
-              <span> Youtube link or song analytics </span>
-            </section>
-          </section>
-        </article>
         <main className="song-body">
           <section className="col primary-col lyrics">
 
