@@ -3,7 +3,7 @@ nav {
 }
 
 .nav-major {
-  background-color: yellow;
+  background-color: #ffff64;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,19 +44,31 @@ nav {
 
   section {
     padding: 0 8px;
+    transition: opacity .2s;
   }
 
   span {
-    cursor: pointer
+    cursor: pointer;
+
+    i {
+      color: $gray;
+      margin-right: 4px;
+    }
   }
 
   .me-links {
     * {
       margin: 0 4px;
+      &:hover {
+        opacity: .8;
+      }
     }
   }
 
   .inside-link {
     border-right: 1px solid white;
+    &:hover {
+      opacity: .8;
+    }
   }
 }

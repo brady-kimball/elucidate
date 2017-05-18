@@ -17,7 +17,10 @@ class MinorNavBar extends React.Component {
     if (this.props.currentUser) {
       return(
         <section className="add-track inside-link">
-          <span onClick={this.handleAddClick.bind(this)}>Add a track</span>
+          <span onClick={this.handleAddClick.bind(this)}>
+            <i className="fa fa-music" aria-hidden="true"></i>
+            Add a track
+          </span>
         </section>
       );
     }
@@ -30,7 +33,10 @@ class MinorNavBar extends React.Component {
     return(
       <nav className="nav-minor">
         <section className="top-tracks inside-link">
-          <span onClick={this.handleTopClick.bind(this)}>Top Tracks</span>
+          <span onClick={this.handleTopClick.bind(this)}>
+            <i className="fa fa-line-chart" aria-hidden="true"></i>
+            Top Tracks
+          </span>
         </section>
         {this.renderAddTrack()}
         <section className="me-links outside-link">
