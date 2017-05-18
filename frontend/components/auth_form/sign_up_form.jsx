@@ -39,7 +39,7 @@ class SignUpForm extends React.Component {
                 placeholder="Upload an Avatar"
                 value={this.state.avatar}
                 onChange={this.update("avatar")}/>
-        <input  type="text"
+        <input  type="password"
                 placeholder="Enter password"
                 value={this.state.password}
                 onChange={this.update("password")}/>

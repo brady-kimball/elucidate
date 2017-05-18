@@ -29,7 +29,7 @@ class LogInForm extends React.Component {
                 placeholder="Enter username or email"
                 value={this.state.userIdentifier}
                 onChange={this.update("userIdentifier")}/>
-        <input  type="text"
+        <input  type="password"
                 placeholder="Enter password"
                 value={this.state.password}
                 onChange={this.update("password")}/>

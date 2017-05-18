@@ -4,6 +4,15 @@
   align-content: center;
   justify-content: space-between;
 
+  input[type="text"], input[type="password"] {
+  	padding: 5px;
+  	border: none;
+  	border-bottom: 2px solid $dark-gray;
+  	border-radius: 3px;
+  	box-sizing: border-box;
+  	height: 25px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -14,6 +23,11 @@
       margin: 5px;
 
       &[type="text"]:focus {
+        border-bottom: 2px solid black;
+        transition: border-bottom .5s;
+      }
+
+      &[type="password"]:focus {
         border-bottom: 2px solid black;
         transition: border-bottom .5s;
       }
