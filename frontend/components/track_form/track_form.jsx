@@ -1,9 +1,21 @@
 import React from 'react';
 
 class TrackForm extends React.Component {
+  componentWillMount() {
+    if (!(this.props.track)) {
+      this.props.fetchSingleTrack(this.props.match.params.trackId).then(
+        () => this.setState(this.initializeState())
+      );
+    }
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = this.initializeState();
+  }
+
+  initializeState() {
+    let state = {
       title: "",
       artist: "",
       user_id: this.props.currentUser.id,
@@ -13,6 +25,7 @@ class TrackForm extends React.Component {
       editors: "",
       link: ""
     };
+    return this.props.track || state;
   }
 
   update(property) {
@@ -22,9 +35,18 @@ class TrackForm extends React.Component {
     };
   }
 
+  buttonText() {
+    return this.props.track ? "Edit Track" : "Add Track";
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createTrack(this.state);
+    if (this.props.track) {
+      this.props.updateTrack(this.state);
+    } else {
+      this.props.createTrack(this.state);
+    }
+    this.props.history.push("/");
   }
 
   render() {
@@ -84,7 +106,7 @@ class TrackForm extends React.Component {
                 </section>
               </section>
               <hr />
-              <button>Submit!</button>
+              <button>{this.buttonText()}</button>
             </form>
           </article>
         </main>

@@ -1,14 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TrackForm from './track_form';
-import { createTrack } from '../../actions/track_actions';
+import { createTrack, updateTrack, fetchSingleTrack }
+  from '../../actions/track_actions';
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
-});
+const mapStateToProps = (state, { match }) => {
+  return {
+    track: state.tracks[match.params.trackId],
+    currentUser: state.session.currentUser
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-  createTrack: (track) => dispatch(createTrack(track))
+  createTrack: (track) => dispatch(createTrack(track)),
+  updateTrack: (track) => dispatch(updateTrack(track)),
+  fetchSingleTrack: (id) => dispatch(fetchSingleTrack(id)),
 });
 
 export default connect(

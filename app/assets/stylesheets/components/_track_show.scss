@@ -97,6 +97,28 @@
 
   .song-body {
     background-color: #fff;
+    .owner-button {
+      width: auto;
+      margin: 30px auto;
+
+      button {
+        width: 20%;
+        margin: 0 40% 0 40%;
+        border-size: 1px;
+        border-color: $dark-gray;
+        font-size: 12px;
+        color: $dark-gray;
+
+        &:hover {
+          // background: $light-gray;
+          opacity: .8;
+          border: 1px solid black;
+          font-weight: bold;
+          color: black;
+          transition: border, box-shadow, .5s;
+        }
+      }
+    }
 
     .lyrics {
       margin: 30px;

@@ -20,8 +20,44 @@ class TrackShow extends React.Component {
       return <p className="lyric-text">{lines}</p>;
   }
 
-  editButton() {
+  handleEdit(e) {
+    e.preventDefault();
+    this.props.history.push(`/tracks/${this.props.track.id}/edit`);
+  }
 
+  handleDelete(e) {
+    e.preventDefault();
+    let answer = confirm(
+      "Are you sure?  This action will permanently delete this track"
+    );
+    if (answer) {
+      this.props.deleteTrack(this.props.track.id);
+      this.props.history.push("/");
+    }
+  }
+
+  editButton(track) {
+    if (this.props.currentUser && (this.props.currentUser.id === track['user_id'])) {
+      return (
+        <section className="owner-button">
+          <button onClick={this.handleEdit.bind(this)}>Edit</button>
+        </section>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  deleteButton(track) {
+    if (this.props.currentUser && (this.props.currentUser.id === track['user_id'])) {
+      return (
+        <section className="owner-button">
+          <button onClick={this.handleDelete.bind(this)}>Delete</button>
+        </section>
+      );
+    } else {
+      return null;
+    }
   }
 
   render() {
@@ -32,9 +68,11 @@ class TrackShow extends React.Component {
 
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
+            {this.editButton(track)}
             <section className="lyrics">
               {this.renderLyrics()}
             </section>
+            {this.deleteButton(track)}
           </section>
 
           <section className="col secondary-col">

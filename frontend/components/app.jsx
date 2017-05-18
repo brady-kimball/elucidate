@@ -12,6 +12,7 @@ const App = (props) => (
     <MinorNavBarContainer />
     <Switch>
       <Route exact path="/tracks/new" component={TrackFormContainer} />
+      <Route path="/tracks/:trackId/edit" component={TrackFormContainer} />
       <Route path="/tracks/:trackId" component={TrackShowContainer} />
       <Route path="/" component={TrackIndexContainer} />
     </Switch>
