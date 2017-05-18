@@ -70,38 +70,52 @@ class TrackForm extends React.Component {
               </header>
               <section className="song-info-col primary-info-section">
                 <section className="half-col">
-                  <label> By *</label>
-                  <input  type="text"
-                          value={this.state.artist}
-                          onChange={this.update("artist")}/>
-                  <label> Title *</label>
-                  <input  type="text"
-                          value={this.state.title}
-                          onChange={this.update("title")}/>
+                  <label> By *
+                    <input  type="text"
+                            placeholder="The primary artist, author, creator, etc."
+                            value={this.state.artist}
+                            onChange={this.update("artist")}
+                            required/>
+                  </label>
+                  <label> Title *
+                    <input  type="text"
+                            placeholder="Title"
+                            value={this.state.title}
+                            onChange={this.update("title")}
+                            required/>
+                  </label>
                   <header>
                     <h3>Additional Info</h3>
                     <hr className="hr-bottom"/>
                   </header>
-                  <label> Writers</label>
-                  <input  type="text"
-                          value={this.state.writers}
-                          onChange={this.update("writers")}/>
-                  <label> Producers</label>
-                  <input  type="text"
-                          value={this.state.producers}
-                          onChange={this.update("producers")}/>
-                  <label> Editors</label>
-                  <input  type="text"
-                          value={this.state.editors}
-                          onChange={this.update("editors")}/>
+                  <label> Written By:
+                    <input  type="text"
+                            placeholder="e.g. Pharrell Williams, Sean Garrett, John Lennon"
+                            value={this.state.writers}
+                            onChange={this.update("writers")}/>
+                  </label>
+                  <label> Produced by:
+                    <input  type="text"
+                            placeholder="e.g. Rick Rubin, Kanye West, George Martin"
+                            value={this.state.producers}
+                            onChange={this.update("producers")}/>
+                  </label>
+                  <label> Editors
+                    <input  type="text"
+                            placeholder="e.g. Dave Golden, Leslie Bloom, Steven Price"
+                            value={this.state.editors}
+                            onChange={this.update("editors")}/>
+                  </label>
                   <header>
                     <h3>Audio/Video</h3>
                     <hr className="hr-bottom"/>
                   </header>
-                  <label> Link</label>
-                  <input  type="text"
-                          value={this.state.link}
-                          onChange={this.update("link")}/>
+                  <label> Link
+                    <input  type="text"
+                            placeholder="e.g. youtube.com/watch?v=evef8FCK6wk"
+                            value={this.state.link}
+                            onChange={this.update("link")}/>
+                  </label>
                 </section>
 
                 <section className="half-col">
@@ -109,7 +123,7 @@ class TrackForm extends React.Component {
                   <br/>
                   <textarea cols="40" rows="20" tabIndex="3"
                             onChange={this.update("lyrics")}
-                            value={this.state.lyrics}></textarea>
+                            value={this.state.lyrics} required></textarea>
                 </section>
               </section>
               <hr />
