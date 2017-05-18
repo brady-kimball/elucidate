@@ -42,7 +42,21 @@ nav {
   align-items: center;
   font-size: 14px;
 
+  section {
+    padding: 0 8px;
+  }
+
   span {
-    font-family: $sans-serif;
+    cursor: pointer
+  }
+
+  .me-links {
+    * {
+      margin: 0 4px;
+    }
+  }
+
+  .inside-link {
+    border-right: 1px solid white;
   }
 }
