@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import TrackIndexContainer from './track_index/track_index_container';
 import TrackShowContainer from './track_show/track_show_container';
 import MinorNavBarContainer from './minor_nav_bar/minor_nav_bar_container';
-import NewTrackContainer from './new_track/new_track_container'
+import NewTrackContainer from './new_track/new_track_container';
 
 const App = (props) => (
   <div className="app">

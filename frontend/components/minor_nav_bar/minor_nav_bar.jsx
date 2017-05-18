@@ -32,7 +32,7 @@ class MinorNavBar extends React.Component {
   render() {
     return(
       <nav className="nav-minor">
-        <section className="top-tracks inside-link">
+        <section className="top-`tracks inside-link">
           <span onClick={this.handleTopClick.bind(this)}>
             <i className="fa fa-line-chart" aria-hidden="true"></i>
             Top Tracks
