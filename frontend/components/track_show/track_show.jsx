@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackShowHeader from './track_show_header';
+import { findOffset } from '../../util/annotation_util';
 
 class TrackShow extends React.Component {
   componentWillMount() {
@@ -8,16 +9,28 @@ class TrackShow extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      selection: []
+    };
   }
 
   renderLyrics() {
     let track = this.props.track || {};
     let lyrics = track.lyrics || "";
-
+    let className = "";
     let lines = lyrics.split("\n").map(function(line, n){
-          return (n === 0) ? [line] : [<br />, line];
-      });
-      return <p className="lyric-text">{lines}</p>;
+        if (n === 0) {
+          return [<span className={className}>{line}</span>];
+        } else {
+          let returnValue = [<span className={className}><br /></span>];
+          if (line) {
+            returnValue.push(<span className={className}>{line}</span>);
+          }
+          return returnValue;
+        }
+      }
+    );
+    return <p className="lyric-text">{lines}</p>;
   }
 
   handleEdit(e) {
@@ -60,19 +73,35 @@ class TrackShow extends React.Component {
     }
   }
 
-
-
   getText(e) {
-    let text;
-    if ( document.all ) {
-      text = document.selection.createRange().text;
-    } else {
-      text = document.getSelection();
+    let selection = document.getSelection();
+    let anchorNode = selection.anchorNode;
+    let nodeOffset = selection.anchorOffset;
+
+    for (let i = 0; i < 2; i++) {
+      if (i === 1) {
+        anchorNode = selection.focusNode;
+        nodeOffset = selection.focusOffset;
+      }
+      let parent = anchorNode.parentElement;
+      let start = nodeOffset;
+      let end = start + selection.toString().length;
+      let offset = anchorNode.innerHTML === "<br>" ?
+        findOffset(anchorNode) :
+        findOffset(parent);
+      start += offset;
+      end += offset;
+      let track = this.props.track;
+      let lyricSlice = track.lyrics.slice(start,end);
+      if (track.lyrics.slice(start, end) === selection.toString() ) {
+        console.log(lyricSlice);
+        console.log(selection.toString());
+        console.log(lyricSlice === selection.toString());
+        return [start, end];
+      }
     }
-    debugger
-    text.addRange()
-    console.log(text.toString());
   }
+
 
   wrapSelectedText(e) {
     debugger
@@ -92,7 +121,7 @@ class TrackShow extends React.Component {
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
             {this.editButton(track)}
-            <section  onMouseUp={this.wrapSelectedText.bind(this)}
+            <section  onMouseUp={this.getText.bind(this)}
                       className="lyrics">
               {this.renderLyrics()}
             </section>

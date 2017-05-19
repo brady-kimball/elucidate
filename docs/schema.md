@@ -28,7 +28,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-track_id    | integer   | not null, froeign key, indexed
+track_id    | integer   | not null, foreign key, indexed
 body        | string    | not null
 start_index | integer   | not null
 end_index   | integer   | not null
