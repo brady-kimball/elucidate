@@ -89,13 +89,14 @@ class TrackShow extends React.Component {
         findOffset(anchorNode.parentElement);
       start += offset;
       end += offset;
-      // let track = this.props.track;
-      // let lyricSlice = track.lyrics.slice(start,end);
+      let track = this.props.track;
+      let lyricSlice = track.lyrics.slice(start,end);
       if (this.props.track.lyrics.slice(start, end) === selection.toString() ) {
-        // console.log(lyricSlice);
-        // console.log(selection.toString());
-        // console.log(lyricSlice === selection.toString());
+        console.log(lyricSlice);
+        console.log(selection.toString());
+        console.log(lyricSlice === selection.toString());
         this.setState({selection: [start, end]});
+        console.log([start, end]);
         return [start, end];
       }
     }

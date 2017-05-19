@@ -514,3 +514,12 @@ Don't stop me now (because I'm having a good time)
 Don't stop me now (Yes I'm having a good time)
 I don't want to stop at all"
 )
+
+Annotation.destroy_all
+a1 = Annotation.create(
+  user_id: guest.id,
+  track_id: t1.id,
+  body: "It’s just kinda like, “It’s happening.” We can’t control it. We’re coming together, and nothing can stop us.",
+  start_index: 494,
+  end_index: 575
+)
