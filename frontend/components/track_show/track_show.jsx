@@ -73,43 +73,32 @@ class TrackShow extends React.Component {
     }
   }
 
-  getText(e) {
+  getRange(e) {
     let selection = document.getSelection();
     let anchorNode = selection.anchorNode;
-    let nodeOffset = selection.anchorOffset;
+    let start = selection.anchorOffset;
 
     for (let i = 0; i < 2; i++) {
       if (i === 1) {
         anchorNode = selection.focusNode;
-        nodeOffset = selection.focusOffset;
+        start = selection.focusOffset;
       }
-      let parent = anchorNode.parentElement;
-      let start = nodeOffset;
       let end = start + selection.toString().length;
       let offset = anchorNode.innerHTML === "<br>" ?
         findOffset(anchorNode) :
-        findOffset(parent);
+        findOffset(anchorNode.parentElement);
       start += offset;
       end += offset;
-      let track = this.props.track;
-      let lyricSlice = track.lyrics.slice(start,end);
-      if (track.lyrics.slice(start, end) === selection.toString() ) {
-        console.log(lyricSlice);
-        console.log(selection.toString());
-        console.log(lyricSlice === selection.toString());
+      // let track = this.props.track;
+      // let lyricSlice = track.lyrics.slice(start,end);
+      if (this.props.track.lyrics.slice(start, end) === selection.toString() ) {
+        // console.log(lyricSlice);
+        // console.log(selection.toString());
+        // console.log(lyricSlice === selection.toString());
+        this.setState({selection: [start, end]});
         return [start, end];
       }
     }
-  }
-
-
-  wrapSelectedText(e) {
-    debugger
-    let selection= window.getSelection().getRangeAt(0);
-    let selectedText = selection.extractContents();
-    let span= document.createElement("span");
-    span.appendChild(selectedText);
-    selection.insertNode(span);
   }
 
   render() {
@@ -121,7 +110,7 @@ class TrackShow extends React.Component {
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
             {this.editButton(track)}
-            <section  onMouseUp={this.getText.bind(this)}
+            <section  onMouseUp={this.getRange.bind(this)}
                       className="lyrics">
               {this.renderLyrics()}
             </section>
