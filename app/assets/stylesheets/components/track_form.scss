@@ -101,6 +101,7 @@
 
     button:hover{
       background-color: $yellow;
+      transition: background-color .15s;
     }
 
     .delete:hover {
