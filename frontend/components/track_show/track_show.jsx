@@ -60,6 +60,29 @@ class TrackShow extends React.Component {
     }
   }
 
+
+
+  getText(e) {
+    let text;
+    if ( document.all ) {
+      text = document.selection.createRange().text;
+    } else {
+      text = document.getSelection();
+    }
+    debugger
+    text.addRange()
+    console.log(text.toString());
+  }
+
+  wrapSelectedText(e) {
+    debugger
+    let selection= window.getSelection().getRangeAt(0);
+    let selectedText = selection.extractContents();
+    let span= document.createElement("span");
+    span.appendChild(selectedText);
+    selection.insertNode(span);
+  }
+
   render() {
     let track = this.props.track || {};
     return(
@@ -69,7 +92,8 @@ class TrackShow extends React.Component {
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
             {this.editButton(track)}
-            <section className="lyrics">
+            <section  onMouseUp={this.wrapSelectedText.bind(this)}
+                      className="lyrics">
               {this.renderLyrics()}
             </section>
             {this.deleteButton(track)}

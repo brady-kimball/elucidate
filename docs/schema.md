@@ -28,9 +28,10 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
+track_id    | integer   | not null, froeign key, indexed
 body        | string    | not null
-char_start  | integer   | not null
-char_end    | integer   | not null
+start_index | integer   | not null
+end_index   | integer   | not null
 
 ## comments
 column name   | data type | details
