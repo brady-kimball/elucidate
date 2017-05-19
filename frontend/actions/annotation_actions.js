@@ -30,7 +30,7 @@ export const deleteAnnotation = (id) => ({
 
 // Asynchronous Thunk Action Creators
 
-export const fetchAnnotations = (trackId = null) => dispatch => {
+export const fetchAnnotations = (trackId) => dispatch => {
   return APIUtil.fetchAnnotations(trackId).then(
     annotations => dispatch(receiveAnnotations(annotations)),
     errors => dispatch(receiveErrors(errors))

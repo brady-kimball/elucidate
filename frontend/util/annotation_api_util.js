@@ -1,8 +1,8 @@
-export const fetchAnnotations = (trackId = null) => {
+export const fetchAnnotations = (track_id = null) => {
   return $.ajax({
     method: "GET",
     url: "/api/annotations",
-    data: {track_id: trackId}
+    data: { track_id }
   });
 };
 
