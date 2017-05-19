@@ -19,20 +19,34 @@ class TrackShow extends React.Component {
     let track = this.props.track || {};
     let lyrics = track.lyrics || "";
     let className = "";
+    let lines = [];
+    let lineNumber = 0;
+    let lyricChunk;
+
     console.log(this.props.annotations);
-    let lines = lyrics.split("\n").map(function(line, n){
-        if (n === 0) {
-          return [<span className={className}>{line}</span>];
-        } else {
-          let returnValue = [<span className={className}><br /></span>];
-          if (line) {
-            returnValue.push(<span className={className}>{line}</span>);
-          }
-          return returnValue;
-        }
-      }
-    );
+    this.props.annotations.forEach( (annotation, idx) => {
+      lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
+      lyricChunk = lyrics.slice(annotation.start_index, annotation.end_index);
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, [`lyrics-annotated anno-${annotation.id}`]));
+      lineNumber = annotation.end_index;
+    })
+
+    lyricChunk = lyrics.slice(lineNumber, lyrics.length);
+    lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'));
+
     return <p className="lyric-text">{lines}</p>;
+  }
+
+  renderLyricChunk(lyrics, className) {
+    let lines = lyrics.split("\n").map(function(line, n){
+      if (n === 0) {
+        return [<span className={className}>{line}</span>];
+      } else {
+        return <span className={className}><br />{line}</span>
+      }
+    });
+    return lines;
   }
 
   handleEdit(e) {

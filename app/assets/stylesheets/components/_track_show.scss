@@ -125,6 +125,16 @@
       .lyric-text {
         font-size: 16px;
         line-height: 1.5;
+
+        .lyrics-annotated {
+        	background: $yellow;
+
+
+          &:hover {
+            cursor: pointer;
+            background: blue;
+          }
+        }
       }
 
     }
