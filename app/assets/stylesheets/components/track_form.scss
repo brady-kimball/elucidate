@@ -85,6 +85,7 @@
         button {
           background: white;
           flex: .25;
+          margin: 0 15px;
           font-size: 16px;
         }
       }
@@ -95,7 +96,7 @@
     width: 80%;
     margin: 10px 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     button:hover{

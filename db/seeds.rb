@@ -137,6 +137,9 @@ Y que olvides tu apellido (D.Y.)",
 t2 = Track.create(
   title: "Sign of the Times",
   artist: "Harry Styles",
+  producers: "Alex Salibian, Jeff Bhasker, and Tyler Johnson",
+  writers: "Alex Salibian, Jeff Bhasker, and Harry Styles",
+  link: "https://www.youtube.com/watch?v=qN4ooNx77u0",
   user_id: guest.id,
   lyrics: "[Verse 1]
 Just stop your crying, it's a sign of the times
@@ -213,7 +216,10 @@ We got to, we got to run"
 t3 = Track.create(
   title: "Believer",
   artist: "Imagine Dragons",
+  writers: "Ben McKee, Daniel Platzman, and Dan Reynolds",
   user_id: guest.id,
+  producers: "Mattman and Robin",
+  link: "https://www.youtube.com/watch?v=IhP3J0j9JmY",
   lyrics: "[Verse 1]
 First things first
 I'ma say all the words inside my head
@@ -298,6 +304,9 @@ t4 = Track.create(
   title: "Bohemian Rhapsody",
   artist: "Queen",
   user_id: guest.id,
+  writers: "Freddie Mercury",
+  producers: "Roy Thomas Baker and Queen",
+  link: "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
   lyrics: "[Intro]
 Is this the real life? Is this just fantasy?
 Caught in a landslide, no escape from reality
@@ -361,6 +370,9 @@ t5 = Track.create(
   title: "Bullets",
   artist: "Tunng",
   user_id: guest.id,
+  producers: "Mike Lindsay",
+  writers: "Tunng",
+  link: "https://www.youtube.com/watch?v=AI1NgFYJCN4",
   lyrics: "Green hills and enemies
 These things, they make us sentimental inside
 Your words are gelignite
@@ -428,6 +440,9 @@ t6 = Track.create(
   title: "Don't Stop Me Now",
   artist: "Queen",
   user_id: guest.id,
+  producers: "Roy Thomas Baker and Queen",
+  writers: "Freddie Mercury",
+  link: "https://www.youtube.com/watch?v=HgzGwKwLmgM",
   lyrics: "[Intro]
 Tonight I'm going to have myself a real good time
 I feel alive
