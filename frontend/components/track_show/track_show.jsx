@@ -5,6 +5,7 @@ import { findOffset } from '../../util/annotation_util';
 class TrackShow extends React.Component {
   componentWillMount() {
     this.props.fetchSingleTrack(this.props.match.params.trackId);
+    this.props.fetchAnnotations(this.props.match.params.trackId);
   }
 
   constructor(props) {
@@ -18,6 +19,7 @@ class TrackShow extends React.Component {
     let track = this.props.track || {};
     let lyrics = track.lyrics || "";
     let className = "";
+    console.log(this.props.annotations);
     let lines = lyrics.split("\n").map(function(line, n){
         if (n === 0) {
           return [<span className={className}>{line}</span>];

@@ -10,3 +10,28 @@ export const allTracks = (tracks) => {
   });
   return trackArray;
 };
+
+export const allAnnotations = (annotations) => {
+  let keys = Object.keys(annotations);
+  let annoArray = [];
+  keys.forEach( key => {
+    if (key === "errors") {
+      return;
+    } else {
+      annoArray.push(annotations[key]);
+    }
+  });
+  return annoArray;
+};
+
+export const sortedAnnotations = (annotations) => {
+  return allAnnotations(annotations).sort((a, b) => {
+    if (a.start_index < b.start_index) {
+      return -1;
+    } else if (a.start_index > b.start_index) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+};

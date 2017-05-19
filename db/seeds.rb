@@ -523,3 +523,11 @@ a1 = Annotation.create(
   start_index: 494,
   end_index: 575
 )
+
+a2 = Annotation.create(
+  user_id: guest.id,
+  track_id: t1.id,
+  body: "It’s kind of like the build up to the chorus. It starts out kinda chill, but it’s like, “This is starting to happen. I’m starting to really like you.” It’s not just, “Hey, you’re a nice girl sitting by the bar. I’m really liking where this is going and I’m starting to lose control of myself,” in a good sense of the word.",
+  start_index: 624,
+  end_index: 700
+)
