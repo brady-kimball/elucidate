@@ -1,6 +1,10 @@
 class Api::AnnotationsController < ApplicationController
   def index
-    @annotations = Annotation.all
+    if params[:track_id]
+      @annotations = Annotation.by_track(params[:track_id])
+    else
+      @annotations = Annotation.all
+    end
     render :index
   end
 
