@@ -22,7 +22,8 @@ class AuthFormModal extends React.Component {
         display          : 'flex',
         alignItems       : 'center',
         justifyContent   : 'center',
-        backgroundColor  : 'rgba(90,98,107,.9)'
+        backgroundColor  : 'rgba(90,98,107,.9)',
+        'z-index'        : 10
       },
       content : {
         position    : 'null', // to override default styles
@@ -35,7 +36,8 @@ class AuthFormModal extends React.Component {
         padding     : '20px 15px',
         maxWidth    : '560px',
         minWidth    : '400px',
-        height      : 'auto'
+        height      : 'auto',
+        'z-index'   : 10
       }
     };
   }
