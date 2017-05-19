@@ -51,7 +51,7 @@ class TrackShow extends React.Component {
   deleteButton(track) {
     if (this.props.currentUser && (this.props.currentUser.id === track['user_id'])) {
       return (
-        <section className="owner-button">
+        <section className="owner-button delete">
           <button onClick={this.handleDelete.bind(this)}>Delete</button>
         </section>
       );

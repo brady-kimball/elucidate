@@ -31,6 +31,11 @@ class TrackForm extends React.Component {
     return this.props.track || state;
   }
 
+  buttonText() {
+    return this.props.track ? "Update Track" : "Add Track";
+  }
+
+
   update(property) {
     return e => {
       e.preventDefault();
@@ -38,22 +43,64 @@ class TrackForm extends React.Component {
     };
   }
 
-  buttonText() {
-    return this.props.track ? "Edit Track" : "Add Track";
+
+
+  handleBack(e) {
+    e.preventDefault();
+    if (this.props.track) {
+      this.props.history.push(`/tracks/${this.props.track.id}`);
+    } else {
+      this.props.history.push("/");
+    }
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    let answer = confirm(
+      "Are you sure?  This action will permanently delete this track"
+    );
+    if (answer) {
+      this.props.deleteTrack(this.props.track.id);
+      this.props.history.push("/");
+    }
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.state.link && !this.validYoutubeLink()) {
+      alert('Please check the format of your youtube link and try again :)')
+      return;
+    }
     if (this.props.track) {
       let updatedTrack = Object.assign(
-        {},this.state,{id: this.props.track.id}
+        {}, this.state, {id: this.props.track.id}
       );
-      debugger
-      this.props.updateTrack(updatedTrack);
+      this.props.updateTrack(updatedTrack)
+        .then( ({ track }) => {
+          this.props.history.push(`/tracks/${track.id}`);
+        });
     } else {
-      this.props.createTrack(this.state);
+      this.props.createTrack(this.state)
+        .then( ({ track }) => {
+          this.props.history.push(`/tracks/${track.id}`);
+        });
     }
-    this.props.history.push("/");
+  }
+
+  validYoutubeLink() {
+    return (/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/.test(this.state.link));
+  }
+
+  renderDeleteButton() {
+    if (this.props.track) {
+      return(
+        <button type="button"
+                onClick={this.handleDelete.bind(this)}
+                className="delete">
+            Delete track
+        </button>
+      );
+    }
   }
 
   render() {
@@ -127,7 +174,13 @@ class TrackForm extends React.Component {
                 </section>
               </section>
               <hr />
-              <button>{this.buttonText()}</button>
+              <section className="buttons">
+                <button type="button" onClick={this.handleBack.bind(this)}>
+                  Back
+                </button>
+                <button>{this.buttonText()}</button>
+                {this.renderDeleteButton()}
+              </section>
             </form>
           </article>
         </main>
