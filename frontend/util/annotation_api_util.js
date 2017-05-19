@@ -21,3 +21,10 @@ export const updateAnnotation = (annotation) => {
     data: { annotation }
   });
 };
+
+export const deleteAnnotation = (id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/annotations/${id}`
+  });
+};
