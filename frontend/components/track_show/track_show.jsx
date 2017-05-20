@@ -1,6 +1,7 @@
 import React from 'react';
 import TrackShowHeader from './track_show_header';
-import { findOffset } from '../../util/annotation_util';
+import { findOffset, randomId } from '../../util/annotation_util';
+import sanitizeHtml from 'sanitize-html';
 
 class TrackShow extends React.Component {
   componentWillMount() {
@@ -11,7 +12,8 @@ class TrackShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selection: []
+      selection: [],
+      currentAnnotation: {}
     };
   }
 
@@ -28,7 +30,7 @@ class TrackShow extends React.Component {
       lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
       lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
       lyricChunk = lyrics.slice(annotation.start_index, annotation.end_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, [`lyrics-annotated anno-${annotation.id}`]));
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotation));
       lineNumber = annotation.end_index;
     })
 
@@ -38,15 +40,33 @@ class TrackShow extends React.Component {
     return <p className="lyric-text">{lines}</p>;
   }
 
-  renderLyricChunk(lyrics, className) {
-    let lines = lyrics.split("\n").map(function(line, n){
-      if (n === 0) {
-        return [<span className={className}>{line}</span>];
-      } else {
-        return <span className={className}><br />{line}</span>
-      }
+  handleAnnotationClick(annotation) {
+    return e => {
+      e.preventDefault;
+      debugger
+      this.setState({currentAnnotation: annotation});
+    }
+  }
+
+  renderLyricChunk(lyrics, className, annotation) {
+    lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br />');
+    let sanitizedLyrics = sanitizeHtml(lyrics, {
+      allowedTags: [ 'br' ]
     });
-    return lines;
+    if (className === 'lyrics-annotated') {
+      return (
+        <span className={className}
+              onClick={this.handleAnnotationClick(annotation)}
+              key={annotation.id}
+              dangerouslySetInnerHTML={{__html: sanitizedLyrics}} />
+      );
+    } else {
+      return (
+        <span className={className}
+              key={randomId()}
+              dangerouslySetInnerHTML={{__html: sanitizedLyrics}} />
+      );
+    }
   }
 
   handleEdit(e) {
@@ -90,6 +110,7 @@ class TrackShow extends React.Component {
   }
 
   getRange(e) {
+    e.preventDefault();
     let selection = document.getSelection();
     let anchorNode = selection.anchorNode;
     let start = selection.anchorOffset;
@@ -100,17 +121,22 @@ class TrackShow extends React.Component {
         start = selection.focusOffset;
       }
       let end = start + selection.toString().length;
-      let offset = anchorNode.innerHTML === "<br>" ?
-        findOffset(anchorNode) :
-        findOffset(anchorNode.parentElement);
+      // debugger
+      let offset = findOffset(anchorNode);
+      // let offset = anchorNode.innerHTML === "<br>" ?
+      //   findOffset(anchorNode) :
+      //   findOffset(anchorNode.parentElement);
       start += offset;
       end += offset;
       let track = this.props.track;
       let lyricSlice = track.lyrics.slice(start,end);
+      console.log(lyricSlice);
+      console.log(selection.toString());
+      console.log(lyricSlice === selection.toString());
       if (this.props.track.lyrics.slice(start, end) === selection.toString() ) {
-        console.log(lyricSlice);
-        console.log(selection.toString());
-        console.log(lyricSlice === selection.toString());
+        // console.log(lyricSlice);
+        // console.log(selection.toString());
+        // console.log(lyricSlice === selection.toString());
         this.setState({selection: [start, end]});
         console.log([start, end]);
         return [start, end];
@@ -127,7 +153,7 @@ class TrackShow extends React.Component {
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
             {this.editButton(track)}
-            <section  onMouseUp={this.getRange.bind(this)}
+            <section onMouseUp={this.getRange.bind(this)}
                       className="lyrics">
               {this.renderLyrics()}
             </section>
@@ -136,6 +162,7 @@ class TrackShow extends React.Component {
 
           <section className="col secondary-col">
             //Annotations and abouts :)
+            <span>{this.state.currentAnnotation.body}</span>
           </section>
         </main>
       </div>
