@@ -20,12 +20,10 @@ class TrackShow extends React.Component {
   renderLyrics() {
     let track = this.props.track || {};
     let lyrics = track.lyrics || "";
-    let className = "";
     let lines = [];
     let lineNumber = 0;
     let lyricChunk;
 
-    console.log(this.props.annotations);
     this.props.annotations.forEach( (annotation, idx) => {
       lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
       lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
@@ -43,28 +41,21 @@ class TrackShow extends React.Component {
   handleAnnotationClick(annotation) {
     return e => {
       e.preventDefault;
-      debugger
       this.setState({currentAnnotation: annotation});
-    }
+    };
   }
 
   renderLyricChunk(lyrics, className, annotation) {
-    lyrics = lyrics.replace(/(?:\r\n|\r|\n)/g, '<br />');
-    let sanitizedLyrics = sanitizeHtml(lyrics, {
-      allowedTags: [ 'br' ]
-    });
     if (className === 'lyrics-annotated') {
       return (
         <span className={className}
               onClick={this.handleAnnotationClick(annotation)}
-              key={annotation.id}
-              dangerouslySetInnerHTML={{__html: sanitizedLyrics}} />
+              key={annotation.id}>{lyrics}</span>
       );
     } else {
       return (
         <span className={className}
-              key={randomId()}
-              dangerouslySetInnerHTML={{__html: sanitizedLyrics}} />
+              key={randomId()}>{lyrics}</span>
       );
     }
   }
@@ -122,7 +113,7 @@ class TrackShow extends React.Component {
       }
       let end = start + selection.toString().length;
       // debugger
-      let offset = findOffset(anchorNode);
+      let offset = findOffset(anchorNode.parentElement);
       // let offset = anchorNode.innerHTML === "<br>" ?
       //   findOffset(anchorNode) :
       //   findOffset(anchorNode.parentElement);
@@ -130,13 +121,11 @@ class TrackShow extends React.Component {
       end += offset;
       let track = this.props.track;
       let lyricSlice = track.lyrics.slice(start,end);
+      console.log(selection);
       console.log(lyricSlice);
       console.log(selection.toString());
       console.log(lyricSlice === selection.toString());
       if (this.props.track.lyrics.slice(start, end) === selection.toString() ) {
-        // console.log(lyricSlice);
-        // console.log(selection.toString());
-        // console.log(lyricSlice === selection.toString());
         this.setState({selection: [start, end]});
         console.log([start, end]);
         return [start, end];
