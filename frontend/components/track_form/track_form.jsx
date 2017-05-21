@@ -163,6 +163,13 @@ class TrackForm extends React.Component {
                             value={this.state.link}
                             onChange={this.update("link")}/>
                   </label>
+                  <header>
+                    <h3>Album Art</h3>
+                    <hr className="hr-bottom"/>
+                  </header>
+                  <label>
+                    <input  type="file"/>
+                  </label>
                 </section>
 
                 <section className="half-col">
