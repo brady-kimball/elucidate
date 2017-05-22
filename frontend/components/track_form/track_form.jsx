@@ -5,7 +5,7 @@ class TrackForm extends React.Component {
     if (this.props.track && (this.props.currentUser.id !== this.props.track.user_id)) {
       this.props.history.replace(`/tracks/${this.props.match.params.trackId}`);
     }
-    if (!(this.props.track)) {
+    if (!(this.props.track) && this.props.match.params.trackId) {
       this.props.fetchSingleTrack(this.props.match.params.trackId).then(
         () => this.setState(this.initializeState())
       );
