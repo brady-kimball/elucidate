@@ -135,14 +135,12 @@ class TrackShow extends React.Component {
           return [start, end];
         }
       }
-    } else {
-
-    }
+    } 
   }
 
   renderAnnotation() {
     if (this.state.currentAnnotation) {
-      return <AnnotationShowContainer annotation={this.state.currentAnnotation} />
+      return <AnnotationShowContainer annotation={this.state.currentAnnotation} />;
     }
   }
 
@@ -151,7 +149,7 @@ class TrackShow extends React.Component {
     let style = {
       position: "absolute",
       top: this.state.yPos - 370
-    }
+    };
     return(
       <div className="song-show">
         <TrackShowHeaderContainer track={track} />
