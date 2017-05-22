@@ -134,6 +134,8 @@ class TrackForm extends React.Component {
     let img = "";
     if(this.state.imageFile){
       img = <img className="preview-image" src={this.state.imageUrl}/>;
+    } else if (this.props.track) {
+      img = <img className="preview-image" src={this.props.track.art_url} />;
     }
     return(
       <section className="add-track-page">

@@ -91,14 +91,15 @@
         }
 
         .album-art {
+          margin: 0 15px 0 0;
           display: flex;
-          justify-content: flex-start;
-        }
+          justify-content: space-between;
 
-        .preview-image {
-          height: 140px;
-          width: 140px;
-          object-fit: cover;
+          .preview-image {
+            height: 140px;
+            width: 140px;
+            object-fit: cover;
+          }
         }
       }
     }
