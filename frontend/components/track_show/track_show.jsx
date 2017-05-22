@@ -1,7 +1,8 @@
 import React from 'react';
 import TrackShowHeaderContainer from './track_show_header_container';
-import { findOffset, randomId } from '../../util/annotation_util';
+import { findOffset, randomId, validRange } from '../../util/annotation_util';
 import sanitizeHtml from 'sanitize-html';
+import AnnotationFormContainer from "../annotations/annotation_form_container";
 import AnnotationShowContainer from "../annotations/annotation_show_container";
 
 class TrackShow extends React.Component {
@@ -132,15 +133,21 @@ class TrackShow extends React.Component {
           this.setState({selection: [start, end]});
           console.log([start, end]);
           console.log(this.state.yPos);
+          console.log(validRange(this.state.selection, this.props.annotations));
+          if (validRange(this.state.selection, this.props.annotations)) {
+            this.setState({yPos: e.pageY});
+          }
           return [start, end];
         }
       }
-    } 
+    }
   }
 
   renderAnnotation() {
     if (this.state.currentAnnotation) {
       return <AnnotationShowContainer annotation={this.state.currentAnnotation} />;
+    } else if (validRange(this.state.selection, this.props.annotations)) {
+      return <AnnotationFormContainer selection={this.state.selection} />;
     }
   }
 

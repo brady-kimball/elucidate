@@ -6,7 +6,7 @@ class AnnotationShow extends React.Component {
   render() {
     let annotation = this.props.annotation;
     return (
-      <section className='annotation-box'>
+      <section className='annotation-detail'>
         {annotation.body}
       </section>
     );
