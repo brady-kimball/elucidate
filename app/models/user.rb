@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, :email, :avatar, :password_digest,
+  validates :username, :email, :password_digest,
             :session_token, presence: true
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
@@ -11,6 +11,9 @@ class User < ApplicationRecord
     with: /\A[^@]*\z/,
     message: "cannot contain special characters"
   }
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
+                     default_url: "default-avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :tracks,
     primary_key: :id,
@@ -27,7 +30,6 @@ class User < ApplicationRecord
 
   def self.find_by_credentials(user_identifier, password)
     @user = User.find_by(username: user_identifier)
-    #TODO: Sign in by email also??
     # Check for username and emails being unique?
     unless @user
       @user = User.find_by(email: user_identifier)

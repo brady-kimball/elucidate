@@ -20,16 +20,32 @@ nav {
     cursor: pointer;
   }
 
+
+
   .nav-right {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex: .33;
+    height: 100%;
     max-width: 200px;
     min-width: 150px;
+
+    img {
+      object-fit: contain;
+      height: 50%;
+      width: 41px;
+      margin-right: 5px;
+    }
 
     .auth-button {
       margin: auto 0px;
     }
+  }
+
+  .logged-in {
+    justify-content: flex-end;
+    margin-right: 10px;
   }
 }
 

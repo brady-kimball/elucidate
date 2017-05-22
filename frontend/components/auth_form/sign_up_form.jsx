@@ -6,15 +6,24 @@ class SignUpForm extends React.Component {
     this.state = {
       username: "",
       email: "",
-      avatar: "",
-      password: ""
+      password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
+  uploadFile(e) {
     e.preventDefault();
-    this.props.signup(this.state);
+    let reader = new FileReader();
+    let file = e.currentTarget.files[0];
+    reader.onloadend = function() {
+      this.setState({ imageUrl: reader.result, imageFile: file});
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null});
+    }
   }
 
   update(property) {
@@ -24,10 +33,27 @@ class SignUpForm extends React.Component {
     };
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    let file = this.state.imageFile;
+    let formData = new FormData();
+    formData["user[username]"] = this.state.username;
+    formData["user[email]"] = this.state.email;
+    formData["user[password]"] = this.state.password;
+    formData["user[avatar]"] = file;
+    debugger
+    this.props.signup(formData);
+  }
+
   render() {
+    let img = "";
+    if(this.state.imageFile){
+      img = <img className="preview-image" src={this.state.imageUrl}/>;
+    }
     return(
       <form onSubmit={this.handleSubmit}>
         <input  type="text"
+                name="user[username]"
                 placeholder="Enter username"
                 value={this.state.username}
                 onChange={this.update("username")}/>
@@ -35,10 +61,9 @@ class SignUpForm extends React.Component {
                 placeholder="Enter email"
                 value={this.state.email}
                 onChange={this.update("email")}/>
-        <input  type="text"
-                placeholder="Upload an Avatar"
-                value={this.state.avatar}
-                onChange={this.update("avatar")}/>
+        <input  type="file"
+                onChange={this.uploadFile.bind(this)}/>
+                {img}
         <input  type="password"
                 placeholder="Enter password"
                 value={this.state.password}

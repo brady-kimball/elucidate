@@ -1,10 +1,15 @@
-export const signup = (user) => (
-  $.ajax({
+export const signup = (user) => {
+  // debugger
+  let user1 = {user: {username: "tim"} };
+  return $.ajax({
     url: "/api/users",
     method: "POST",
-    data: {user}
-  })
-);
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: user1
+  });
+};
 
 export const login = (user) => (
   $.ajax({

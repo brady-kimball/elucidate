@@ -10,16 +10,16 @@ User.destroy_all
 u1 = User.create(
   username: "user1",
   email: "user1@hotmail.com",
-  avatar: "app/assets/images/testAvatar.png",
+  # avatar: "app/assets/images/testAvatar.png",
   password: "password"
 )
 
 guest = User.create(
   username: "guest",
   email: "guest@junk.com",
-  avatar: "app/assets/images/default-avatar.png",
+  # avatar: "app/assets/images/default-avatar.png",
   password: "password"
-);
+)
 
 
 Track.destroy_all
