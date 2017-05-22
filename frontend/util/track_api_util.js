@@ -16,17 +16,34 @@ export const createTrack = (track) => (
   $.ajax({
     url: "/api/tracks/",
     method: "POST",
-    data: { track }
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: track
   })
 );
 
-export const updateTrack = (track) => (
-  $.ajax({
-    url: `/api/tracks/${track.id}`,
+export const updateTrack = (track) => {
+  return $.ajax({
+    url: `/api/tracks/${track.get("track[id]")}`,
     method: "PATCH",
-    data: { track }
-  })
-);
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: track
+  });
+};
+
+export const updateTrackArt = (track) => {
+  return $.ajax({
+    url: `/api/tracks/${track.get("track[id]")}`,
+    method: "PATCH",
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: track
+  });
+};
 
 export const deleteTrack = (id) => (
   $.ajax({

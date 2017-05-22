@@ -36,6 +36,20 @@
           height: 175px;
           width: 175px;
           object-fit: cover;
+          position: relative;
+
+          .edit-art {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            opacity: .4;
+            border-radius: 30%;
+            border-color: $dark-gray;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
         }
 
         .song-info-container {

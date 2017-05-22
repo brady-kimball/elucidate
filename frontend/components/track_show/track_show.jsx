@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackShowHeader from './track_show_header';
+import TrackShowHeaderContainer from './track_show_header_container';
 import { findOffset, randomId } from '../../util/annotation_util';
 import sanitizeHtml from 'sanitize-html';
 import AnnotationShowContainer from "../annotations/annotation_show_container";
@@ -154,7 +154,7 @@ class TrackShow extends React.Component {
     }
     return(
       <div className="song-show">
-        <TrackShowHeader track={track} />
+        <TrackShowHeaderContainer track={track} />
 
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">

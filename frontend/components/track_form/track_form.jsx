@@ -18,17 +18,17 @@ class TrackForm extends React.Component {
   }
 
   initializeState() {
-    let state = {
-      title: "",
-      artist: "",
+    let track = this.props.track || {};
+    return {
+      title: track.title || "",
+      artist: track.artist || "",
       user_id: this.props.currentUser.id,
-      lyrics: "",
-      writers: "",
-      producers: "",
-      editors: "",
-      link: ""
+      lyrics: track.lyrics || "",
+      writers: track.writers || "",
+      producers: track.producers || "",
+      editors: track.editors || "",
+      link: track.link || ""
     };
-    return this.props.track || state;
   }
 
   buttonText() {
@@ -71,16 +71,28 @@ class TrackForm extends React.Component {
       alert('Please check the format of your youtube link and try again :)')
       return;
     }
+    let file = this.state.imageFile;
+    let formData = new FormData();
+    formData.append("track[title]", this.state.title);
+    formData.append("track[artist]", this.state.artist);
+    formData.append("track[user_id]", this.state.user_id);
+    formData.append("track[lyrics]", this.state.lyrics);
+    formData.append("track[writers]", this.state.writers);
+    formData.append("track[producers]", this.state.producers);
+    formData.append("track[editors]", this.state.editors);
+    formData.append("track[link]", this.state.link);
     if (this.props.track) {
-      let updatedTrack = Object.assign(
-        {}, this.state, {id: this.props.track.id}
-      );
-      this.props.updateTrack(updatedTrack)
+      if (file) {
+        formData.append("track[art]", file);
+      }
+      formData.append("track[id]", this.props.track.id);
+      this.props.updateTrack(formData)
         .then( ({ track }) => {
           this.props.history.push(`/tracks/${track.id}`);
         });
     } else {
-      this.props.createTrack(this.state)
+      formData.append("track[art]", file);
+      this.props.createTrack(formData)
         .then( ({ track }) => {
           this.props.history.push(`/tracks/${track.id}`);
         });
@@ -89,6 +101,21 @@ class TrackForm extends React.Component {
 
   validYoutubeLink() {
     return (/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/.test(this.state.link));
+  }
+
+  uploadFile(e) {
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.currentTarget.files[0];
+    reader.onloadend = function() {
+      this.setState({ imageUrl: reader.result, imageFile: file});
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null});
+    }
   }
 
   renderDeleteButton() {
@@ -104,6 +131,10 @@ class TrackForm extends React.Component {
   }
 
   render() {
+    let img = "";
+    if(this.state.imageFile){
+      img = <img className="preview-image" src={this.state.imageUrl}/>;
+    }
     return(
       <section className="add-track-page">
         <main className="track-form-container">
@@ -167,9 +198,13 @@ class TrackForm extends React.Component {
                     <h3>Album Art</h3>
                     <hr className="hr-bottom"/>
                   </header>
-                  <label>
-                    <input  type="file"/>
-                  </label>
+                  <section className="album-art">
+                    <label>
+                      <input  type="file"
+                              onChange={this.uploadFile.bind(this)}/>
+                    </label>
+                    {img}
+                  </section>
                 </section>
 
                 <section className="half-col">

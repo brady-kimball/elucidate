@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class TrackShowHeader extends React.Component {
   extraData() {
@@ -39,6 +40,23 @@ class TrackShowHeader extends React.Component {
     }
   }
 
+  handleEdit() {
+    this.props.history.push(`/tracks/${this.props.track.id}/edit`);
+  }
+
+  renderEditButton() {
+    let currentUser = this.props.currentUser || {};
+    if (currentUser.id === this.props.track.user_id) {
+      return(
+        <button onClick={this.handleEdit.bind(this)} className="edit-art">
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     let track = this.props.track;
     let artStyle = {
@@ -53,6 +71,7 @@ class TrackShowHeader extends React.Component {
           <section className="song-info primary-col">
             <figure  className="song-art">
               <img src={this.props.track.art_url} />
+              {this.renderEditButton()}
             </figure>
             <section className="song-info-container">
               <h1>{track.title}</h1>
@@ -70,4 +89,4 @@ class TrackShowHeader extends React.Component {
   }
 }
 
-export default TrackShowHeader;
+export default withRouter(TrackShowHeader);

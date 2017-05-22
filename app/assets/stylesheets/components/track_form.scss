@@ -62,7 +62,7 @@
         }
 
         textarea{
-          min-height: 600px;
+          min-height: 650px;
           border: 1px solid $dark-gray;
           background: white;
           color: black;
@@ -88,6 +88,17 @@
           flex: .25;
           margin: 0 15px;
           font-size: 16px;
+        }
+
+        .album-art {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .preview-image {
+          height: 140px;
+          width: 140px;
+          object-fit: cover;
         }
       }
     }
