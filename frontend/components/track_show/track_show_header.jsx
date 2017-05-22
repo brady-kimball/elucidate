@@ -41,12 +41,18 @@ class TrackShowHeader extends React.Component {
 
   render() {
     let track = this.props.track;
+    let artStyle = {
+      backgroundImage: `url(${this.props.track.art_url})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundColor: "#000",
+    };
     return(
-      <article className="song-header">
+      <article className="song-header" style={artStyle}>
         <section className="col-layout song-header-inner">
           <section className="song-info primary-col">
             <figure  className="song-art">
-              Art
+              <img src={this.props.track.art_url} />
             </figure>
             <section className="song-info-container">
               <h1>{track.title}</h1>

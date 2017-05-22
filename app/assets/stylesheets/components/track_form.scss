@@ -5,8 +5,9 @@
   height: 100%;
 
   .track-form-container {
-    width: 1012px;
-    min-width: 1012px;
+    width: auto;
+    max-width: 1012px;
+    min-width: 800px;
     margin: 0 auto;
 
     h1 {

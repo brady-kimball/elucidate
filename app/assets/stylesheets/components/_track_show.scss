@@ -4,10 +4,6 @@
   .song-header {
     width: 100%;
     height: 270px;
-    background-image: url(https://upload.wikimedia.org/wikipedia/en/a/aa/Tubelord_-_Romance_album_artwork.jpg);
-    background-position: center;
-    background-size: cover;
-    background-color: #000;
     position: relative;
     color: #fff;
 
@@ -39,7 +35,7 @@
         .song-art {
           height: 175px;
           width: 175px;
-          border: 1px solid white;
+          object-fit: cover;
         }
 
         .song-info-container {

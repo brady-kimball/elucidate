@@ -25,7 +25,6 @@ class NavBar extends React.Component {
 
   authButtons() {
     if (this.props.currentUser) {
-      debugger
       return(
         <section className="nav-right logged-in">
           <img  className="avatar-thumb"

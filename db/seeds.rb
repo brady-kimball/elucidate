@@ -134,6 +134,9 @@ Y que olvides tu apellido (D.Y.)",
   link: "https://www.youtube.com/watch?v=RnTwrCXEp1I",
 )
 
+t1.art = File.open('app/assets/images/despacito.jpg')
+t1.save!
+
 t2 = Track.create(
   title: "Sign of the Times",
   artist: "Harry Styles",
@@ -212,6 +215,9 @@ We got to, we got to run
 We got to, we got to run
 We got to, we got to run"
 )
+
+t2.art = File.open('app/assets/images/signofthetimes.jpg')
+t2.save!
 
 t3 = Track.create(
   title: "Believer",
@@ -300,6 +306,9 @@ Pain!
 You made me a, you made me a believer, believer"
 )
 
+t3.art = File.open('app/assets/images/imagine.jpg')
+t3.save!
+
 t4 = Track.create(
   title: "Bohemian Rhapsody",
   artist: "Queen",
@@ -365,6 +374,9 @@ Nothing really matters
 Nothing really matters to me
 Any way the wind blows"
 )
+
+t4.art = File.open('app/assets/images/bohemian.jpg')
+t4.save!
 
 t5 = Track.create(
   title: "Bullets",

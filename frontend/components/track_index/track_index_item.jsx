@@ -17,7 +17,9 @@ class TrackIndexItem extends React.Component {
           <section className="track-num">
               <h3>{this.props.idx}</h3>
           </section>
-          <figure>art</figure>
+          <figure>
+            <img src={track.art_url} />
+          </figure>
           <section className="track-info">
             <h3>{track.title}</h3>
             <h5>{track.artist}</h5>
