@@ -7,7 +7,12 @@ class AnnotationContainerShow extends React.Component {
   renderAnnotations() {
     return this.props.annotations.map( (annotation) => {
       return (
-        <li>
+        <li key={annotation.id} className="annotation-item">
+          <section className="voting">
+            <button className="downvote"><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
+            <span className="score">12</span>
+            <button className="upvote"><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+          </section>
           <AnnotationShowContainer annotation={annotation} />
         </li>
       )
@@ -19,7 +24,7 @@ class AnnotationContainerShow extends React.Component {
     let container = this.props.container;
     return (
       <section className='annotation-container'>
-        <ul>{this.renderAnnotations()}</ul>
+        <ul className="annotation-items">{this.renderAnnotations()}</ul>
         <AnnotationFormContainer container={container} />
       </section>
     );

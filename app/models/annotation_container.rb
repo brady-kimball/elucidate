@@ -8,7 +8,8 @@ class AnnotationContainer < ApplicationRecord
   has_many :annotations,
     primary_key: :id,
     foreign_key: :annotation_container_id,
-    class_name: :Annotation
+    class_name: :Annotation,
+    dependent: :destroy
 
   def self.by_track(track_id)
     self.where(track_id: track_id)

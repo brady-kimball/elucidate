@@ -41,6 +41,6 @@ class Api::AnnotationsController < ApplicationController
 
   def annotation_params
     params.require(:annotation)
-      .permit(:user_id, :annotation_container, :body)
+      .permit(:user_id, :annotation_container_id, :body)
   end
 end

@@ -27,15 +27,19 @@ class AnnotationForm extends React.Component {
         start_index: this.props.selection[0],
         end_index: this.props.selection[1],
         track_id: this.props.trackId,
-      }).then(
-        ({ annotationContainer }) => {
-          this.setState({
-            annotation_container_id: annotationContainer.id
-          }, this.props.createAnnotation(this.state));
-        });
+      }).then(this.createAnnotationAfterContainer.bind(this))
     } else {
       this.props.createAnnotation(this.state);
+      this.setState({body: ""});
     }
+  }
+
+  createAnnotationAfterContainer({ annotationContainer }) {
+    this.props.createAnnotation({
+      user_id: this.state.user_id,
+      annotation_container_id: annotationContainer.id,
+      body: this.state.body
+    });
   }
 
   render() {
