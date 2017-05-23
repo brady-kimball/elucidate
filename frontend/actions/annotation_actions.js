@@ -4,7 +4,7 @@ import * as APIUtil from "../util/annotation_api_util";
 export const RECEIVE_ANNOTATIONS = "RECEIVE_ANNOTATIONS";
 export const RECEIVE_ANNOTATION = "RECEIVE_ANNOTATION";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const DELETE_ANNOTATION = "DELETE_ERRORS";
+export const DELETE_ANNOTATION = "DELETE_ANNOTATION";
 
 // Synchronous Action Creators
 export const receiveAnnotation = (annotation) => ({

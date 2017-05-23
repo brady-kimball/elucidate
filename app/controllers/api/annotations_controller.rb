@@ -1,6 +1,6 @@
 class Api::AnnotationsController < ApplicationController
   def index
-    if params[:track_id] != ""
+    if params[:track_id] && params[:track_id] != ""
       @annotations = Annotation.by_track(params[:track_id])
     else
       @annotations = Annotation.all

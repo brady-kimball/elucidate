@@ -1,6 +1,6 @@
-class Api::AnnotationContainerContainersController < ApplicationController
+class Api::AnnotationContainersController < ApplicationController
   def index
-    if params[:track_id] != ""
+    if params[:track_id] && params[:track_id] != ""
       @annotation_containers = AnnotationContainer.by_track(params[:track_id])
     else
       @annotation_containers = AnnotationContainer.all
@@ -17,10 +17,10 @@ class Api::AnnotationContainerContainersController < ApplicationController
     end
   end
 
-  def show
-    @annotation_container = AnnotationContainer.find(params[:id])
-    render :show
-  end
+  # def show
+  #   @annotation_container = AnnotationContainer.find(params[:id])
+  #   render :show
+  # end
 
   # def update
   #   @annotation_container = AnnotationContainer.find(params[:id])

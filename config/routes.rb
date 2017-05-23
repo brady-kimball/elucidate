@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :tracks, except: [:new, :edit]
     resources :annotations, except: [:new, :edit]
+    resources :annotation_containers, only: [:create, :index, :destroy]
   end
 end
