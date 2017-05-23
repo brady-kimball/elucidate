@@ -9,6 +9,6 @@ class Annotation < ApplicationRecord
   belongs_to :user
 
   def self.by_track(track_id)
-    self.includes(:track).where("track.id" => track_id)
+    self.includes(:track).where("tracks.id" => track_id)
   end
 end

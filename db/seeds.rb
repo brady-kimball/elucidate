@@ -540,6 +540,12 @@ a2 = AnnotationContainer.create(
   end_index: 700
 )
 
+a3 = AnnotationContainer.create(
+  track_id: t2.id,
+  start_index: 11,
+  end_index: 150
+)
+
 Annotation.destroy_all
 
 a11 = Annotation.create(
@@ -555,6 +561,13 @@ a12 = Annotation.create(
 )
 
 a21 = Annotation.create(
+  annotation_container_id: a2.id,
   user_id: guest.id,
   body: "It’s kind of like the build up to the chorus. It starts out kinda chill, but it’s like, “This is starting to happen. I’m starting to really like you.” It’s not just, “Hey, you’re a nice girl sitting by the bar. I’m really liking where this is going and I’m starting to lose control of myself,” in a good sense of the word.",
+)
+
+a31 = Annotation.create(
+  annotation_container_id: a3.id,
+  user_id: u1.id,
+  body: "“Final show” suggests death, and “best clothes” indicates the following events occur at—or are the result of—a funeral, since the dead are traditionally buried in their finest attire."
 )

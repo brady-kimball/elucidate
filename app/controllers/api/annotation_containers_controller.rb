@@ -1,46 +1,46 @@
-class Api::AnnotationContainersController < ApplicationController
+class Api::AnnotationContainerContainersController < ApplicationController
   def index
     if params[:track_id] != ""
-      @annotations = Annotation.by_track(params[:track_id])
+      @annotation_containers = AnnotationContainer.by_track(params[:track_id])
     else
-      @annotations = Annotation.all
+      @annotation_containers = AnnotationContainer.all
     end
     render :index
   end
 
   def create
-    @annotation = Annotation.new(annotation_params)
-    if @annotation.save
+    @annotation_container = AnnotationContainer.new(annotation_container_params)
+    if @annotation_container.save
       render :show
     else
-      render json: @annotation.errors.full_messages, status: 422
+      render json: @annotation_container.errors.full_messages, status: 422
     end
   end
 
   def show
-    @annotation = Annotation.find(params[:id])
+    @annotation_container = AnnotationContainer.find(params[:id])
     render :show
   end
 
-  def update
-    @annotation = Annotation.find(params[:id])
-    if @annotation.update_attributes(annotation_params)
-      render :show
-    else
-      render json: @annotation.errors.full_messages, status: 422
-    end
-  end
+  # def update
+  #   @annotation_container = AnnotationContainer.find(params[:id])
+  #   if @annotation_container.update_attributes(annotation_container_params)
+  #     render :show
+  #   else
+  #     render json: @annotation_container.errors.full_messages, status: 422
+  #   end
+  # end
 
   def destroy
-    @annotation = Annotation.find(params[:id])
-    @annotation.destroy!
+    @annotation_container = AnnotationContainer.find(params[:id])
+    @annotation_container.destroy!
     render :show
   end
 
   private
 
-  def annotation_params
-    params.require(:annotation)
+  def annotation_container_params
+    params.require(:annotation_container)
       .permit(:track_id, :start_index, :end_index)
   end
 end
