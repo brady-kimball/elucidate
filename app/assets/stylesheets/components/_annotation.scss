@@ -4,54 +4,99 @@
   .annotation-box {
     border-left: 3px blue solid;
     margin-right: 15px;
-    font-size: 14px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.25;
 
-    .annotation-items {
+    .annotation-container {
       display: flex;
       flex-direction: column;
-      margin: 0 5px;
+      align-items: flex-start;
 
-      .annotation-item {
-        margin-bottom: 20px;
+      .annotation-items {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        // border-top: 1px solid black;
-        // border-bottom: 1px solid black;
+        flex-direction: column;
+        margin: 0 5px;
 
-        .voting {
-          flex: .18;
-          min-width: 65px;
+        .annotation-item {
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          // border-top: 1px solid black;
+          // border-bottom: 1px solid black;
 
-          .score {
-            margin: 0 5px;
+          .voting {
+            flex: .18;
+            min-width: 65px;
+
+            .score {
+              margin: 0 5px;
+            }
+
+            button {
+              padding: 3px;
+              border: none;
+
+              &:hover {
+                border: none;
+                color: blue;
+                transition: color .15s;
+              }
+            }
           }
 
-          button {
-            padding: 3px;
-            border: none;
+          .annotation-detail {
+            flex: .82;
 
-            &:hover {
-              border: none;
-              color: blue;
+            .annotation-author {
+              margin-top: 5px;
+
+              &:before {
+                content: "by: ";
+                font-weight: bold;
+              }
             }
           }
         }
+      }
 
-        .annotation-detail {
+      .annotation-form {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        form {
           flex: .82;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          width: 100%;
 
-          .annotation-author {
-            margin-top: 5px;
+          input {
+            flex: .8;
+            border: 1px solid $dark-gray;
+            border-radius: 5px;
+            padding: 3px;
 
-            &:before {
-              content: "by: ";
-              font-weight: bold;
+            &:focus {
+              border-color: black;
+            }
+          }
+
+          button {
+            flex: .15;
+            margin: 0 10px;
+            border: 1px solid $dark-gray;
+
+            &:hover {
+              border-color: black;
             }
           }
         }
       }
     }
+
   }
 }
