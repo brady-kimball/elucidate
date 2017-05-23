@@ -35,3 +35,14 @@ export const sortedAnnotationContainers = (annotationContainers) => {
     }
   });
 };
+
+export const annotationsByContainer = (annotations, id) => {
+  let keys = Object.keys(annotations);
+  let annoArray = [];
+  keys.forEach( key => {
+    if (annotations[key].annotation_container_id === id) {
+      annoArray.push(annotations[key]);
+    }
+  });
+  return annoArray;
+};

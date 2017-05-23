@@ -1,17 +1,30 @@
 import React from 'react';
+import AnnotationShowContainer from '../annotations/annotation_show_container';
+import AnnotationFormContainer from '../annotations/annotation_form_container';
 
-class AnnotationShow extends React.Component {
+class AnnotationContainerShow extends React.Component {
 
+  renderAnnotations() {
+    return this.props.annotations.map( (annotation) => {
+      return (
+        <li>
+          <AnnotationShowContainer annotation={annotation} />
+        </li>
+      )
+    })
+  }
 
   render() {
-    let annotation = this.props.annotation;
+    let annotations = this.props.annotations;
+    let selection = [this.props.container.start_index, this.props.container.end_index];
+    debugger
     return (
-      <section className='annotation-detail'>
-        <p>Lists of annotations to come</p>
-        <h5 className='annotation-author'>some user</h5>
+      <section className='annotation-container'>
+        <ul>{this.renderAnnotations()}</ul>
+        <AnnotationFormContainer selection={selection} />
       </section>
     );
   }
 }
 
-export default AnnotationShow;
+export default AnnotationContainerShow;

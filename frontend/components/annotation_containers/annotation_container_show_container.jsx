@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AnnotationContainerShow from './annotation_container_show';
+import { annotationsByContainer } from '../../reducers/selectors'
 
-export const mapStateToProps = state => {
+export const mapStateToProps = (state, ownProps) => {
   return ({
-
+    annotations: annotationsByContainer(state.annotations, ownProps.container.id)
   });
 };
 

@@ -23,14 +23,10 @@ class TrackShow extends React.Component {
   getRange(e) {
     e.preventDefault();
     this.setState({yPos: (e.pageY - 360)});
-    this.setState({ currentAnnotation: "" });
+    this.setState({ currentAnnotationContainer: "" });
     let selection = document.getSelection();
     let anchorNode = selection.anchorNode;
     let start = selection.anchorOffset;
-
-    if (selection.toString().length === 0) {
-      this.setState({currentAnnotationContainer: {}});
-    }
 
     for (let i = 0; i < 2; i++) {
       if (i === 1) {
@@ -140,7 +136,7 @@ class TrackShow extends React.Component {
 
   renderAnnotation() {
     if (this.state.currentAnnotationContainer.id) {
-      return <AnnotationContainerShowContainer />;
+      return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
       return <AnnotationFormContainer selection={this.state.selection} />;
     }

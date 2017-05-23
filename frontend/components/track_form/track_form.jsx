@@ -155,6 +155,7 @@ class TrackForm extends React.Component {
                             placeholder="The primary artist, author, creator, etc."
                             value={this.state.artist}
                             onChange={this.update("artist")}
+                            tabIndex="1"
                             required/>
                   </label>
                   <label> Title *
@@ -162,6 +163,7 @@ class TrackForm extends React.Component {
                             placeholder="Title"
                             value={this.state.title}
                             onChange={this.update("title")}
+                            tabIndex="1"
                             required/>
                   </label>
                   <header>
@@ -172,18 +174,21 @@ class TrackForm extends React.Component {
                     <input  type="text"
                             placeholder="e.g. Pharrell Williams, Sean Garrett, John Lennon"
                             value={this.state.writers}
+                            tabIndex="2"
                             onChange={this.update("writers")}/>
                   </label>
                   <label> Produced by:
                     <input  type="text"
                             placeholder="e.g. Rick Rubin, Kanye West, George Martin"
                             value={this.state.producers}
+                            tabIndex="2"
                             onChange={this.update("producers")}/>
                   </label>
                   <label> Editors
                     <input  type="text"
                             placeholder="e.g. Dave Golden, Leslie Bloom, Steven Price"
                             value={this.state.editors}
+                            tabIndex="2"
                             onChange={this.update("editors")}/>
                   </label>
                   <header>
@@ -194,6 +199,7 @@ class TrackForm extends React.Component {
                     <input  type="text"
                             placeholder="e.g. youtube.com/watch?v=evef8FCK6wk"
                             value={this.state.link}
+                            tabIndex="2"
                             onChange={this.update("link")}/>
                   </label>
                   <header>
@@ -203,6 +209,7 @@ class TrackForm extends React.Component {
                   <section className="album-art">
                     <label>
                       <input  type="file"
+                              tabIndex="2"
                               onChange={this.uploadFile.bind(this)}/>
                     </label>
                     {img}
@@ -213,6 +220,7 @@ class TrackForm extends React.Component {
                   <label> Lyrics *</label>
                   <br/>
                   <textarea cols="40" rows="20" tabIndex="3"
+                            tabIndex="1"
                             onChange={this.update("lyrics")}
                             value={this.state.lyrics} required></textarea>
                 </section>
