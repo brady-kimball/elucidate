@@ -106,9 +106,11 @@ class TrackShow extends React.Component {
 
   getRange(e) {
     e.preventDefault();
+    this.setState({yPos: e.pageY});
+
     let selection = document.getSelection();
 
-    if (selection.toString().length > 0) {
+    // if (selection.toString().length > 0) {
       this.setState({ currentAnnotation: "" });
       let anchorNode = selection.anchorNode;
       let start = selection.anchorOffset;
@@ -134,13 +136,10 @@ class TrackShow extends React.Component {
           console.log([start, end]);
           console.log(this.state.yPos);
           console.log(validRange(this.state.selection, this.props.annotations));
-          if (validRange(this.state.selection, this.props.annotations)) {
-            this.setState({yPos: e.pageY});
-          }
           return [start, end];
         }
       }
-    }
+    // }
   }
 
   renderAnnotation() {
@@ -152,6 +151,8 @@ class TrackShow extends React.Component {
   }
 
   render() {
+    console.log("y pos")
+    console.log(this.state.yPos)
     let track = this.props.track || {};
     let style = {
       position: "absolute",

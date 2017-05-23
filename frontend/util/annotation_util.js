@@ -13,6 +13,9 @@ export const findOffset = (node) => {
 export const validRange = (selection, annotations) => {
   let start = selection[0];
   let end = selection[1];
+  if (start === end) {
+    return false;
+  }
   let valid = true;
   annotations.forEach( (annotation) => {
     [start, end].forEach( (endPoint) => {

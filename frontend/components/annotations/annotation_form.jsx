@@ -5,11 +5,11 @@ class AnnotationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: this.props.currentUser,
+      user_id: this.props.currentUser.id,
       track_id: this.props.match.params.trackId,
       body: "",
-      start_index: this.props.selection.start_index,
-      end_index: this.props.selection.end_index
+      start_index: this.props.selection[0],
+      end_index: this.props.selection[1]
     };
   }
 
@@ -22,6 +22,8 @@ class AnnotationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
+    this.props.createAnnotation(this.state);
   }
 
   render() {
@@ -30,7 +32,7 @@ class AnnotationForm extends React.Component {
       <section className='annotation-detail'>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text"
-                  placeholder="Add some shit here"
+                  placeholder="Add your thoughts"
                   value = {this.state.body}
                   onChange={this.update("body")} />
                 <button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import AnnotationForm from './annotation_form';
 import { connect } from 'react-redux';
+import { createAnnotation } from '../../actions/annotation_actions';
 
 const mapStateToProps = state => {
   return {
@@ -9,8 +10,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  console.log(createAnnotation)
   return {
-
+    createAnnotation: (annotation) => dispatch(createAnnotation(annotation))
   };
 };
 
