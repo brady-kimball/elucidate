@@ -44,4 +44,4 @@ class AnnotationForm extends React.Component {
   }
 }
 
-export default withRouter (AnnotationForm);
+export default withRouter(AnnotationForm);

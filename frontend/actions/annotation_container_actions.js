@@ -31,7 +31,7 @@ export const deleteAnnotationContainer = (id) => ({
 // Asynchronous Thunk Action Creators
 
 export const fetchAnnotationContainers = (trackId) => dispatch => {
-  return APIUtil.fetchAnnotations(trackId).then(
+  return APIUtil.fetchAnnotationContainers(trackId).then(
     annotationContainers => dispatch(receiveAnnotationContainers(annotationContainers)),
     errors => dispatch(receiveErrors(errors))
   );

@@ -11,21 +11,21 @@ export const allTracks = (tracks) => {
   return trackArray;
 };
 
-export const allAnnotations = (annotations) => {
-  let keys = Object.keys(annotations);
+export const allAnnotationContainers = (annotationContainers) => {
+  let keys = Object.keys(annotationContainers);
   let annoArray = [];
   keys.forEach( key => {
     if (key === "errors") {
       return;
     } else {
-      annoArray.push(annotations[key]);
+      annoArray.push(annotationContainers[key]);
     }
   });
   return annoArray;
 };
 
-export const sortedAnnotations = (annotations) => {
-  return allAnnotations(annotations).sort((a, b) => {
+export const sortedAnnotationContainers = (annotationContainers) => {
+  return allAnnotationContainers(annotationContainers).sort((a, b) => {
     if (a.start_index < b.start_index) {
       return -1;
     } else if (a.start_index > b.start_index) {

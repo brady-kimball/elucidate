@@ -2,19 +2,20 @@ import React from 'react';
 import TrackShowHeaderContainer from './track_show_header_container';
 import { findOffset, randomId, validRange } from '../../util/annotation_util';
 import AnnotationFormContainer from "../annotations/annotation_form_container";
-import AnnotationShowContainer from "../annotations/annotation_show_container";
+import AnnotationContainerShowContainer from "../annotation_containers/annotation_container_show_container";
 
 class TrackShow extends React.Component {
   componentWillMount() {
     this.props.fetchSingleTrack(this.props.match.params.trackId);
     this.props.fetchAnnotations(this.props.match.params.trackId);
+    this.props.fetchAnnotationContainers(this.props.match.params.trackId);
   }
 
   constructor(props) {
     super(props);
     this.state = {
       selection: [],
-      currentAnnotation: {},
+      currentAnnotationContainer: {},
       yPos: ""
     };
   }
@@ -26,6 +27,10 @@ class TrackShow extends React.Component {
     let selection = document.getSelection();
     let anchorNode = selection.anchorNode;
     let start = selection.anchorOffset;
+
+    if (selection.toString().length === 0) {
+      this.setState({currentAnnotationContainer: {}});
+    }
 
     for (let i = 0; i < 2; i++) {
       if (i === 1) {
@@ -45,14 +50,14 @@ class TrackShow extends React.Component {
     }
   }
 
-  handleAnnotationClick(annotation) {
+  handleAnnotationContainerClick(annotationContainer) {
     return e => {
       e.preventDefault;
       let coords = e.target.getBoundingClientRect();
-      let container = document.getElementsByClassName('annotation-container');
-      let yPos = (coords.bottom + coords.top) / 2 - container[0].getBoundingClientRect().top - 20;
+      let col = document.getElementsByClassName('annotation-col');
+      let yPos = (coords.bottom + coords.top) / 2 - col[0].getBoundingClientRect().top - 20;
       this.setState({ yPos });
-      this.setState({currentAnnotation: annotation});
+      this.setState({currentAnnotationContainer: annotationContainer});
     };
   }
 
@@ -104,12 +109,12 @@ class TrackShow extends React.Component {
     let lineNumber = 0;
     let lyricChunk;
 
-    this.props.annotations.forEach( (annotation, idx) => {
-      lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
+    this.props.annotationContainers.forEach( (annotationContainer, idx) => {
+      lyricChunk = lyrics.slice(lineNumber, annotationContainer.start_index);
       lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
-      lyricChunk = lyrics.slice(annotation.start_index, annotation.end_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotation));
-      lineNumber = annotation.end_index;
+      lyricChunk = lyrics.slice(annotationContainer.start_index, annotationContainer.end_index);
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotationContainer));
+      lineNumber = annotationContainer.end_index;
     })
 
     lyricChunk = lyrics.slice(lineNumber, lyrics.length);
@@ -118,12 +123,12 @@ class TrackShow extends React.Component {
     return <p className="lyric-text">{lines}</p>;
   }
 
-  renderLyricChunk(lyrics, className, annotation) {
+  renderLyricChunk(lyrics, className, annotationContainer) {
     if (className === 'lyrics-annotated') {
       return (
         <span className={className}
-              onClick={this.handleAnnotationClick(annotation)}
-              key={annotation.id}>{lyrics}</span>
+              onClick={this.handleAnnotationContainerClick(annotationContainer)}
+              key={annotationContainer.id}>{lyrics}</span>
       );
     } else {
       return (
@@ -134,9 +139,9 @@ class TrackShow extends React.Component {
   }
 
   renderAnnotation() {
-    if (this.state.currentAnnotation.id) {
-      return <AnnotationShowContainer annotation={this.state.currentAnnotation} />;
-    } else if (validRange(this.state.selection, this.props.annotations)) {
+    if (this.state.currentAnnotationContainer.id) {
+      return <AnnotationContainerShowContainer />;
+    } else if (validRange(this.state.selection, this.props.annotationContainers)) {
       return <AnnotationFormContainer selection={this.state.selection} />;
     }
   }
@@ -161,7 +166,7 @@ class TrackShow extends React.Component {
             {this.deleteButton(track)}
           </section>
 
-          <section className="col secondary-col annotation-container">
+          <section className="col secondary-col annotation-col">
             <section  className="annotation-box" style={style}>
               {this.renderAnnotation()}
             </section>
