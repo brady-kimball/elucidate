@@ -1,9 +1,13 @@
-.annotation-box {
-  border-left: 3px blue solid;
-  margin-right: 5px;
-  font-size: 14px;
+.annotation-container {
+  position: relative;
 
-  .annotation-detail {
-    margin: 5px;
+  .annotation-box {
+    border-left: 3px blue solid;
+    margin-right: 5px;
+    font-size: 14px;
+
+    .annotation-detail {
+      margin: 5px;
+    }
   }
 }

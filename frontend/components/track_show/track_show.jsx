@@ -44,7 +44,10 @@ class TrackShow extends React.Component {
   handleAnnotationClick(annotation) {
     return e => {
       e.preventDefault;
-      this.setState({ yPos: e.pageY });
+      let coords = e.target.getBoundingClientRect();
+      let container = document.getElementsByClassName('annotation-container');
+      let yPos = (coords.bottom + coords.top) / 2 - container[0].getBoundingClientRect().top - 20;
+      this.setState({ yPos });
       this.setState({currentAnnotation: annotation});
     };
   }
@@ -106,44 +109,32 @@ class TrackShow extends React.Component {
 
   getRange(e) {
     e.preventDefault();
-    this.setState({yPos: e.pageY});
-
+    this.setState({yPos: (e.pageY - 360)});
+    this.setState({ currentAnnotation: "" });
     let selection = document.getSelection();
+    let anchorNode = selection.anchorNode;
+    let start = selection.anchorOffset;
 
-    // if (selection.toString().length > 0) {
-      this.setState({ currentAnnotation: "" });
-      let anchorNode = selection.anchorNode;
-      let start = selection.anchorOffset;
-
-      for (let i = 0; i < 2; i++) {
-        if (i === 1) {
-          anchorNode = selection.focusNode;
-          start = selection.focusOffset;
-        }
-
-        let end = start + selection.toString().length;
-        let offset = findOffset(anchorNode.parentElement);
-        start += offset;
-        end += offset;
-        let track = this.props.track;
-        let lyricSlice = track.lyrics.slice(start,end);
-        console.log(selection);
-        console.log(lyricSlice);
-        console.log(selection.toString());
-        console.log(lyricSlice === selection.toString());
-        if (track.lyrics.slice(start, end) === selection.toString() ) {
-          this.setState({selection: [start, end]});
-          console.log([start, end]);
-          console.log(this.state.yPos);
-          console.log(validRange(this.state.selection, this.props.annotations));
-          return [start, end];
-        }
+    for (let i = 0; i < 2; i++) {
+      if (i === 1) {
+        anchorNode = selection.focusNode;
+        start = selection.focusOffset;
       }
-    // }
+
+      let end = start + selection.toString().length;
+      let offset = findOffset(anchorNode.parentElement);
+      start += offset;
+      end += offset;
+      let track = this.props.track;
+      let lyricSlice = track.lyrics.slice(start,end);
+      if (track.lyrics.slice(start, end) === selection.toString() ) {
+        this.setState({selection: [start, end]});
+      }
+    }
   }
 
   renderAnnotation() {
-    if (this.state.currentAnnotation) {
+    if (this.state.currentAnnotation.id) {
       return <AnnotationShowContainer annotation={this.state.currentAnnotation} />;
     } else if (validRange(this.state.selection, this.props.annotations)) {
       return <AnnotationFormContainer selection={this.state.selection} />;
@@ -151,12 +142,10 @@ class TrackShow extends React.Component {
   }
 
   render() {
-    console.log("y pos")
-    console.log(this.state.yPos)
     let track = this.props.track || {};
     let style = {
       position: "absolute",
-      top: this.state.yPos - 370
+      top: this.state.yPos
     };
     return(
       <div className="song-show">
@@ -172,7 +161,7 @@ class TrackShow extends React.Component {
             {this.deleteButton(track)}
           </section>
 
-          <section className="col secondary-col">
+          <section className="col secondary-col annotation-container">
             <section  className="annotation-box" style={style}>
               {this.renderAnnotation()}
             </section>

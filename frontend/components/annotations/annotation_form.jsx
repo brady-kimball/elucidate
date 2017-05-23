@@ -29,7 +29,7 @@ class AnnotationForm extends React.Component {
   render() {
 
     return(
-      <section className='annotation-detail'>
+      <section className='annotation-form'>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="text"
                   placeholder="Add your thoughts"
