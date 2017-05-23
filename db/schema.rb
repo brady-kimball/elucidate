@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170522184240) do
+ActiveRecord::Schema.define(version: 20170523164109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "annotations", force: :cascade do |t|
-    t.integer  "user_id",     null: false
+  create_table "annotation_containers", force: :cascade do |t|
     t.integer  "track_id",    null: false
-    t.string   "body",        null: false
     t.integer  "start_index", null: false
     t.integer  "end_index",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["track_id"], name: "index_annotations_on_track_id", using: :btree
+    t.index ["track_id"], name: "index_annotation_containers_on_track_id", using: :btree
+  end
+
+  create_table "annotations", force: :cascade do |t|
+    t.integer  "annotation_id", null: false
+    t.integer  "user_id",       null: false
+    t.text     "body",          null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["annotation_id"], name: "index_annotations_on_annotation_id", using: :btree
     t.index ["user_id"], name: "index_annotations_on_user_id", using: :btree
   end
 
