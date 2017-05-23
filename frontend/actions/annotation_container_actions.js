@@ -37,7 +37,7 @@ export const fetchAnnotationContainers = (trackId) => dispatch => {
   );
 };
 
-export const createAnnotation = (annotationContainer) => dispatch => {
+export const createAnnotationContainer = (annotationContainer) => dispatch => {
   return APIUtil.createAnnotationContainer(annotationContainer).then(
     returnedAnnotationContainer => dispatch(receiveAnnotationContainer(returnedAnnotationContainer)),
     errors => dispatch(receiveErrors(errors))

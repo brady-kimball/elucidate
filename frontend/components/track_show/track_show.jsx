@@ -138,7 +138,7 @@ class TrackShow extends React.Component {
     if (this.state.currentAnnotationContainer.id) {
       return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
-      return <AnnotationFormContainer selection={this.state.selection} />;
+      return <AnnotationFormContainer selection={this.state.selection} trackId={this.props.track.id}/>;
     }
   }
 

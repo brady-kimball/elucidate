@@ -16,12 +16,11 @@ class AnnotationContainerShow extends React.Component {
 
   render() {
     let annotations = this.props.annotations;
-    let selection = [this.props.container.start_index, this.props.container.end_index];
-    debugger
+    let container = this.props.container;
     return (
       <section className='annotation-container'>
         <ul>{this.renderAnnotations()}</ul>
-        <AnnotationFormContainer selection={selection} />
+        <AnnotationFormContainer container={container} />
       </section>
     );
   }

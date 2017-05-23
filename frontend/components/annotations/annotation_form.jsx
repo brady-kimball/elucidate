@@ -4,12 +4,11 @@ import { withRouter } from 'react-router-dom';
 class AnnotationForm extends React.Component {
   constructor(props) {
     super(props);
+    let container = this.props.container || {};
     this.state = {
       user_id: this.props.currentUser.id,
-      track_id: this.props.match.params.trackId,
-      body: "",
-      start_index: this.props.selection[0],
-      end_index: this.props.selection[1]
+      annotation_container_id: container.id,
+      body: ""
     };
   }
 
@@ -23,7 +22,20 @@ class AnnotationForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.createAnnotation(this.state);
+    if (this.props.selection) {
+      this.props.createAnnotationContainer({
+        start_index: this.props.selection[0],
+        end_index: this.props.selection[1],
+        track_id: this.props.trackId,
+      }).then(
+        ({ annotationContainer }) => {
+          this.setState({
+            annotation_container_id: annotationContainer.id
+          }, this.props.createAnnotation(this.state));
+        });
+    } else {
+      this.props.createAnnotation(this.state);
+    }
   }
 
   render() {

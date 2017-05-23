@@ -17,10 +17,10 @@ class Api::AnnotationContainersController < ApplicationController
     end
   end
 
-  # def show
-  #   @annotation_container = AnnotationContainer.find(params[:id])
-  #   render :show
-  # end
+  def show
+    @annotation_container = AnnotationContainer.find(params[:id])
+    render :show
+  end
 
   # def update
   #   @annotation_container = AnnotationContainer.find(params[:id])
