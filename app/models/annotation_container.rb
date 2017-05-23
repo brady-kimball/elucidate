@@ -2,7 +2,7 @@ class AnnotationContainer < ApplicationRecord
   validates :track_id, :start_index, :end_index,
             presence: true
 
-  validates :track_id, uniquness: { scope: [:start_index, :end_index] }
+  validates :track_id, uniqueness: { scope: [:start_index, :end_index] }
 
   belongs_to :track
 
