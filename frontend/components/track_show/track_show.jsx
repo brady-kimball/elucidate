@@ -1,7 +1,6 @@
 import React from 'react';
 import TrackShowHeaderContainer from './track_show_header_container';
 import { findOffset, randomId, validRange } from '../../util/annotation_util';
-import sanitizeHtml from 'sanitize-html';
 import AnnotationFormContainer from "../annotations/annotation_form_container";
 import AnnotationShowContainer from "../annotations/annotation_show_container";
 
