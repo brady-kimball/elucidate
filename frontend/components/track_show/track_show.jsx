@@ -20,25 +20,30 @@ class TrackShow extends React.Component {
     };
   }
 
-  renderLyrics() {
-    let track = this.props.track || {};
-    let lyrics = track.lyrics || "";
-    let lines = [];
-    let lineNumber = 0;
-    let lyricChunk;
+  getRange(e) {
+    e.preventDefault();
+    this.setState({yPos: (e.pageY - 360)});
+    this.setState({ currentAnnotation: "" });
+    let selection = document.getSelection();
+    let anchorNode = selection.anchorNode;
+    let start = selection.anchorOffset;
 
-    this.props.annotations.forEach( (annotation, idx) => {
-      lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
-      lyricChunk = lyrics.slice(annotation.start_index, annotation.end_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotation));
-      lineNumber = annotation.end_index;
-    })
+    for (let i = 0; i < 2; i++) {
+      if (i === 1) {
+        anchorNode = selection.focusNode;
+        start = selection.focusOffset;
+      }
 
-    lyricChunk = lyrics.slice(lineNumber, lyrics.length);
-    lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'));
-
-    return <p className="lyric-text">{lines}</p>;
+      let end = start + selection.toString().length;
+      let offset = findOffset(anchorNode.parentElement);
+      start += offset;
+      end += offset;
+      let track = this.props.track;
+      let lyricSlice = track.lyrics.slice(start,end);
+      if (track.lyrics.slice(start, end) === selection.toString() ) {
+        this.setState({selection: [start, end]});
+      }
+    }
   }
 
   handleAnnotationClick(annotation) {
@@ -50,21 +55,6 @@ class TrackShow extends React.Component {
       this.setState({ yPos });
       this.setState({currentAnnotation: annotation});
     };
-  }
-
-  renderLyricChunk(lyrics, className, annotation) {
-    if (className === 'lyrics-annotated') {
-      return (
-        <span className={className}
-              onClick={this.handleAnnotationClick(annotation)}
-              key={annotation.id}>{lyrics}</span>
-      );
-    } else {
-      return (
-        <span className={className}
-              key={randomId()}>{lyrics}</span>
-      );
-    }
   }
 
   handleEdit(e) {
@@ -107,29 +97,40 @@ class TrackShow extends React.Component {
     }
   }
 
-  getRange(e) {
-    e.preventDefault();
-    this.setState({yPos: (e.pageY - 360)});
-    this.setState({ currentAnnotation: "" });
-    let selection = document.getSelection();
-    let anchorNode = selection.anchorNode;
-    let start = selection.anchorOffset;
 
-    for (let i = 0; i < 2; i++) {
-      if (i === 1) {
-        anchorNode = selection.focusNode;
-        start = selection.focusOffset;
-      }
+  renderLyrics() {
+    let track = this.props.track || {};
+    let lyrics = track.lyrics || "";
+    let lines = [];
+    let lineNumber = 0;
+    let lyricChunk;
 
-      let end = start + selection.toString().length;
-      let offset = findOffset(anchorNode.parentElement);
-      start += offset;
-      end += offset;
-      let track = this.props.track;
-      let lyricSlice = track.lyrics.slice(start,end);
-      if (track.lyrics.slice(start, end) === selection.toString() ) {
-        this.setState({selection: [start, end]});
-      }
+    this.props.annotations.forEach( (annotation, idx) => {
+      lyricChunk = lyrics.slice(lineNumber, annotation.start_index);
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
+      lyricChunk = lyrics.slice(annotation.start_index, annotation.end_index);
+      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotation));
+      lineNumber = annotation.end_index;
+    })
+
+    lyricChunk = lyrics.slice(lineNumber, lyrics.length);
+    lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'));
+
+    return <p className="lyric-text">{lines}</p>;
+  }
+
+  renderLyricChunk(lyrics, className, annotation) {
+    if (className === 'lyrics-annotated') {
+      return (
+        <span className={className}
+              onClick={this.handleAnnotationClick(annotation)}
+              key={annotation.id}>{lyrics}</span>
+      );
+    } else {
+      return (
+        <span className={className}
+              key={randomId()}>{lyrics}</span>
+      );
     }
   }
 
