@@ -8,6 +8,15 @@
 
     .annotation-detail {
       margin: 5px;
+
+      .annotation-author {
+
+        &:before {
+          margin-left: 5px;
+          content: "by: ";
+          font-weight: bold;
+        }
+      }
     }
   }
 }

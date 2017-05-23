@@ -7,7 +7,8 @@ class AnnotationShow extends React.Component {
     let annotation = this.props.annotation;
     return (
       <section className='annotation-detail'>
-        {annotation.body}
+        <p>{annotation.body}</p>
+        <h5 className='annotation-author'>{annotation.user}</h5>
       </section>
     );
   }
