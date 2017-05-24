@@ -572,6 +572,8 @@ a31 = Annotation.create(
   body: "“Final show” suggests death, and “best clothes” indicates the following events occur at—or are the result of—a funeral, since the dead are traditionally buried in their finest attire."
 )
 
+Comment.destroy_all
+
 c1 = Comment.create(
   user_id: guest.id,
   annotation_id: a11.id,
