@@ -145,7 +145,9 @@ class TrackShow extends React.Component {
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
       return(
         <section className='annotation-container-new'>
-          <h3> Start a discussion! </h3>
+          <header>
+            <h3> Start a discussion! </h3>
+          </header>
           <AnnotationFormContainer selection={this.state.selection} trackId={this.props.track.id}/>
         </section>
       )

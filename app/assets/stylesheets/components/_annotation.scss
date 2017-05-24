@@ -14,7 +14,7 @@
       flex-direction: column;
       align-content: center;
 
-      h3 {
+      header {
         margin: 0 0 0 10%;
         padding-bottom: 10px;
       }
@@ -24,12 +24,18 @@
         align-content: center;
         justify-content: space-around;
 
-        form {
+
+        .form-input {
           flex: .82;
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
+          align-content: center;
           width: 100%;
+
+          h3 {
+            line-height: 1.75;
+          }
 
           input {
             flex: .8;
@@ -146,7 +152,7 @@
           align-content: center;
           width: 100%;
 
-          h3 {
+          .session-text {
             line-height: 1.75;
           }
 
