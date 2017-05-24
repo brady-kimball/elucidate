@@ -86,7 +86,7 @@
               .voting {
                 flex: .18;
                 min-width: 65px;
-                margin-top: 20px;
+                margin: auto 0;
 
                 .score {
                   margin: 0 5px;
@@ -154,7 +154,7 @@
           align-content: center;
           width: 100%;
 
-          .session-text {
+          h3 {
             line-height: 1.75;
           }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentShowContainer from './comment_show_container';
+import CommentFormContainer from './comment_form_container';
 
 class CommentBox extends React.Component {
   constructor(props) {
@@ -40,6 +41,15 @@ class CommentBox extends React.Component {
     }
   }
 
+  renderForm() {
+    let currentUser = this.props.currentUser || {};
+    if (this.state.moreComments) {
+      if (this.props.currentUser) {
+        return <CommentFormContainer annotationId={this.props.annotation.id} />;
+      }
+    }
+  }
+
   buttonText() {
     return this.state.moreComments ?
       "Hide" :
@@ -49,6 +59,7 @@ class CommentBox extends React.Component {
     return(
       <section className="comment-box">
         {this.renderComments()}
+        {this.renderForm()}
         {this.renderButton()}
       </section>
     );

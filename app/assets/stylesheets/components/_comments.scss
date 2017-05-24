@@ -13,9 +13,10 @@
     .voting-body{
       display: flex;
       align-items: center;
-      
+
       .voting {
         width: 60px;
+        min-width: 60px;
         display: flex;
         justify-content: space-around;
       }
@@ -24,6 +25,17 @@
         margin-left: 5px;
         font-size: 14px;
         max-width: 200px;
+      }
+
+      button {
+        padding: 3px;
+        border: none;
+
+        &:hover {
+          border: none;
+          color: blue;
+          transition: color .15s;
+        }
       }
     }
 
@@ -40,13 +52,46 @@
       }
     }
   }
+
+  .comment-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $dark-gray;
+    border-radius: 5px;
+    margin: 5px 20px;
+
+    input {
+      flex: .8;
+      border-right: 1px solid $dark-gray;
+      padding: 5px;
+      font-size: 13px;
+
+      &:focus {
+        border-color: black;
+      }
+    }
+
+    button {
+      flex: .15;
+      padding: 6.5px 0;
+      margin: auto;
+      border: none;
+
+      &:hover {
+        color: blue;
+        border: none;
+      }
+    }
+  }
+
   .comment-button {
     text-transform: none;
     font-size: 13px;
-  }
-  button {
+    margin-right: 20px;
     padding: 3px;
     border: none;
+    width: auto;
 
     &:hover {
       border: none;

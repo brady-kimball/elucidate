@@ -6,7 +6,7 @@ import { commentsByAnnotation } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   return {
     comments: commentsByAnnotation(state.comments, ownProps.annotation.id),
-    currentUser: state.currentUser
+    currentUser: state.session.currentUser
   };
 };
 

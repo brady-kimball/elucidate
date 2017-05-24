@@ -3,14 +3,14 @@ import React from 'react';
 class CommentShow extends React.Component {
   destroySelf(e) {
     e.preventDefault();
-    this.destroyComment(this.props.comment.id);
+    this.props.destroyComment(this.props.comment.id);
   }
 
   renderDeleteButton() {
     let currentUser = this.props.currentUser || {};
     if (currentUser.id === this.props.comment.user_id) {
       return(
-        <button className="delete" onChange={this.destroySelf.bind(this)}>
+        <button className="delete" onClick={this.destroySelf.bind(this)}>
           Delete
         </button>
       );
