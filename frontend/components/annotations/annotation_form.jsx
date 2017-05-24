@@ -65,6 +65,7 @@ class AnnotationForm extends React.Component {
       return (
         <section className="form-input">
           <h3>Log in to contribute!</h3>
+          <AuthFormModalContainer type="login" />
           <AuthFormModalContainer type="signup" />
         </section>
       );

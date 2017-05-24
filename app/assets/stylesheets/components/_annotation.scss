@@ -143,7 +143,12 @@
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
+          align-content: center;
           width: 100%;
+
+          h3 {
+            line-height: 1.75;
+          }
 
           input {
             flex: .8;
