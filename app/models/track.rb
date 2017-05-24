@@ -10,4 +10,10 @@ class Track < ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
+  has_many :annotation_containers
+
+  has_many :annotations,
+    through: :annotation_containers,
+    source: :annotations
+
 end

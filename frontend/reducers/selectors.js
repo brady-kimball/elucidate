@@ -11,6 +11,18 @@ export const allTracks = (tracks) => {
   return trackArray;
 };
 
+export const tracksByAnnotations = (tracks) => {
+  return allTracks(tracks).sort((a, b) => {
+    if (a.numAnnotations < b.numAnnotations) {
+      return 1;
+    } else if (a.numAnnotations > b.numAnnotations) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+};
+
 export const allAnnotationContainers = (annotationContainers) => {
   let keys = Object.keys(annotationContainers);
   let annoArray = [];
