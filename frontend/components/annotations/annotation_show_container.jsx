@@ -5,7 +5,7 @@ import { destroyAnnotation } from '../../actions/annotation_actions';
 
 const mapStateToProps = state => {
   return ({
-    currentUser: state.currentUser
+    currentUser: state.session.currentUser
   });
 };
 

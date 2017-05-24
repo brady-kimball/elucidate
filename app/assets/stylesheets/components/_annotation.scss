@@ -64,6 +64,7 @@
         display: flex;
         flex-direction: column;
         margin: 0 5px;
+        width: 100%;
 
         .annotation-item {
           margin-bottom: 20px;
@@ -71,6 +72,7 @@
           flex-direction: row;
           justify-content: space-around;
           align-items: center;
+          width: 100%;
           // border-top: 1px solid black;
           // border-bottom: 1px solid black;
 
@@ -136,7 +138,7 @@
         align-content: center;
         justify-content: flex-end;
 
-        form {
+        .form-input {
           flex: .82;
           display: flex;
           flex-direction: row;
