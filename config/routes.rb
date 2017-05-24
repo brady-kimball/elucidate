@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :tracks, except: [:new, :edit]
     resources :annotations, except: [:new, :edit]
     resources :annotation_containers, only: [:create, :index, :destroy]
+    resources :comments, except: [:new, :update, :edit]
   end
 end
