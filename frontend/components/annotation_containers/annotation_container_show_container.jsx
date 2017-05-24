@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AnnotationContainerShow from './annotation_container_show';
-import { annotationsByContainer } from '../../reducers/selectors'
+import { annotationsByContainer } from '../../reducers/selectors';
+import { destroyAnnotationContainer } from '../../actions/annotation_container_actions';
 
 export const mapStateToProps = (state, ownProps) => {
   return ({
@@ -12,7 +13,7 @@ export const mapStateToProps = (state, ownProps) => {
 
 export const mapDispatchToProps = dispatch => {
   return ({
-
+    destroyAnnotationContainer: (id) => dispatch(destroyAnnotationContainer(id))
   });
 };
 

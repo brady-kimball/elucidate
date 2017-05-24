@@ -1,9 +1,9 @@
 class Api::AnnotationContainersController < ApplicationController
   def index
     if params[:track_id] && params[:track_id] != ""
-      @annotation_containers = AnnotationContainer.by_track(params[:track_id])
+      @annotation_containers = AnnotationContainer.by_track(params[:track_id]).includes(:annotations)
     else
-      @annotation_containers = AnnotationContainer.all
+      @annotation_containers = AnnotationContainer.all.includes(:annotations)
     end
     render :index
   end

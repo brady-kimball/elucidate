@@ -11,7 +11,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  console.log(createAnnotation)
   return {
     createAnnotationContainer: (annotationContainer) => dispatch(createAnnotationContainer(annotationContainer)),
     createAnnotation: (annotation) => dispatch(createAnnotation(annotation))

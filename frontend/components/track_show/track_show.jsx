@@ -135,10 +135,20 @@ class TrackShow extends React.Component {
   }
 
   renderAnnotation() {
+    // if (this.state.currentAnnotationContainer.numAnnotations === 0) {
+    //   this.props.destroyAnnotationContainer(this.state.currentAnnotationContainer.id);
+    //   this.setState({currentAnnotationContainer: {}});
+    // }
+    //
     if (this.state.currentAnnotationContainer.id) {
       return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
-      return <AnnotationFormContainer selection={this.state.selection} trackId={this.props.track.id}/>;
+      return(
+        <section className='annotation-container-new'>
+          <h3> Start a discussion! </h3>
+          <AnnotationFormContainer selection={this.state.selection} trackId={this.props.track.id}/>
+        </section>
+      )
     }
   }
 
