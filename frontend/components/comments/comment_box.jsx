@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentShow from './comment_show';
+import CommentShowContainer from './comment_show_container';
 
 class CommentBox extends React.Component {
   constructor(props) {
@@ -11,14 +11,14 @@ class CommentBox extends React.Component {
   renderComments() {
     let allComments = this.props.comments.map( (comment) => {
       return(
-        <CommentShow key={comment.id} comment={comment} />
+        <CommentShowContainer key={comment.id} comment={comment} />
       )
     });
 
     if (this.state.moreComments) {
       return allComments;
     } else {
-      return allComments[0];
+      return null;
     }
   }
 
@@ -30,8 +30,9 @@ class CommentBox extends React.Component {
   renderButton() {
     if (this.props.comments.length > 1) {
       return(
-        <button onClick={this.toggleMoreComments.bind(this)}>
-          {this.buttonText()};
+        <button className="comment-button"
+                onClick={this.toggleMoreComments.bind(this)}>
+          {this.buttonText()}
         </button>
       );
     } else {
@@ -42,7 +43,7 @@ class CommentBox extends React.Component {
   buttonText() {
     return this.state.moreComments ?
       "Hide" :
-      `${this.props.comments.length - 1 } More comments...`
+      `Expand ${this.props.comments.length} comments...`;
   }
   render() {
     return(

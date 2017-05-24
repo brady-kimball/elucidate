@@ -1,26 +1,49 @@
 .comment-box {
   display: flex;
   flex-direction: column;
-  margin: 10px 5px 10px 65px;
+  margin: 10px 10px 10px 65px;
 
 
   .single-comment {
     margin: 10px 5px 10px 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
-    .voting {
-      width: 60px;
+    .voting-body{
       display: flex;
-      justify-content: space-around;
+      align-items: center;
+      
+      .voting {
+        width: 60px;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .comment-body {
+        margin-left: 5px;
+        font-size: 14px;
+        max-width: 200px;
+      }
     }
 
-    .comment-body {
-      margin-left: 5px;
-      font-size: 14px;
+
+    .delete {
+      margin: 0 5px;
+      flex: .15;
+      padding: 3px;
+      border: 1px solid $dark-gray;
+      border-radius: 3px;
+
+      &:hover {
+        border-color: red;
+      }
     }
   }
-
+  .comment-button {
+    text-transform: none;
+    font-size: 13px;
+  }
   button {
     padding: 3px;
     border: none;
