@@ -29,7 +29,7 @@ class CommentBox extends React.Component {
   }
 
   renderButton() {
-    if (this.props.comments.length > 1) {
+    if (this.props.comments.length >= 1) {
       return(
         <button className="comment-button"
                 onClick={this.toggleMoreComments.bind(this)}>
@@ -37,7 +37,12 @@ class CommentBox extends React.Component {
         </button>
       );
     } else {
-      return null;
+      return(
+        <button className="comment-button new-comment"
+                onClick={this.toggleMoreComments.bind(this)}>
+          Add a comment
+        </button>
+      );
     }
   }
 
@@ -53,7 +58,9 @@ class CommentBox extends React.Component {
   buttonText() {
     return this.state.moreComments ?
       "Hide" :
-      `Expand ${this.props.comments.length} comments...`;
+      (this.props.comments.length === 1 ?
+        `Expand 1 comment...` :
+        `Expand ${this.props.comments.length} comments...`);
   }
   render() {
     return(
