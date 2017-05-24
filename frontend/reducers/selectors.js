@@ -58,3 +58,16 @@ export const annotationsByContainer = (annotations, id) => {
   });
   return annoArray;
 };
+
+export const commentsByAnnotation = (comments, annotationId) => {
+  let keys = Object.keys(comments);
+  let commentArray = [];
+  keys.forEach( key => {
+    if (key === "errors") {
+      return;
+    } else if (comments[key].annotation_id === annotationId) {
+      commentArray.push(comments[key]);
+    }
+  });
+  return commentArray;
+};

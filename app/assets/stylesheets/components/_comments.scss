@@ -1,0 +1,34 @@
+.comment-box {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px 10px 65px;
+
+
+  .single-comment {
+    margin: 10px 5px 10px 0;
+    display: flex;
+    align-items: center;
+
+    .voting {
+      width: 60px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .comment-body {
+      margin-left: 5px;
+      font-size: 14px;
+    }
+  }
+
+  button {
+    padding: 3px;
+    border: none;
+
+    &:hover {
+      border: none;
+      color: blue;
+      transition: color .15s;
+    }
+  }
+}
