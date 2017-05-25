@@ -5,22 +5,24 @@ nav {
 .nav-major {
   background-color: $yellow;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   font-family: sans-serif;
   height: 41px;
   width: 100%;
   font-size: 14px;
 
-  .search {
-    margin: 0.3rem;
+  .search-container {
+    flex: .33;
   }
 
   .logo {
-    cursor: pointer;
+    flex: .33;
+    display: flex;
+    justify-content: center;
 
     .logo-link{
-      width: 300px;
+      width: auto;
+      cursor: pointer;
       text-align: center;
       font-weight: bolder;
       text-shadow: -3px 2px black;
@@ -30,26 +32,28 @@ nav {
     }
   }
 
-
-
   .nav-right {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
     flex: .33;
     height: 100%;
-    max-width: 200px;
-    min-width: 150px;
 
-    img {
-      object-fit: contain;
-      height: 50%;
-      width: 41px;
-      margin-right: 5px;
-    }
+    .nav-buttons{
+      display: flex;
 
-    .auth-button {
-      margin: auto 0px;
+      img {
+        object-fit: contain;
+        height: 50%;
+        width: 35px;
+        border: 1px dashed $dark-gray;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+
+      .auth-button {
+        margin: auto 10px;
+      }
     }
   }
 

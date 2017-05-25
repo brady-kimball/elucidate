@@ -83,3 +83,26 @@ export const commentsByAnnotation = (comments, annotationId) => {
   });
   return byScore(commentArray);
 };
+
+export const searchResultsArray = (results) => {
+  let resultsArrayObject = {};
+  let titlesObject = results.titles || {};
+  let titlesKeys = Object.keys(titlesObject);
+  resultsArrayObject['titles'] = titlesKeys.map( key => {
+    return titlesObject[key];
+  });
+
+  let artistsObject = results.artists || {};
+  let artistsKeys = Object.keys(artistsObject);
+  resultsArrayObject['artists'] = artistsKeys.map( key => {
+    return artistsObject[key];
+  });
+
+  let lyricsObject = results.lyrics || {};
+  let lyricsKeys = Object.keys(lyricsObject);
+  resultsArrayObject['lyrics'] = lyricsKeys.map( key => {
+    return lyricsObject[key];
+  });
+
+  return resultsArrayObject;
+};

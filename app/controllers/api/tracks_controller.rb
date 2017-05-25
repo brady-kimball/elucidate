@@ -2,11 +2,17 @@ class Api::TracksController < ApplicationController
   def index
     if params[:query]
       query = params[:query]
-      @tracks = Track.where("title ILIKE ?", query)
+      q_split = query.split("").join("%")
+      query = "%#{query}%"
+      fuzzy_query = "%#{q_split}%"
+      @tracks = Track.where("title ILIKE ?", fuzzy_query)
+      @artists = Track.where("artist ILIKE ?", fuzzy_query)
+      @lyrics = Track.where("lyrics ILIKE ?", query)
+      render :search_index
     else
       @tracks = Track.all.includes(:annotations)
+      render :index
     end
-    render :index
   end
 
   def create

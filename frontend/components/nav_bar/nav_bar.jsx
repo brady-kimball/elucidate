@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import AuthFormModalContainer from '../auth_form/auth_form_modal_container';
+import SearchIndexContainer from '../search/search_index_container';
 
 class NavBar extends React.Component {
 
@@ -27,23 +28,27 @@ class NavBar extends React.Component {
     if (this.props.currentUser) {
       return(
         <section className="nav-right logged-in">
-          <img  className="avatar-thumb"
-                src={this.props.currentUser.avatar_url} />
-          <button className="auth-button"
-                  onClick={this.logout.bind(this)}>
-            Log Out
-          </button>
+          <section className="nav-buttons">
+            <img  className="avatar-thumb"
+              src={this.props.currentUser.avatar_url} />
+            <button className="auth-button"
+              onClick={this.logout.bind(this)}>
+              Log Out
+            </button>
+          </section>
         </section>
       );
     } else {
       return(
         <section className="nav-right">
-          <button onClick={this.guestLogin.bind(this)}
-            className="auth-button">
-            Guest
-          </button>
-          <AuthFormModalContainer type="login" />
-          <AuthFormModalContainer type="signup" />
+          <section className="nav-buttons">
+            <button onClick={this.guestLogin.bind(this)}
+              className="auth-button">
+              Guest
+            </button>
+            <AuthFormModalContainer type="login" />
+            <AuthFormModalContainer type="signup" />
+          </section>
         </section>
       );
     }
@@ -52,14 +57,14 @@ class NavBar extends React.Component {
   render() {
     return(
       <nav className="nav-major">
-        <section className="search">
-          <input type="search"
-                  placeholder="Search..."/>
+        <section className="search-container">
+          <SearchIndexContainer />
         </section>
-
-        <section className="logo"
-                  onClick={this.logoClick.bind(this)}>
-          <span className="logo-link">ELUCIDATE</span>
+        <section className="logo">
+          <span className="logo-link"
+                onClick={this.logoClick.bind(this)}>
+                ELUCIDATE
+          </span>
         </section>
 
         {this.authButtons()}
