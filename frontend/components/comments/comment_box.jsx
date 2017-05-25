@@ -36,13 +36,15 @@ class CommentBox extends React.Component {
           {this.buttonText()}
         </button>
       );
-    } else {
+    } else if (this.props.currentUser){
       return(
         <button className="comment-button new-comment"
                 onClick={this.toggleMoreComments.bind(this)}>
           {this.state.moreComments ? "Hide" : "Add a comment"}
         </button>
       );
+    } else {
+      return null;
     }
   }
 
