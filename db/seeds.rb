@@ -571,3 +571,23 @@ a31 = Annotation.create(
   user_id: u1.id,
   body: "“Final show” suggests death, and “best clothes” indicates the following events occur at—or are the result of—a funeral, since the dead are traditionally buried in their finest attire."
 )
+
+Comment.destroy_all
+
+c1 = Comment.create(
+  user_id: guest.id,
+  annotation_id: a11.id,
+  body: "This guy knows what he's talking about!"
+)
+
+c2 = Comment.create(
+  user_id: u1.id,
+  annotation_id: a11.id,
+  body: "No way!"
+)
+
+c3 = Comment.create(
+  user_id: u1.id,
+  annotation_id: a31.id,
+  body: "Ehhh it's a reach"
+)

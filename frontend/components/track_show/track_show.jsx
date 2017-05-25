@@ -9,6 +9,7 @@ class TrackShow extends React.Component {
     this.props.fetchSingleTrack(this.props.match.params.trackId);
     this.props.fetchAnnotations(this.props.match.params.trackId);
     this.props.fetchAnnotationContainers(this.props.match.params.trackId);
+    this.props.fetchComments(this.props.match.params.trackId);
   }
 
   constructor(props) {
@@ -135,11 +136,6 @@ class TrackShow extends React.Component {
   }
 
   renderAnnotation() {
-    // if (this.state.currentAnnotationContainer.numAnnotations === 0) {
-    //   this.props.destroyAnnotationContainer(this.state.currentAnnotationContainer.id);
-    //   this.setState({currentAnnotationContainer: {}});
-    // }
-    //
     if (this.state.currentAnnotationContainer.id) {
       return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
