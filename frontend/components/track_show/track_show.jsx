@@ -151,6 +151,9 @@ class TrackShow extends React.Component {
   }
 
   render() {
+    if (!(this.props.trackIds.includes(this.props.match.params.trackId))) {
+      this.props.history.replace("/");
+    }
     let track = this.props.track || {};
     let style = {
       position: "absolute",

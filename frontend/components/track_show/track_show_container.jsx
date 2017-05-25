@@ -9,6 +9,7 @@ import { fetchComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, { match }) => {
   return {
+    trackIds: Object.keys(state.tracks),
     track: state.tracks[match.params.trackId],
     currentUser: state.session.currentUser,
     annotationContainers: sortedAnnotationContainers(state.annotationContainers)
