@@ -1,7 +1,11 @@
 class Api::TracksController < ApplicationController
   def index
-    @tracks = Track.all.includes(:annotations)
-    #TODO: sort by # annotations
+    if params[:query]
+      query = params[:query]
+      @tracks = Track.where("title ILIKE ?", query)
+    else
+      @tracks = Track.all.includes(:annotations)
+    end
     render :index
   end
 
