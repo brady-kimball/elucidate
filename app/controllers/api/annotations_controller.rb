@@ -37,6 +37,31 @@ class Api::AnnotationsController < ApplicationController
     render :show
   end
 
+  def upvote
+    @annotation = Annotation.find(params[:id])
+    vote = Vote.find_or_create_by(
+      user_id: currentUser.id,
+      voteable_type: 'Annotation',
+      voteable_id: @annotation.id
+    )
+    vote.value = 1
+    vote.save!
+    render :show
+  end
+
+  def downvote
+    @annotation = Annotation.find(params[:id])
+    vote = Vote.find_or_create_by(
+      user_id: currentUser.id,
+      voteable_type: 'Annotation',
+      voteable_id: @annotation.id
+    )
+    vote.value = -1
+    vote.save!
+    render :show
+  end
+
+
   private
 
   def annotation_params

@@ -37,6 +37,30 @@ class Api::CommentsController < ApplicationController
     render :show
   end
 
+  def upvote
+    @comment = Comment.find(params[:id])
+    vote = Vote.find_or_create_by(
+      user_id: currentUser.id,
+      voteable_type: 'Comment',
+      voteable_id: @comment.id
+    )
+    vote.value = 1
+    vote.save!
+    render :show
+  end
+
+  def downvote
+    @comment = Comment.find(params[:id])
+    vote = Vote.find_or_create_by(
+      user_id: currentUser.id,
+      voteable_type: 'Comment',
+      voteable_id: @comment.id
+    )
+    vote.value = -1
+    vote.save!
+    render :show
+  end
+
   private
 
   def comment_params
