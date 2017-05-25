@@ -28,8 +28,10 @@ class AnnotationShow extends React.Component {
       <section className="annotation-detail">
         <section className="body">
           <section className="voting">
-            <button className="downvote"><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
-            <span className="score">12</span>
+            <button className="downvote">
+              <i className="fa fa-thumbs-down" aria-hidden="true"></i>
+            </button>
+            <span className="score">{this.props.annotation.score}</span>
             <button className="upvote"><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
         </section>
         <p>{annotation.body}</p>

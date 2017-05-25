@@ -28,3 +28,17 @@ export const deleteAnnotation = (id) => {
     url: `/api/annotations/${id}`
   });
 };
+
+export const upvoteAnnotation = (id) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/annotation/${id}/upvote`
+  });
+};
+
+export const downvoteAnnotation = (id) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/annotation/${id}/downvote`
+  });
+};

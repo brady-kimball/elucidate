@@ -28,3 +28,17 @@ export const deleteComment = (id) => {
     url: `/api/comments/${id}`
   });
 };
+
+export const upvoteComment = (id) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/comments/${id}/upvote`
+  });
+};
+
+export const downvoteComment = (id) => {
+  return $.ajax({
+    method: "POST",
+    url: `api/comments/${id}/downvote`
+  });
+};
