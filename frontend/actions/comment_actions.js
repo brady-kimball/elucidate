@@ -57,3 +57,17 @@ export const destroyComment = (id) => dispatch => {
     errors => dispatch(receiveErrors(errors))
   );
 };
+
+export const upvoteComment = (id) => dispatch => {
+  return APIUtil.upvoteComment(id).then(
+    comment => dispatch(receiveComment(comment)),
+    errors => dispatch(receiveErrors(errors))
+  );
+};
+
+export const downvoteComment = (id) => dispatch => {
+  return APIUtil.downvoteComment(id).then(
+    comment => dispatch(receiveComment(comment)),
+    errors => dispatch(receiveErrors(errors))
+  );
+};

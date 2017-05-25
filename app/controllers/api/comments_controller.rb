@@ -40,7 +40,7 @@ class Api::CommentsController < ApplicationController
   def upvote
     @comment = Comment.find(params[:id])
     vote = Vote.find_or_create_by(
-      user_id: currentUser.id,
+      user_id: current_user.id,
       voteable_type: 'Comment',
       voteable_id: @comment.id
     )
@@ -52,7 +52,7 @@ class Api::CommentsController < ApplicationController
   def downvote
     @comment = Comment.find(params[:id])
     vote = Vote.find_or_create_by(
-      user_id: currentUser.id,
+      user_id: current_user.id,
       voteable_type: 'Comment',
       voteable_id: @comment.id
     )

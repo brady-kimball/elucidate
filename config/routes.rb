@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     resources :comments, except: [:new, :update, :edit]
   end
 
-  post 'api/annotations/:id/upvote', to: 'annotations#upvote', as: 'upvote_annotation'
-  post 'api/annotations/:id/downvote', to: 'annotations#downvote', as: 'downvote_annotation'
-  post 'api/comments/:id/upvote', to: 'comments#upvote', as: 'upvote_comment'
-  post 'api/comments/:id/downvote', to: 'comments#downvote', as: 'downvote_comment'
+  post 'api/annotations/:id/upvote', to: 'api/annotations#upvote', as: 'upvote_annotation'
+  post 'api/annotations/:id/downvote', to: 'api/annotations#downvote', as: 'downvote_annotation'
+  post 'api/comments/:id/upvote', to: 'api/comments#upvote', as: 'upvote_comment'
+  post 'api/comments/:id/downvote', to: 'api/comments#downvote', as: 'downvote_comment'
 end

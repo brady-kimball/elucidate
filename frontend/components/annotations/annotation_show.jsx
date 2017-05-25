@@ -22,17 +22,29 @@ class AnnotationShow extends React.Component {
     }
   }
 
+  handleUpvote(e) {
+    e.preventDefault();
+    this.props.upvoteAnnotation(this.props.annotation.id);
+  }
+
+  handleDownvote(e) {
+    e.preventDefault();
+    this.props.downvoteAnnotation(this.props.annotation.id);
+  }
+
   render() {
     let annotation = this.props.annotation;
     return(
       <section className="annotation-detail">
         <section className="body">
           <section className="voting">
-            <button className="downvote">
+            <button className="downvote" onClick={this.handleDownvote.bind(this)}>
               <i className="fa fa-thumbs-down" aria-hidden="true"></i>
             </button>
             <span className="score">{this.props.annotation.score}</span>
-            <button className="upvote"><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+            <button className="upvote" onClick={this.handleUpvote.bind(this)}>
+              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            </button>
         </section>
         <p>{annotation.body}</p>
       </section>

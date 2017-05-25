@@ -32,13 +32,13 @@ export const deleteAnnotation = (id) => {
 export const upvoteAnnotation = (id) => {
   return $.ajax({
     method: "POST",
-    url: `api/annotation/${id}/upvote`
+    url: `api/annotations/${id}/upvote`
   });
 };
 
 export const downvoteAnnotation = (id) => {
   return $.ajax({
     method: "POST",
-    url: `api/annotation/${id}/downvote`
+    url: `api/annotations/${id}/downvote`
   });
 };

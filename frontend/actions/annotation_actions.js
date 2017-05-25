@@ -57,3 +57,17 @@ export const destroyAnnotation = (id) => dispatch => {
     errors => dispatch(receiveErrors(errors))
   );
 };
+
+export const upvoteAnnotation = (id) => dispatch => {
+  return APIUtil.upvoteAnnotation(id).then(
+    annotation => dispatch(receiveAnnotation(annotation)),
+    errors => dispatch(receiveErrors(errors))
+  );
+};
+
+export const downvoteAnnotation = (id) => dispatch => {
+  return APIUtil.downvoteAnnotation(id).then(
+    annotation => dispatch(receiveAnnotation(annotation)),
+    errors => dispatch(receiveErrors(errors))
+  );
+};

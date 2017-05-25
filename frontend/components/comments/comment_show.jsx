@@ -24,15 +24,29 @@ class CommentShow extends React.Component {
     }
   }
 
+  handleUpvote(e) {
+    e.preventDefault();
+    this.props.upvoteComment(this.props.comment.id);
+  }
+
+  handleDownvote(e) {
+    e.preventDefault();
+    this.props.downvoteComment(this.props.comment.id);
+  }
+
   render() {
     return(
       <section className="single-comment">
         <section className="single-comment-content">
           <section className="voting-body">
             <section className="voting">
-              <button className="downvote"><i className="fa fa-thumbs-down" aria-hidden="true"></i></button>
+              <button className="downvote" onClick={this.handleDownvote.bind(this)}>
+                <i className="fa fa-thumbs-down" aria-hidden="true"></i>
+              </button>
               <span className="score">{this.props.comment.score}</span>
-              <button className="upvote"><i className="fa fa-thumbs-up" aria-hidden="true"></i></button>
+              <button className="upvote" onClick={this.handleUpvote.bind(this)}>
+                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+              </button>
             </section>
             <section className="comment-body">
               {this.props.comment.body}

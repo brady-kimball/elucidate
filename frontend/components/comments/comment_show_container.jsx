@@ -1,7 +1,8 @@
 import React from 'react';
 import CommentShow from './comment_show';
 import { connect } from 'react-redux';
-import { destroyComment } from '../../actions/comment_actions';
+import { destroyComment, downvoteComment, upvoteComment }
+  from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    destroyComment: (id) => dispatch(destroyComment(id))
+    destroyComment: (id) => dispatch(destroyComment(id)),
+    downvoteComment: (id) => dispatch(downvoteComment(id)),
+    upvoteComment: (id) => dispatch(upvoteComment(id))
   };
 };
 

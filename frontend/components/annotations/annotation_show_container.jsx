@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AnnotationShow from './annotation_show';
-import { destroyAnnotation } from '../../actions/annotation_actions';
+import { destroyAnnotation, upvoteAnnotation, downvoteAnnotation }
+  from '../../actions/annotation_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -11,7 +12,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    destroyAnnotation: (id) => dispatch(destroyAnnotation(id))
+    destroyAnnotation: (id) => dispatch(destroyAnnotation(id)),
+    downvoteAnnotation: (id) => dispatch(downvoteAnnotation(id)),
+    upvoteAnnotation: (id) => dispatch(upvoteAnnotation(id))
   });
 };
 

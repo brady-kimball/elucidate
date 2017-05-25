@@ -40,11 +40,11 @@ class Api::AnnotationsController < ApplicationController
   def upvote
     @annotation = Annotation.find(params[:id])
     vote = Vote.find_or_create_by(
-      user_id: currentUser.id,
+      user_id: current_user.id,
       voteable_type: 'Annotation',
       voteable_id: @annotation.id
     )
-    vote.value = 1
+    vote.value = (vote.value == 1 ? 0 : 1)
     vote.save!
     render :show
   end
@@ -52,11 +52,11 @@ class Api::AnnotationsController < ApplicationController
   def downvote
     @annotation = Annotation.find(params[:id])
     vote = Vote.find_or_create_by(
-      user_id: currentUser.id,
+      user_id: current_user.id,
       voteable_type: 'Annotation',
       voteable_id: @annotation.id
     )
-    vote.value = -1
+    vote.value = (vote.value == -1 ? 0 : -1)
     vote.save!
     render :show
   end
