@@ -24,12 +24,20 @@ class AnnotationShow extends React.Component {
 
   handleUpvote(e) {
     e.preventDefault();
-    this.props.upvoteAnnotation(this.props.annotation.id);
+    if (this.props.currentUser) {
+      this.props.upvoteAnnotation(this.props.annotation.id);
+    } else {
+      alert("You must be signed in to do that!");
+    }
   }
 
   handleDownvote(e) {
     e.preventDefault();
-    this.props.downvoteAnnotation(this.props.annotation.id);
+    if (this.props.currentUser) {
+      this.props.downvoteAnnotation(this.props.annotation.id);
+    } else {
+      alert("You must be signed in to do that!");
+    }
   }
 
   render() {

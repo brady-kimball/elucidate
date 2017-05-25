@@ -26,12 +26,20 @@ class CommentShow extends React.Component {
 
   handleUpvote(e) {
     e.preventDefault();
-    this.props.upvoteComment(this.props.comment.id);
+    if (this.props.currentUser) {
+      this.props.upvoteComment(this.props.comment.id);
+    } else {
+      alert("You must be signed in to do that!");
+    }
   }
 
   handleDownvote(e) {
     e.preventDefault();
-    this.props.downvoteComment(this.props.comment.id);
+    if (this.props.currentUser) {
+      this.props.downvoteComment(this.props.comment.id);
+    } else {
+      alert("You must be signed in to do that!");
+    }
   }
 
   render() {
