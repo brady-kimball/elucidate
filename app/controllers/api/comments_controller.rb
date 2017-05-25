@@ -44,7 +44,7 @@ class Api::CommentsController < ApplicationController
       voteable_type: 'Comment',
       voteable_id: @comment.id
     )
-    vote.value = 1
+    vote.value = (vote.value == 1 ? 0 : 1)
     vote.save!
     render :show
   end
@@ -56,7 +56,7 @@ class Api::CommentsController < ApplicationController
       voteable_type: 'Comment',
       voteable_id: @comment.id
     )
-    vote.value = -1
+    vote.value = (vote.value == -1 ? 0 : -1)
     vote.save!
     render :show
   end
