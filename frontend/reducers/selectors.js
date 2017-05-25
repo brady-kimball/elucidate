@@ -56,7 +56,19 @@ export const annotationsByContainer = (annotations, id) => {
       annoArray.push(annotations[key]);
     }
   });
-  return annoArray;
+  return annotationsByScore(annoArray);
+};
+
+export const annotationsByScore = (annotations) => {
+  return annotations.sort( (a,b) => {
+    if (a.score < b.score) {
+      return 1;
+    } else if (a.score > b.score) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 };
 
 export const commentsByAnnotation = (comments, annotationId) => {
