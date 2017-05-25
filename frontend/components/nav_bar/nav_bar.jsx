@@ -59,7 +59,7 @@ class NavBar extends React.Component {
 
         <section className="logo"
                   onClick={this.logoClick.bind(this)}>
-          <span>Fancy Logo</span>
+          <span className="logo-link">ELUCIDATE</span>
         </section>
 
         {this.authButtons()}

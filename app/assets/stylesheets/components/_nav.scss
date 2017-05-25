@@ -18,6 +18,16 @@ nav {
 
   .logo {
     cursor: pointer;
+
+    .logo-link{
+      width: 300px;
+      text-align: center;
+      font-weight: bolder;
+      text-shadow: -3px 2px black;
+      color: #FFFF64;
+      font-size: 25px;
+      letter-spacing: 6px;
+    }
   }
 
 

@@ -56,11 +56,11 @@ export const annotationsByContainer = (annotations, id) => {
       annoArray.push(annotations[key]);
     }
   });
-  return annotationsByScore(annoArray);
+  return byScore(annoArray);
 };
 
-export const annotationsByScore = (annotations) => {
-  return annotations.sort( (a,b) => {
+export const byScore = (voteable) => {
+  return voteable.sort( (a,b) => {
     if (a.score < b.score) {
       return 1;
     } else if (a.score > b.score) {
@@ -81,5 +81,5 @@ export const commentsByAnnotation = (comments, annotationId) => {
       commentArray.push(comments[key]);
     }
   });
-  return commentArray;
+  return byScore(commentArray);
 };

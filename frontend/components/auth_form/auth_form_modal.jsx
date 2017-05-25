@@ -23,7 +23,7 @@ class AuthFormModal extends React.Component {
         alignItems       : 'center',
         justifyContent   : 'center',
         backgroundColor  : 'rgba(90,98,107,.9)',
-        'z-index'        : 10
+        zIndex           : 10
       },
       content : {
         position    : 'null', // to override default styles
