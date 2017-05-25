@@ -1,11 +1,12 @@
 class Comment < ApplicationRecord
+  include Voteable
   validates :body, :user, :annotation, presence: true
 
   belongs_to :user,
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :User
-    
+
   belongs_to :annotation
 
   has_one :track,

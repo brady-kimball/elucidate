@@ -1,4 +1,6 @@
 class Annotation < ApplicationRecord
+  include Voteable
+  
   validates :user_id, :body, :annotation_container_id,
             presence: true
 
