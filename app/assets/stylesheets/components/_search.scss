@@ -23,7 +23,11 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      // border: 1px solid $dark-gray;
+      cursor: pointer;
+
+      &:hover{
+        background: $yellow;
+      }
 
       .thumbnail{
         width: 40px;

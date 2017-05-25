@@ -1,11 +1,20 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SearchIndexItem extends React.Component {
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.history.push(`/tracks/${this.props.track.id}`);
+    this.props.clearResults();
+  }
 
   render() {
     let track = this.props.track;
     return (
-      <li className="single-result" key={track.id}>
+      <li className="single-result"
+          key={track.id}
+          onClick={this.handleClick.bind(this)}>
         <section className="thumbnail">
           <img src={track.art_url} />
         </section>
@@ -22,4 +31,4 @@ class SearchIndexItem extends React.Component {
   }
 }
 
-export default SearchIndexItem;
+export default withRouter(SearchIndexItem);
