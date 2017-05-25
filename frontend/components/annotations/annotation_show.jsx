@@ -5,7 +5,12 @@ class AnnotationShow extends React.Component {
 
   destroySelf(e) {
     e.preventDefault();
-    this.props.destroyAnnotation(this.props.annotation.id);
+    let answer = confirm(
+      "Are you sure?  This action can't be undone"
+    );
+    if (answer) {
+      this.props.destroyAnnotation(this.props.annotation.id);
+    }
   }
 
   renderButton() {

@@ -40,7 +40,7 @@ class CommentBox extends React.Component {
       return(
         <button className="comment-button new-comment"
                 onClick={this.toggleMoreComments.bind(this)}>
-          Add a comment
+          {this.state.moreComments ? "Hide" : "Add a comment"}
         </button>
       );
     }

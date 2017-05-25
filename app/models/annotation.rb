@@ -4,7 +4,8 @@ class Annotation < ApplicationRecord
 
   belongs_to :user
   belongs_to :annotation_container
-  has_many :comments
+  has_many :comments,
+    dependent: :destroy
   has_one :track,
     through: :annotation_container,
     source: :track
