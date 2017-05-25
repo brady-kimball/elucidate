@@ -86,6 +86,7 @@
               .voting {
                 flex: .18;
                 min-width: 65px;
+                max-width: 65px;
                 margin: auto 0;
 
                 .score {
@@ -119,7 +120,7 @@
 
 
               button {
-                flex: .15;
+                // flex: .15;
                 padding: 3px;
                 margin: 5px 20px 5px 0;
                 border: 1px solid $dark-gray;
@@ -147,12 +148,11 @@
         justify-content: flex-end;
 
         .form-input {
-          flex: .82;
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-content: center;
-          width: 100%;
+          width: 82%;
 
           h3 {
             line-height: 1.75;
