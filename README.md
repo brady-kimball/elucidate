@@ -36,7 +36,8 @@ validYoutubeLink() {
     /(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
     .test(this.state.link)
   );
-}```
+}
+```
 
 ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Edit+Track+Form.png "Edit Track")
 
