@@ -14,3 +14,43 @@ Elucidate is a webapp and online community inspired by [Genius](genius.com) for 
 * Voting on annotations and comments
 
 ### Authentication
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Elucidate+Sign+Up.png "Sign Up Form") ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Elucidate+Log+In.png "Log In")
+
+
+### Tracks
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Track+Index.png "Track Index")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Track+Show+Page.png "Track Show")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Add+Track+Form.png "Add Track")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Edit+Track+Form.png "Edit Track")
+
+### Annotations
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotaion")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Annotation+show.png "Annotation Show")
+
+### Search
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Fuzzy+search.gif "Fuzzy Title Search")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Artist+Fuzzy+Search.gif "Fuzzy Artist Search")
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Lyrics+search.gif "Lyric Search")
+
+
+### Voting
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Voting.gif "Voting")
+
+## Future Improvements
+
+### User page / Score Tracking
+
+### Artist Page
+
+### Genres and Tags

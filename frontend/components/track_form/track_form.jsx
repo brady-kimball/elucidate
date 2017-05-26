@@ -143,6 +143,14 @@ class TrackForm extends React.Component {
     }
   }
 
+  headerText() {
+    if (this.props.track) {
+      return "Edit Track";
+    } else {
+      return "Add a Track";
+    }
+  }
+
   render() {
     let img = "";
     if(this.state.imageFile){
@@ -153,7 +161,7 @@ class TrackForm extends React.Component {
     return(
       <section className="add-track-page">
         <main className="track-form-container">
-          <h1>Add a Track</h1>
+          <h1>{this.headerText()}</h1>
           <article className="primary-info">
             <small> * required</small>
             <form onSubmit={this.handleSubmit.bind(this)}>
