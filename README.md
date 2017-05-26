@@ -27,8 +27,6 @@ All images are hosted using amazon web services.
 
 Users have full access to create, read, update, or destroy their tracks.  Tracks are indexed on the home page by number of annotations.
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Edit+Track+Form.png "Edit Track")
-
 Users can add tracks with just the artist information, track title and lyrics.  If they desire, a user can also add additional information like album art, a youtube link, and production information. Each youtube link is validated before submitting as follows:
 
 ``` javascript
@@ -53,13 +51,11 @@ Each track has it's own show page, containing more information about the track (
 
 Annotations are where users can add their insight into what they think a lyric means.  Each user can also add comments to a given annotation.
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Annotation+show.png "Annotation Show")
-
 If an annotation already exists for a given slice of lyrics, the user just needs to click on the highlighted text and add their insight.
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotaion")
-
 Adding a brand new annotation is done by simply highlighting the slice of text the user wishes to annotate.  On mouse-up, a form is displayed either prompting the user to log in, or to enter their annotation.  The start and indices are attained with the following slices of code and stored in the database along with the body, container and user ids.  
+
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotaion")
 
 Note that the function attempts to find the indices beginning with both the anchor node and the focus node to account for highlighting top to bottom versus bottom to top.  
 
