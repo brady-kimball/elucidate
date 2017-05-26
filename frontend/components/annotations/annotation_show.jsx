@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentBoxContainer from '../comments/comment_box_container';
+import { annotationsByContainer } from '../../reducers/selectors';
 
 class AnnotationShow extends React.Component {
 
@@ -10,6 +11,10 @@ class AnnotationShow extends React.Component {
     );
     if (answer) {
       this.props.destroyAnnotation(this.props.annotation.id);
+      if (annotationsByContainer(this.props.annotations, this.props.container.id).length === 1) {
+        this.props.destroyAnnotationContainer(this.props.container.id);
+        this.props.clearCurrentContainer();
+      }
     }
   }
 

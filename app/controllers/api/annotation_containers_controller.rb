@@ -22,15 +22,6 @@ class Api::AnnotationContainersController < ApplicationController
     render :show
   end
 
-  # def update
-  #   @annotation_container = AnnotationContainer.find(params[:id])
-  #   if @annotation_container.update_attributes(annotation_container_params)
-  #     render :show
-  #   else
-  #     render json: @annotation_container.errors.full_messages, status: 422
-  #   end
-  # end
-
   def destroy
     @annotation_container = AnnotationContainer.find(params[:id])
     @annotation_container.destroy!

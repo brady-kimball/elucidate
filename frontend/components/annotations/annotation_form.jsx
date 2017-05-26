@@ -10,7 +10,7 @@ class AnnotationForm extends React.Component {
     this.state = {
       user_id: currentUser.id,
       annotation_container_id: container.id,
-      body: ""
+      body: "",
     };
   }
 
@@ -28,7 +28,11 @@ class AnnotationForm extends React.Component {
         start_index: this.props.selection[0],
         end_index: this.props.selection[1],
         track_id: this.props.trackId,
-      }).then(this.createAnnotationAfterContainer.bind(this));
+      }).then(
+        this.sendContainerUp.bind(this)
+      ).then(
+        this.createAnnotationAfterContainer.bind(this)
+      );
       this.props.clearSelection();
     } else {
       this.props.createAnnotation({
@@ -40,8 +44,13 @@ class AnnotationForm extends React.Component {
     }
   }
 
-  createAnnotationAfterContainer({ annotationContainer }) {
-    this.props.createAnnotation({
+  sendContainerUp({ annotationContainer }) {
+    this.props.setCurrentContainer(annotationContainer);
+    return annotationContainer;
+  }
+
+  createAnnotationAfterContainer(annotationContainer) {
+    return this.props.createAnnotation({
       user_id: this.props.currentUser.id,
       annotation_container_id: annotationContainer.id,
       body: this.state.body
@@ -56,7 +65,8 @@ class AnnotationForm extends React.Component {
                   placeholder="Add your thoughts"
                   value = {this.state.body}
                   onChange={this.update("body")}
-                  required/>
+                  required
+                  autoFocus/>
                 <button>
             Submit
           </button>

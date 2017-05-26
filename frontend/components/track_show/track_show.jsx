@@ -52,7 +52,7 @@ class TrackShow extends React.Component {
 
   handleAnnotationContainerClick(annotationContainer) {
     return e => {
-      e.preventDefault;
+      e.preventDefault();
       let coords = e.target.getBoundingClientRect();
       let col = document.getElementsByClassName('annotation-col');
       let yPos = (coords.bottom + coords.top) / 2 - col[0].getBoundingClientRect().top - 20;
@@ -112,7 +112,8 @@ class TrackShow extends React.Component {
     if (validRange(this.state.selection, this.props.annotationContainers)) {
       let fakeContainer = {
         start_index: this.state.selection[0],
-        end_index: this.state.selection[1]
+        end_index: this.state.selection[1],
+        id: -1
       };
       renderArray = sortedAnnotationContainers(
         this.props.annotationContainers.concat(fakeContainer)
@@ -156,9 +157,24 @@ class TrackShow extends React.Component {
     });
   }
 
+  clearCurrentContainer() {
+    this.setState({
+      currentAnnotationContainer: {}
+    });
+  }
+
+  setCurrentContainer(container) {
+    this.setState({
+      currentAnnotationContainer: container
+    });
+  }
+
   renderAnnotation() {
+    let container_id = this.state.currentAnnotationContainer.id;
     if (this.state.currentAnnotationContainer.id) {
-      return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
+      return <AnnotationContainerShowContainer
+              container={this.state.currentAnnotationContainer}
+              clearCurrentContainer={this.clearCurrentContainer.bind(this)}/>;
     } else if (validRange(this.state.selection, this.props.annotationContainers)) {
       return(
         <section className='annotation-container-new'>
@@ -168,9 +184,10 @@ class TrackShow extends React.Component {
           <AnnotationFormContainer
             selection={this.state.selection}
             clearSelection={this.clearSelection.bind(this)}
+            setCurrentContainer= {this.setCurrentContainer.bind(this)}
             trackId={this.props.track.id}/>
         </section>
-      )
+      );
     }
   }
 
