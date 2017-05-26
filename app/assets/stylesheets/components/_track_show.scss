@@ -116,15 +116,13 @@
         border-size: 1px;
         border-color: $dark-gray;
         font-size: 12px;
-        color: $dark-gray;
+        color: black;
 
         &:hover {
           // background: $light-gray;
-          opacity: .8;
           border: 1px solid black;
-          font-weight: bold;
-          color: black;
-          transition: border, box-shadow, .5s;
+          box-shadow: -1px 1px black;
+          transition: border
         }
       }
     }
