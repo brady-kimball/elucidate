@@ -79,7 +79,7 @@ class TrackForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.link && !this.validYoutubeLink()) {
-      alert('Please check the format of your youtube link and try again :)')
+      alert('Please check the format of your youtube link and try again :)');
       return;
     }
     let file = this.state.imageFile;

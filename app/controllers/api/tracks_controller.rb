@@ -35,7 +35,9 @@ class Api::TracksController < ApplicationController
 
   def update
     @track = Track.find(params[:id])
-    if @track.update_attributes(track_params)
+    new_track_params = track_params
+    new_track_params["lyrics"] = track_params["lyrics"].gsub(/\r/, '')
+    if @track.update_attributes(new_track_params)
       render :show
     else
       render json: @track.errors.full_messages, status: 422
