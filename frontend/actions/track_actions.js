@@ -5,7 +5,7 @@ import * as APIUtil from '../util/track_api_util';
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_TRACK = "RECEIVE_TRACK";
 export const DESTROY_TRACK = "DESTROY_TRACK";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const RECEIVE_TRACK_ERRORS = "RECEIVE_TRACK_ERRORS";
 
 // Synchronous action creators
 
@@ -25,7 +25,7 @@ export const destroyTrack = (id) => ({
 });
 
 export const receiveErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_TRACK_ERRORS,
   errors
 });
 
@@ -46,14 +46,14 @@ export const fetchSingleTrack = (id) => dispatch => {
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
     returnedTrack => dispatch(receiveTrack(returnedTrack)),
-    err => dispatch(receiveErrors(track))
+    err => dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const updateTrack = track => dispatch => {
   return APIUtil.updateTrack(track).then(
     returnedTrack => dispatch(receiveTrack(returnedTrack)),
-    err => dispatch(receiveErrors(track))
+    err => dispatch(receiveErrors(err.responseJSON))
   );
 };
 

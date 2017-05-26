@@ -1,4 +1,4 @@
-import {  RECEIVE_COMMENTS, RECEIVE_COMMENT, RECEIVE_ERRORS,
+import {  RECEIVE_COMMENTS, RECEIVE_COMMENT, RECEIVE_COMMENT_ERRORS,
           DELETE_COMMENT } from '../actions/comment_actions';
 
 const defaultState = {
@@ -17,8 +17,8 @@ const commentsReducer = (state = defaultState, action) => {
       let newState = Object.assign({}, state, defaultState);
       delete newState[action.id];
       return newState;
-    case RECEIVE_ERRORS:
-      return Object.assign({}, defaultState, action.errors);
+    case RECEIVE_COMMENT_ERRORS:
+      return Object.assign({}, defaultState, {errors: action.errors});
     default:
       return state;
   }

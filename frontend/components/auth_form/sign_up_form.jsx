@@ -55,20 +55,21 @@ class SignUpForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input  type="text"
                 name="user[username]"
-                placeholder="Enter username"
+                placeholder="Enter username*"
                 value={this.state.username}
                 onChange={this.update("username")}/>
         <input  type="text"
-                placeholder="Enter email"
+                placeholder="Enter email*"
                 value={this.state.email}
                 onChange={this.update("email")}/>
-        <input  type="file"
-                onChange={this.uploadFile.bind(this)}/>
-                {img}
         <input  type="password"
-                placeholder="Enter password"
+                placeholder="Enter password*"
                 value={this.state.password}
                 onChange={this.update("password")}/>
+        <input  type="file"
+                placeholder="Upload avatar image"
+                onChange={this.uploadFile.bind(this)}/>
+        {img}
         <button>Sign Up</button>
       </form>
     );

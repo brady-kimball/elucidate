@@ -1,5 +1,5 @@
 import {  RECEIVE_ANNOTATION_CONTAINERS, RECEIVE_ANNOTATION_CONTAINER,
-  RECEIVE_ERRORS, DELETE_ANNOTATION_CONTAINER } from
+  RECEIVE_ANNOTATION_CONTAINER_ERRORS, DELETE_ANNOTATION_CONTAINER } from
   '../actions/annotation_container_actions';
 
 const defaultState = {
@@ -19,8 +19,8 @@ const annotationContainersReducer = (state = defaultState, action) => {
       let newState = Object.assign({}, state, defaultState);
       delete newState[action.id];
       return newState;
-    case RECEIVE_ERRORS:
-      return Object.assign({}, defaultState, action.errors);
+    case RECEIVE_ANNOTATION_CONTAINER_ERRORS:
+      return Object.assign({}, defaultState, {errors: action.errors});
     default:
       return state;
   }

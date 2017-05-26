@@ -1,4 +1,4 @@
-import { RECEIVE_TRACKS, RECEIVE_TRACK, DESTROY_TRACK, RECEIVE_ERRORS }
+import { RECEIVE_TRACKS, RECEIVE_TRACK, DESTROY_TRACK, RECEIVE_TRACK_ERRORS }
   from '../actions/track_actions';
 import { fetchTracks, createTrack, updateTrack, deleteTrack }
   from '../actions/track_actions';
@@ -19,8 +19,8 @@ const tracksReducer = (state = defaultState, action) => {
       let dupState = merge({}, state);
       delete dupState[action.id];
       return dupState;
-    case RECEIVE_ERRORS:
-      return Object.assign({}, state, action.errors);
+    case RECEIVE_TRACK_ERRORS:
+      return Object.assign({}, state, {errors: action.errors});
     default:
       return state;
   }

@@ -3,8 +3,8 @@ import * as APIUtil from '../util/session_api_util';
 // Action types, implemented so app breaks if misspelled
 
 export const RECEIVE_USER = "RECEIVE_USER";
-export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 // Synchronous action creators
 
@@ -14,12 +14,12 @@ export const receiveCurrentUser = (currentUser) => ({
 });
 
 export const receiveErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 });
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS
+  type: CLEAR_SESSION_ERRORS
 });
 
 
