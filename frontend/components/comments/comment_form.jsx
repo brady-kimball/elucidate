@@ -32,7 +32,8 @@ class CommentForm extends React.Component {
         <input  type="text"
                 value={this.state.body}
                 placeholder="Join the conversation..."
-                onChange={this.updateProperty("body")}/>
+                onChange={this.updateProperty("body")}
+                required/>
         <button>Submit</button>
       </form>
     );

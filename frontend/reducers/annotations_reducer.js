@@ -18,7 +18,7 @@ const annotationsReducer = (state = defaultState, action) => {
       delete newState[action.id];
       return newState;
     case RECEIVE_ANNOTATION_ERRORS:
-      return Object.assign({}, defaultState, {errors: action.errors});
+      return Object.assign({}, state, {errors: action.errors});
     default:
       return state;
   }

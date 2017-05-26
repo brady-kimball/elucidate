@@ -23,7 +23,6 @@ class AnnotationForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     if (this.props.selection) {
       this.props.createAnnotationContainer({
         start_index: this.props.selection[0],
@@ -55,7 +54,8 @@ class AnnotationForm extends React.Component {
           <input type="text"
                   placeholder="Add your thoughts"
                   value = {this.state.body}
-                  onChange={this.update("body")} />
+                  onChange={this.update("body")}
+                  required/>
                 <button>
             Submit
           </button>

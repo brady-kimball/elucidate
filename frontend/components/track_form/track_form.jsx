@@ -12,13 +12,24 @@ class TrackForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.location.pathname === "/tracks/new") {
+      this.setState(this.initializeState({}));
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = this.initializeState();
   }
 
-  initializeState() {
+  initializeState(state) {
     let track = this.props.track || {};
+
+    if (state) {
+      track = state;
+    }
+
     return {
       title: track.title || "",
       artist: track.artist || "",
