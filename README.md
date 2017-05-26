@@ -73,6 +73,8 @@ getRange(e) {
   let anchorNode = selection.anchorNode;
   let start = selection.anchorOffset;
 
+  // Attempt to get lyrics first starting at anchor node (node at mouse down),
+  // then at the focus node (node at mouse up)
   for (let i = 0; i < 2; i++) {
     if (i === 1) {
       anchorNode = selection.focusNode;
@@ -84,11 +86,12 @@ getRange(e) {
     start += offset;
     end += offset;
 
+    // Check if text slice at indices matches selection text
     if (track.lyrics.slice(start, end) === selection.toString() ) {
       this.setState({selection: [start, end]});
+      break;
     }
   }
-}
 ```
 
 ```javascript
