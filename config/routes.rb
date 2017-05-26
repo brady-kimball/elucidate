@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :annotations, except: [:new, :edit]
     resources :annotation_containers, only: [:create, :index, :destroy]
     resources :comments, except: [:new, :update, :edit]
+    resources :votes, only: [:index]
   end
 
   post 'api/annotations/:id/upvote', to: 'api/annotations#upvote', as: 'upvote_annotation'
