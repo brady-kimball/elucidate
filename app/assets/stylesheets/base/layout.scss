@@ -24,7 +24,12 @@ button {
 
 button:hover {
 	border: 1px solid black;
-	transition: border-color .3s;
+	// transition: border-color .3s;
+	box-shadow: -1px 1px black;
+}
+
+.comment-button:hover {
+	box-shadow: none
 }
 
 .hidden {
