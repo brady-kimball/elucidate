@@ -1,6 +1,7 @@
 import * as APIUtil from "../util/annotation_api_util";
+import { receiveVote } from './vote_actions';
 
-// Action Tyes
+// Action Types
 export const RECEIVE_ANNOTATIONS = "RECEIVE_ANNOTATIONS";
 export const RECEIVE_ANNOTATION = "RECEIVE_ANNOTATION";
 export const RECEIVE_ANNOTATION_ERRORS = "RECEIVE_ANNOTATION_ERRORS";
@@ -62,6 +63,14 @@ export const upvoteAnnotation = (id) => dispatch => {
   return APIUtil.upvoteAnnotation(id).then(
     annotation => dispatch(receiveAnnotation(annotation)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    (action) => {
+      dispatch(receiveVote({
+        type: "Annotation",
+        id: action.annotation.id,
+        value: action.annotation.lastValue
+      }));
+    }
   );
 };
 
@@ -69,5 +78,13 @@ export const downvoteAnnotation = (id) => dispatch => {
   return APIUtil.downvoteAnnotation(id).then(
     annotation => dispatch(receiveAnnotation(annotation)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    (action) => {
+      dispatch(receiveVote({
+        type: "Annotation",
+        id: action.annotation.id,
+        value: action.annotation.lastValue
+      }));
+    }
   );
 };

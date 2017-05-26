@@ -10,6 +10,7 @@ class TrackShow extends React.Component {
     this.props.fetchAnnotations(this.props.match.params.trackId);
     this.props.fetchAnnotationContainers(this.props.match.params.trackId);
     this.props.fetchComments(this.props.match.params.trackId);
+    this.props.fetchVotes();
   }
 
   constructor(props) {

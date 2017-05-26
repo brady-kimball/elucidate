@@ -45,6 +45,7 @@ class Api::AnnotationsController < ApplicationController
       voteable_id: @annotation.id
     )
     vote.value = (vote.value == 1 ? 0 : 1)
+    @value = vote.value
     vote.save!
     render :show
   end
@@ -56,7 +57,9 @@ class Api::AnnotationsController < ApplicationController
       voteable_type: 'Annotation',
       voteable_id: @annotation.id
     )
-    vote.value = (vote.value == -1 ? 0 : -1)
+    temp = (vote.value == -1 ? 0 : -1)
+    vote.value = temp
+    @value = temp
     vote.save!
     render :show
   end

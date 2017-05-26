@@ -1,7 +1,6 @@
 class Api::VotesController < ApplicationController
   def index
     if current_user
-      debugger
       @annotation_votes = Vote.where(
         user_id: current_user.id,
         voteable_type: "Annotation"

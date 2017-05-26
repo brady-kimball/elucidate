@@ -6,6 +6,8 @@ import { sortedAnnotationContainers } from '../../reducers/selectors';
 import { fetchAnnotationContainers } from '../../actions/annotation_container_actions';
 import { destroyAnnotationContainer } from '../../actions/annotation_container_actions';
 import { fetchComments } from '../../actions/comment_actions';
+import { fetchVotes } from '../../actions/vote_actions';
+
 
 const mapStateToProps = (state, { match }) => {
   return {
@@ -22,7 +24,8 @@ const mapDispatchToProps = dispatch => ({
   fetchAnnotations: (id) => dispatch(fetchAnnotations(id)),
   fetchComments: (id) => dispatch(fetchComments(id)),
   deleteTrack: (id) => dispatch(deleteTrack(id)),
-  destroyAnnotationContainer: (id) => dispatch(destroyAnnotationContainer(id))
+  destroyAnnotationContainer: (id) => dispatch(destroyAnnotationContainer(id)),
+  fetchVotes: () => dispatch(fetchVotes())
 });
 
 

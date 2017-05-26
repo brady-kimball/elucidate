@@ -1,6 +1,7 @@
 import * as APIUtil from "../util/comment_api_util";
+import { receiveVote } from './vote_actions';
 
-// Action Tyes
+// Action Types
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
@@ -62,6 +63,14 @@ export const upvoteComment = (id) => dispatch => {
   return APIUtil.upvoteComment(id).then(
     comment => dispatch(receiveComment(comment)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    (action) => {
+      dispatch(receiveVote({
+        type: "Comment",
+        id: action.comment.id,
+        value: action.comment.lastValue
+      }));
+    }
   );
 };
 
@@ -69,5 +78,13 @@ export const downvoteComment = (id) => dispatch => {
   return APIUtil.downvoteComment(id).then(
     comment => dispatch(receiveComment(comment)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    (action) => {
+      dispatch(receiveVote({
+        type: "Comment",
+        id: action.comment.id,
+        value: action.comment.lastValue
+      }));
+    }
   );
 };
