@@ -32,8 +32,9 @@ class TrackShow extends React.Component {
 
   getRange(e) {
     e.preventDefault();
-    this.setState({yPos: (e.pageY - 360)});
+    this.setState({yPos: (e.pageY - 360) });
     this.setState({ currentAnnotationContainer: "" });
+    let track = this.props.track;
     let selection = document.getSelection();
     let anchorNode = selection.anchorNode;
     let start = selection.anchorOffset;
@@ -43,13 +44,12 @@ class TrackShow extends React.Component {
         anchorNode = selection.focusNode;
         start = selection.focusOffset;
       }
-
+      
       let end = start + selection.toString().length;
       let offset = findOffset(anchorNode.parentElement);
       start += offset;
       end += offset;
-      let track = this.props.track;
-      let lyricSlice = track.lyrics.slice(start,end);
+
       if (track.lyrics.slice(start, end) === selection.toString() ) {
         this.setState({selection: [start, end]});
       }
@@ -194,7 +194,7 @@ class TrackShow extends React.Component {
             trackId={this.props.track.id}/>
         </section>
       );
-    } 
+    }
   }
 
   render() {

@@ -113,7 +113,10 @@ class TrackForm extends React.Component {
   }
 
   validYoutubeLink() {
-    return (/(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/.test(this.state.link));
+    return (
+      /(youtube.com|youtu.be)\/(watch)?(\?v=)?(\S+)?/
+      .test(this.state.link)
+    );
   }
 
   uploadFile(e) {
