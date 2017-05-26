@@ -31,6 +31,7 @@
 
       .thumbnail{
         width: 40px;
+        min-width: 40px;
         height: 40px;
         object-fit: cover;
         margin: 3px 5px;
@@ -45,8 +46,10 @@
         }
 
         .result-artist {
+          margin: 5px 5px 2px 5px;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
+          font-size: 13.5px;
 
           &:before {
             content: "by: ";
