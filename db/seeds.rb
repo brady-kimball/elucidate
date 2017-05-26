@@ -586,14 +586,14 @@ I was having fun
 We were all having fun"
 )
 
-t7.art = File.open('app/assets/images/youth-lagoon-17')
+t7.art = File.open('app/assets/images/youth-lagoon-17.jpg')
 t7.save!
 
 t8 = Track.create(
   title: "The Gardener",
   artist: "The Tallest Man On Earth",
   user_id: t3.id,
-  link: "https://www.youtube.com/watch?v=3RpBLwaEtrI"
+  link: "https://www.youtube.com/watch?v=3RpBLwaEtrI",
   lyrics: "I sense a runner in the garden
 Although my judgements known to fail
 Once built a steamboat in a meadow
@@ -642,16 +642,16 @@ In your eyes, babe
 In your eyes, babe"
 )
 
-t8.art = File.open('app/assets/images/the-gardener')
+t8.art = File.open('app/assets/images/the-gardener.jpg')
 t8.save!
 
 t7 = Track.create(
   title: "All My Days",
   artist: "Alexi Murdoch",
-  user_id:  guest.id
+  user_id:  guest.id,
   producers: "Alexi Murdoch",
   writers: "Alexi Murdoch",
-  link: "https://www.youtube.com/watch?v=HjHvJE1XU7E"
+  link: "https://www.youtube.com/watch?v=HjHvJE1XU7E",
   lyrics: "[Verse 1]
 Well I have been searching all of my days
 All of my days
@@ -704,160 +704,658 @@ It's even breathing
 Feels all right"
 )
 
-t7.art = File.open('app/assets/images/all-my-days')
+t7.art = File.open('app/assets/images/all-my-days.jpg')
 t7.save!
 
 t9 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "The Wilhelm Scream",
+  artist: "James Blake",
+  user_id: guest.id,
+  producers: "James Blake",
+  writers: "James Blake",
+  link: "https://www.youtube.com/watch?v=isIABK-0ohQ",
+  lyrics: "I don't know about my dreams
+I don't know about my dreaming anymore
+All that I know is
+I'm falling, falling, falling, falling
+Might as well fall in
+
+I don't know about my love
+I don't know about my loving anymore
+All that I know is
+I'm falling, falling, falling, falling
+Might as well fall in"
 )
 
-t9.art = File.open()
+t9.art = File.open('app/assets/images/wilhelm-scream.jpg')
 t9.save!
 
 t10 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Broadripple is Burning",
+  artist: "Margot & the Nuclear So and So's",
+  user_id: u2.id,
+  link: "https://www.youtube.com/watch?v=WXTVDUYIZs8",
+  lyrics: "Children
+Broadripple is burning
+And the girls are getting sick
+Off huffing glue up in the bathroom
+While their boyfriends pick up chicks
+
+And darling, I'm lost
+I heard you whispering that night in Fountain Square
+The trash-filled streets made me wish we were headed home
+
+And there was love inside the basement
+Where that woman used to lie
+In a sleeping bag we shared upon
+The floor most every night
+And darling, I'm drunk
+And everything I that I have loved has turned to stone
+So pack your bags
+And come back home
+
+And I'm wasted
+You can taste it
+Don't look at me that way
+Cause I'll be hanging from a rope
+I will haunt you like a ghost
+
+And if my woman was a fire
+She'd burn out before I wake
+And be replaced by pints of whiskey
+Cigarettes and outer space
+Then somebody moves
+And everything you thought you had has gone to shit
+But we've got a lot
+Don't ever forget that
+
+And I wrote this on an airplane
+Where the people looked like ants
+And when a woman that you loved is gone
+She's bombing east Japan
+
+Don't fucking move
+Cause everything you think you have will go to shit
+But we've got a lot
+Don't you dare forget that
+
+And I'm wasted
+You can taste it
+Don't look at me that way
+Cause I'll be hanging from a rope
+I will haunt you like a ghost
+
+And I'm wasted
+You can taste it
+Don't look at me that way
+Cause I'll be hanging from a rope
+I will haunt you like a ghost"
 )
 
-t10.art = File.open()
+t10.art = File.open("app/assets/images/broadripple.jpg")
 t10.save!
 
 t11 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "The Wrote and the Writ",
+  artist: "Johnny Flynn",
+  user_id: guest.id,
+  link: "https://www.youtube.com/watch?v=tFCbacVw94Q",
+  lyrics: "They're taking pictures of the man from God
+I hope his cassock's clean
+The burden of being our holy fellas
+Your halo'd better gleam, better gleam
+
+What of all those wayward priests?
+The ones who like to drink
+Do you suppose they'd swap their blood for wine
+Like you swapped yours for ink, for ink
+
+You wrote me oh so many letters
+And all of them seemed true
+Promises look good on paper
+Especially from you, from you
+
+The weight of all those willing words
+I carried all alone
+You wouldn't put your pen to bed
+When we hadn't found our own, our own
+
+Your sentences rose high at night
+And circled round my head
+The circle's since been broken
+Like the priest before me is breaking bread
+
+I'm being asked to drink the blood of Christ
+And soon I'll eat his flesh
+I'm alone again before the altar
+Shedding all my old regrets
+
+The last of which I'll tell you now
+As it flies down the sink
+I never knew a part of you
+You didn't set in ink, in ink
+
+The letters that you left behind
+No longer shall I read
+Your blood's between the pages
+And I can't stand to see you bleed
+
+And I'll soon forget what was never there
+Your words are ash and dust
+All that's left is the song I've sung
+The breath I've taken and the one I must
+
+If you're born with a love for the wrote and the writ
+People of letters your warning stands clear
+Pay heed to your heart and not to your wit
+Don't say in a letter what you can't in my ear"
 )
 
-t11.art = File.open()
+t11.art = File.open('app/assets/images/wrote-writ.jpg')
 t11.save!
 
 t12 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Furr",
+  artist: "Blitzen Trapper",
+  user_id: u2.id
+  link: "https://www.youtube.com/watch?v=CmBgxP56R1I",
+  lyrics: "[Verse 1]
+Yeah, when I was only seven-teen,
+I could hear the angels whisper-ing
+So I drove into the woods,
+And wandered aimlessly about
+Till I heard my mother shouting through the fog
+It turned out to be the howling of a dog
+Or a wolf to be exact.
+The sound sent shivers down my back
+But I was drawn into the pack.
+And before long,
+They allowed me to join in and sing their song.
+So from the cliffs and highest hill,
+Yeah, we would gladly get our fill,
+Howling endlessly and shrilly at the dawn.
+And I lost the taste for judging right from wrong.
+For my flesh had turned to fur,
+Yeah, and my thoughts, they surely were
+Turned to instinct and obedience to God.
+
+[Chorus]
+You can wear your fur
+Like a river on fire.
+But you better be sure
+If you're makin' God a liar.
+I'm a rattlesnake, babe,
+I'm like fuel on fire.
+So if you're gonna' get made,
+Don't be afraid of what you've learned.
+
+[Verse 2]
+On the day that I turned twenty-three,
+I was curled up underneath a dogwood tree.
+When suddenly a girl
+With skin the color of a pearl,
+She wandered aimlessly,
+But she didn't seem to see.
+She was listenin' for the angels just like me.
+So I stood and looked about.
+I brushed the leaves off of my snout.
+And then I heard my mother shouting through the trees.
+You should have seen that girl go shaky at the knees.
+So I took her by the arm
+We settled down upon a farm.
+And raised our children up as gently as you please.
+
+[Pre-Chorus]
+Now my fur has turned to skin.
+And I've been quickly ushered in
+To a world that I confess I do not know.
+But I still dream of runnin' careless through the snow.
+Through the howlin' winds that blow,
+Across the ancient distant flow,
+It fill our bodies up like water till we know.
+
+[Chorus]
+You can wear your fur
+Like a river on fire.
+But you better be sure
+If you're makin' God a liar.
+I'm a rattlesnake, babe,
+I'm like fuel on fire.
+So if you're gonna' get made,
+Don't be afraid of what you've learned."
 )
 
-t12.art = File.open()
+t12.art = File.open('app/assets/images/furr.jpg')
 t12.save!
 
 t13 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Stay Alive",
+  artist: "José González",
+  user_id: guest.id,
+  writers: "José González",
+  link: "https://www.youtube.com/watch?v=NucJk8TxyRg",
+  lyrics: "[Refrain]
+There’s a rhythm in rush these days
+Where the lights don’t move and the colors don’t fade
+Leaves you empty with nothing but dreams
+In a world gone shallow
+In a world gone mean
+
+[Verse 1]
+Sometimes there’s things a man cannot know
+Gears won’t turn and the leaves won’t grow
+There’s no place to run and no gasoline
+Engine won’t turn
+And the train won’t leave
+Engines won’t turn and the train won’t leave
+
+[Break 1]
+I will stay with you tonight
+Hold you close ‘til the morning light
+In the morning watch a new day rise
+We’ll do whatever just to stay alive
+We’ll do whatever just to stay alive
+
+[Verse 2]
+Well the way I feel is the way I write
+Nothing like the thoughts of the man who lies
+There is a truth and it’s on our side
+Dawn is coming
+Open your eyes
+Look into the sun as the new days rise
+
+[Break 2]
+And I will wait for you tonight
+You’re here forever and you’re by my side
+I’ve been waiting all my life
+To feel your heart as it’s keeping time
+We’ll do whatever just to stay alive
+
+[Bridge]
+Dawn is coming
+Open your eyes
+Dawn is coming
+Open your eyes
+Dawn is coming
+Open your eyes
+Dawn is coming
+Open your eyes
+Look into the sun as the new days rise
+
+[Refrain]
+There’s a rhythm in rush these days
+Where the lights don’t move and the colors don’t fade
+Leaves you empty with nothing but dreams
+In a world gone shallow
+In a world gone mean
+
+[Outro]
+But there is a truth and it’s on our side
+Dawn is coming
+Open your eyes
+Look into the sun as a new days rise"
 )
 
-t13.art = File.open()
+t13.art = File.open('app/assets/images/stay-alive.jpg')
 t13.save!
 
 t14 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Pink Moon",
+  artist: "Nick Drake",
+  user_id: u2.id,
+  producers: "John Wood",
+  link: "https://www.youtube.com/watch?v=aXnfhnCoOyo",
+  lyrics: "[Verse]
+Saw it written and I saw it say
+Pink moon is on its way
+And none of you stand so tall
+Pink moon gonna get ye all
+
+[Chorus]
+And it's a pink moon
+Yes, a pink moon
+
+Pink, pink, pink, pink
+Pink moon
+Pink, pink, pink, pink
+Pink moon
+
+[Verse]
+I saw it written and I saw it say
+Pink moon is on its way
+And none of you stand so tall
+Pink moon gonna get ye all
+
+[Chorus]
+And it's a pink moon
+Yes, a pink moon"
 )
 
-t14.art = File.open()
+t14.art = File.open('app/assets/images/pink-moon')
 t14.save!
 
 t15 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Coffins",
+  artist: "Misterwives",
+  user_id: u1.id,
+  producers: "Frequency",
+  link: "https://www.youtube.com/watch?v=gv014RiqUio",
+  lyrics: "[Verse 1]
+I gave my hand for you to hold
+I gave my love that you went and sold
+Exchanged our song for another
+Can’t blame this sad flame that once glowed like no other
+
+[Chorus]
+How do you soften
+The thought of carrying coffins?
+We were so alive
+Only to see us wither and die
+
+[Verse 2]
+You say you’d stand even if it should all fall
+You’re yearning, yielded when you hit the wall
+I shut your ears, tried to make you hear my call
+But you were long gone, no hope in a sunless dawn
+
+[Chorus 2]
+How do you soften
+The thought of carrying coffins?
+We were so alive
+Only to see us wither and die
+Oh, why must soil run dry?
+
+[Bridge]
+And I never ever thought I’d hear these words be said
+Now I lay here in my unmade bed
+Empty stomachs unable to be fed
+Your ego swallowed you and from there you fled
+So far away
+Could not find your way back
+Walked down the path
+Where feet slipped through the cracks
+Where feet slipped through the cracks
+Could not find your way back
+Where feet slipped through the cracks
+Could not find your way back
+
+[Chorus 2]"
 )
 
-t15.art = File.open()
+t15.art = File.open('app/assets/images/coffins.jpg')
 t15.save!
 
 t16 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Bright Whites",
+  artist: "Kishi Bashi",
+  user_id: u2.id,
+  writers: "Kishi Bashi",
+  link: "https://www.youtube.com/watch?v=6wcZb80f5VE",
+  lyrics: "Keya keya sorya douse ne
+Keya keya sorya douse dame da
+Yamerarenai yamerarenai
+Douse damedakedo yamerarenai ne
+Keya keya sorya douse ne
+Keya keya sorya douse dame da
+Taerarenai taerarenai
+Douse damedakedo taerarenai ne
+
+[Verse 1 - Kishi Bashi]
+You and me at the edge of the world
+With a pretty little smile for me to see, for me to see
+New bright whites and a cage full of ice
+And a naked little canopy to feed my disease
+
+[Pre-Chorus 1 - Kishi Bashi]
+And if you're to smile at me
+I could cry by land or sea
+
+[Chorus 1- Kishi Bashi]
+After you said that you like Big Red
+I opened up my mind and skipped a beat
+Cufflinks and hands in wrong places and faces
+And creepy little movies made me weep
+
+[Pre-Chorus 2 - Kishi Bashi]
+And if you're to say to me
+What is mine is yours to keep
+
+[Bridge - Kishi Bashi]
+Well you know, I'll have to see
+If all the stars aligned we could've solved the mystery
+It's a partial fantasy
+We're living in a land that went astray from history
+
+[Verse 1 - Kishi Bashi]
+You and me at the edge of the bed
+Looking at the faded pictures for you to see and me to see
+Murder and colonies, land without rivers
+Raging in the middle of some sad destiny
+
+[Pre-Chorus 3 - Kishi Bashi]
+Take one look to find my eyes
+Safety's in your inner thigh
+
+[Bridge - Kishi Bashi]
+Well you know, I'll have to see
+If all the stars aligned we could have solved the mystery
+It's a partial fantasy
+We're living in a land that went astray from history"
 )
 
-t16.art = File.open()
+t16.art = File.open('app/assets/images/bright-whites')
 t16.save!
 
 t17 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "In the Air Tonight",
+  artist: "Phil Collins",
+  user_id: guest.id,
+  producers: "Hugh Padgham & Phil Collins",
+  link: "https://www.youtube.com/watch?v=YkADj0TPrJA",
+  lyrics: "[Chorus]
+I can feel it coming in the air tonight, oh Lord
+I've been waiting for this moment for all my life, oh Lord
+Can you feel it coming in the air tonight, oh Lord, oh Lord
+
+[Verse 1]
+Well, if you told me you were drowning
+I would not lend a hand
+I've seen your face before my friend
+But I don't know if you know who I am
+Well, I was there and I saw what you did
+I saw it with my own two eyes
+So you can wipe off the grin, I know where you've been
+It's all been a pack of lies
+
+[Chorus]
+And I can feel it coming in the air tonight, oh Lord
+Well I’ve been waiting for this moment for all my life, oh Lord
+I can feel it coming in the air tonight, oh Lord
+
+[Verse 2]
+Well I remember, I remember don't worry
+How could I ever forget, it's the first time, the last time we ever met
+But I know the reason why you keep your silence up, no you don't fool me
+The hurt doesn't show; but the pain still grows
+It's no stranger to you or me
+
+[Chorus]
+And I can feel it coming in the air tonight, Oh Lord
+Well, I've been waiting for this moment all my life, Oh Lord
+Oh Lord"
 )
 
-t17.art = File.open()
+t17.art = File.open('app/assets/images/phil.jpg')
 t17.save!
 
 t18 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Father Figure",
+  artist: "George Michael",
+  user_id: guest.id,
+  producers: "George Michael",
+  link: "https://www.youtube.com/watch?v=m_9hfHvQSNo",
+  lyrics: "That's all I wanted
+Something special, someone sacred in your eyes
+For just one moment
+To be bold and naked at your side
+Sometimes I think that you'll never understand me
+Maybe this time is forever, say it can be, whoa
+
+That's all you wanted
+Somethin' special, someone sacred in your life
+Just for one moment, to be warm and naked at my side
+Sometimes I think that you'll never understand me
+But somethin' tells me together, we'd be happy, whoa baby
+
+I will be your father figure
+Put your tiny hand in mine
+I will be your preacher teacher
+Anything you have in mind
+I will be your father figure
+I have had enough of crime
+I will be the one who loves you
+'Til the end of time
+
+That's all I wanted
+But sometimes love can be mistaken for a crime
+That's all I wanted
+Just to see my baby's blue eyes shine
+This time I think that my lover understands me
+If we have faith in each other then we can be strong
+
+(Chorus)
+
+If you are the desert, I'll be the sea
+If you ever hunger, hunger for me
+Whatever you ask for, that's what I'll be
+So when you remember the ones who have lied
+Who said that they cared but then
+Laughed as you cried
+Beautiful darling, don't think of me
+Because all I ever wanted
+It's in your eyes baby (baby)
+And love can't lie, no
+Greet me with the eyes of a child
+My love is always tellin' me so
+Heaven is a kiss and a smile
+Just hold on, hold on
+I won't let you go, my baby
+
+(Chorus)
+
+I will be your father (I will be your)
+I will be your (father) preacher teacher
+I will be your (I'll be your daddy, oh)
+I will be the one who loves you
+'Til the end of time"
 )
 
-t18.art = File.open()
+t18.art = File.open('app/assets/images/father-figure.jpg')
 t18.save!
 
 t19 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "This Must Be the Place (Naive Melody)",
+  artist: "Talking Heads",
+  user_id: guest.id,
+  producers: "Talking Heads & David Byrne",
+  link: "https://www.youtube.com/watch?v=CMPIxEWGs5g",
+  lyrics: "[Verse 1]
+Home is where I want to be
+Pick me up and turn me round
+I feel numb, born with a weak heart
+I guess I must be having fun
+The less we say about it, the better
+Make it up as we go along
+Feet on the ground, head in the sky
+It's okay, I know nothing's wrong, nothing
+
+[Chorus]
+Hi-yeah, I got plenty of time
+Hi-yeah, you got light in your eyes
+And you're standing here beside me
+I love the passing of time
+Never for money, always for love
+Cover up and say goodnight, say goodnight
+
+[Verse 2]
+Home is where I want to be
+But I guess I'm already there
+I come home, she lifted up her wings
+I guess that this must be the place
+I can't tell one from the other
+Did I find you or you find me?
+There was a time before we were born
+If someone asks, this is where I'll be, where I'll be
+
+[Chorus]
+Hi-yeah, we drift in and out
+Hi-yeah, sing into my mouth
+Out of all those kinds of people
+You got a face with a view
+I'm just an animal looking for a home
+Share the same space for a minute or two
+And you love me 'til my heart stops
+Love me 'til I'm dead
+Eyes that light up, eyes look through you
+Cover up the blank spots, hit me on the head, ah-ooh"
 )
 
-t19.art = File.open()
+t19.art = File.open('app/assets/images/naive')
 t19.save!
 
 t20 = Track.create(
-  title:
-  artist:
-  user_id:
-  producers:
-  writers:
-  link:
-  lyrics:
+  title: "Walk Like an Egyptian",
+  artist: "The Bangles",
+  user_id: u3.id,
+  producers: "David Kahne",
+  link: "https://www.youtube.com/watch?v=Cv6tuzHUuuk",
+  lyrics: "All the old paintings on the tomb
+They do the sand dance, don't you know?
+If they move too quick (oh-way-oh)
+They're falling down like a domino
+
+All the bazaar men by the Nile
+They got the money on a bet
+Gold crocodiles (oh-way-oh)
+They snap their teeth on your cigarette
+
+Foreign types with the hookah pipes say
+(Way-oh-way-oh, ooh-way-oh-way-oh)
+Walk like an Egyptian
+
+The blonde waitresses take their trays
+They spin around and they cross the floor
+They've got the moves (oh-way-oh)
+You drop your drink, then they bring you more
+
+All the school kids so sick of books
+They like the punk and the metal band
+When the buzzer rings (oh-way-oh)
+They're walking like an Egyptian
+
+All the kids in the marketplace say
+(Way-oh-way-oh, ooh-way-oh-way-oh)
+Walk like an Egyptian
+
+Slide your feet up the street, bend your back
+Shift your arm, then you pull it back
+Life is hard you know (oh-way-oh)
+So strike a pose on a Cadillac
+
+If you want to find all the cops
+They're hanging out in the donut shop
+They sing and dance (oh-way-oh)
+They spin the clubs, cruise down the block
+
+All the Japanese with their yen
+The party boys call the Kremlin
+And the Chinese know (oh-way-oh)
+They walk the line like Egyptian
+
+All the cops in the donut shop say
+(Way-oh-way-oh, ooh-way-oh-way-oh)
+Walk like an Egyptian
+Walk like an Egyptian"
 )
 
 t20.art = File.open()
