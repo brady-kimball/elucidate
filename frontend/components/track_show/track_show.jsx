@@ -179,22 +179,34 @@ class TrackShow extends React.Component {
   }
 
   renderAnnotation() {
-    let container_id = this.state.currentAnnotationContainer.id;
+    let style = {
+      position: "absolute",
+      top: this.state.yPos
+    };
+    // let container_id = this.state.currentAnnotationContainer.id;
     if (this.state.currentAnnotationContainer.id) {
-      return <AnnotationContainerShowContainer
-              container={this.state.currentAnnotationContainer}
-              clearCurrentContainer={this.clearCurrentContainer.bind(this)}/>;
-    } else if (validRange(this.state.selection, this.props.annotationContainers)) {
+      return (
+        <section  className="annotation-box" style={style}>
+          <AnnotationContainerShowContainer
+            container={this.state.currentAnnotationContainer}
+            clearCurrentContainer={this.clearCurrentContainer.bind(this)}/>
+        </section>
+      );
+    } else if (
+      validRange(this.state.selection, this.props.annotationContainers)
+    ) {
       return(
-        <section className='annotation-container-new'>
-          <header>
-            <h3> Start a discussion! </h3>
-          </header>
-          <AnnotationFormContainer
-            selection={this.state.selection}
-            clearSelection={this.clearSelection.bind(this)}
-            setCurrentContainer= {this.setCurrentContainer.bind(this)}
-            trackId={this.props.track.id}/>
+        <section  className="annotation-box" style={style}>
+          <section className='annotation-container-new'>
+            <header>
+              <h3> Start a discussion! </h3>
+            </header>
+            <AnnotationFormContainer
+              selection={this.state.selection}
+              clearSelection={this.clearSelection.bind(this)}
+              setCurrentContainer= {this.setCurrentContainer.bind(this)}
+              trackId={this.props.track.id}/>
+          </section>
         </section>
       );
     }
@@ -202,10 +214,6 @@ class TrackShow extends React.Component {
 
   render() {
     let track = this.props.track || {};
-    let style = {
-      position: "absolute",
-      top: this.state.yPos
-    };
     return(
       <div className="song-show">
         <TrackShowHeaderContainer track={track} />
@@ -221,9 +229,7 @@ class TrackShow extends React.Component {
           </section>
 
           <section className="col secondary-col annotation-col">
-            <section  className="annotation-box" style={style}>
               {this.renderAnnotation()}
-            </section>
           </section>
         </main>
       </div>

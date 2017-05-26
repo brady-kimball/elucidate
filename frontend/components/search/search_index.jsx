@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchIndexItem from './search_index_item';
+import enhanceWithClickOutside from 'react-click-outside';
 
 class SearchIndex extends React.Component {
   constructor(props) {
@@ -22,6 +23,12 @@ class SearchIndex extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.setState({query: ""});
+    this.props.clearResults();
+  }
+
+  handleClickOutside() {
+    this.setState({query: ""});
+    this.props.clearResults();
   }
 
   renderTracks(tracks) {
@@ -47,9 +54,11 @@ class SearchIndex extends React.Component {
         <input  type="search"
                 placeholder="Search artists, tracks or lyrics..."
                 value={this.state.query}
-                onChange={this.update.bind(this)}/>
+                onChange={this.update.bind(this)}
+                />
 
-        <ul className='search-results' onClick={this.handleClick.bind(this)}>
+        <ul className='search-results'
+            onClick={this.handleClick.bind(this)}>
           {titles.length > 0 ? <li className="header">Titles</li> : null}
           {titles.length > 0 ? this.renderTracks(titles) : null}
           {artists.length > 0 ? <li className="header">Artists</li> : null}
@@ -62,4 +71,4 @@ class SearchIndex extends React.Component {
   }
 }
 
-export default SearchIndex;
+export default enhanceWithClickOutside(SearchIndex);
