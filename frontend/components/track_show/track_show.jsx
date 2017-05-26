@@ -194,7 +194,7 @@ class TrackShow extends React.Component {
             trackId={this.props.track.id}/>
         </section>
       );
-    }
+    } 
   }
 
   render() {
