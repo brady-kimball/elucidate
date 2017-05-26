@@ -10,6 +10,8 @@ Elucidate uses Rails 5.0 for its backend architecture due to the the ease and sp
 
 The front end is written using javascript's React library version 15.5 due it's modularity and lightweight virtual DOM.  React was used in conjunction with react-router 4.1, webpack 2.5 and the redux 3.6 implementation of the flux architecture.  
 
+All images are hosted using amazon web services.
+
 ## Features & Implementation
 
 * Front-end and back-end user authentication
@@ -60,7 +62,7 @@ Annotations are where users can add their insight into what they think a lyric m
 
 ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Annotation+show.png "Annotation Show")
 
-If an annotation already exists for a given slice of lyrics, the user needs just needs to click on the highlighted text and add their insight.
+If an annotation already exists for a given slice of lyrics, the user just needs to click on the highlighted text and add their insight.
 
 ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotaion")
 
