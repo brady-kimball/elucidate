@@ -2,10 +2,10 @@ class Api::TracksController < ApplicationController
   def index
     if params[:query]
       exact_query = params[:query]
-      exact_fuzzy_query = query.split("").join("%")
+      exact_fuzzy_query = exact_query.split("").join("%")
       query = "%#{exact_query}%"
       fuzzy_query = "%#{exact_fuzzy_query}%"
-      
+
       @tracks = Track.where("title ILIKE ?", fuzzy_query)
       @artists = Track.where("artist ILIKE ?", fuzzy_query)
       @lyrics = Track.where("lyrics ILIKE ?", query)

@@ -116,7 +116,7 @@ The search returns approximate matches for titles and artists, strict matches fo
 def index
   if params[:query]
     exact_query = params[:query]
-    exact_fuzzy_query = query.split("").join("%")
+    exact_fuzzy_query = exact_query.split("").join("%")
     query = "%#{exact_query}%"
     fuzzy_query = "%#{exact_fuzzy_query}%"
 
