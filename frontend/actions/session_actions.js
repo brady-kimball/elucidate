@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
-
+import { clearVotes, fetchVotes } from './vote_actions';
 // Action types, implemented so app breaks if misspelled
 
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -36,6 +36,8 @@ export const login = user => dispatch => {
   return APIUtil.login(user).then(
     returnedUser => dispatch(receiveCurrentUser(returnedUser)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    fetchVotes
   );
 };
 
@@ -43,5 +45,7 @@ export const logout = () => dispatch => {
   return APIUtil.logout().then(
     () => dispatch(receiveCurrentUser(null)),
     errors => dispatch(receiveErrors(errors.responseJSON))
+  ).then(
+    clearVotes
   );
 };

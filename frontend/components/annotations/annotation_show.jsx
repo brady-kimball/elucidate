@@ -40,17 +40,34 @@ class AnnotationShow extends React.Component {
     }
   }
 
+  setStyle() {
+    this.downvoteStyle = {};
+    this.upvoteStyle = {};
+    let votes = this.props.votes || {};
+    if (votes[this.props.annotation.id] === -1) {
+      this.downvoteStyle['color'] = "red";
+    } else if (votes[this.props.annotation.id] === 1) {
+      this.upvoteStyle['color'] = "green";
+    }
+
+  }
+
   render() {
     let annotation = this.props.annotation;
+    this.setStyle();
     return(
       <section className="annotation-detail">
         <section className="body">
           <section className="voting">
-            <button className="downvote" onClick={this.handleDownvote.bind(this)}>
+            <button className="downvote"
+                    style={this.downvoteStyle}
+                    onClick={this.handleDownvote.bind(this)}>
               <i className="fa fa-thumbs-down" aria-hidden="true"></i>
             </button>
             <span className="score">{this.props.annotation.score}</span>
-            <button className="upvote" onClick={this.handleUpvote.bind(this)}>
+            <button className="upvote"
+                    style={this.upvoteStyle}
+                    onClick={this.handleUpvote.bind(this)}>
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>
         </section>

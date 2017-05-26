@@ -1,4 +1,5 @@
-import { RECEIVE_VOTES, RECEIVE_VOTE } from '../actions/vote_actions';
+import { RECEIVE_VOTES, RECEIVE_VOTE, CLEAR_VOTES }
+  from '../actions/vote_actions';
 import { merge } from 'lodash';
 
 const votesReducer = (state={}, action) => {
@@ -7,13 +8,15 @@ const votesReducer = (state={}, action) => {
     case RECEIVE_VOTES:
       return Object.assign({}, action.votes);
     case RECEIVE_VOTE:
-      let dupState = merge({}, state)
+      let dupState = merge({}, state);
       if (action.vote.type === "Annotation") {
         dupState['annotations'][action.vote.id] = action.vote.value;
       } else {
         dupState['comments'][action.vote.id] = action.vote.value;
       }
-      return dupState
+      return dupState;
+    case CLEAR_VOTES:
+      return {};
     default:
       return state;
   }

@@ -6,7 +6,8 @@ import { destroyAnnotation, upvoteAnnotation, downvoteAnnotation }
 
 const mapStateToProps = state => {
   return ({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    votes: state.votes.annotations
   });
 };
 
