@@ -14,6 +14,12 @@ class TrackShow extends React.Component {
     this.props.fetchVotes();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.match.params.trackId !== this.props.match.params.trackId) {
+      this.props.fetchSingleTrack(newProps.match.params.trackId);
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {
