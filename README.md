@@ -120,7 +120,7 @@ export const findOffset = (node) => {
 
 Elucidate utilizes a single input field that returns results matching either artists, track titles, or song lyrics.  
 
-The search returns approximate matches for titles and artists, strict matches for lyrics using the following database queries:
+The search returns approximate matches for titles and artists, and strict matches for lyrics using the following database queries:
 
 ```Ruby
 def index
