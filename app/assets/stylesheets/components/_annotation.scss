@@ -144,6 +144,7 @@
 
                 &:hover {
                   border-color: red;
+                  box-shadow: -1px 1px darkred;
                 }
               }
 
@@ -191,7 +192,7 @@
             border: 1px solid $dark-gray;
 
             &:hover {
-              border-color: blue;
+              border-color: black;
             }
           }
         }
