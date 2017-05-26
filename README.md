@@ -14,19 +14,12 @@ All images are hosted using amazon web services.
 
 ## Features & Implementation
 
-* Front-end and back-end user authentication
+* Secure front-end and back-end user authentication using BCrypt
 * Ability to create, edit, update and destroy tracks
 * Add annotations to lyric snippets by highlighting text
 * Comments on annotations
 * Single search bar for tracks, artist, or lyrics
 * Voting on annotations and comments
-
-### Authentication
-
-Elucidate uses BCrypt to securely store usernames, emails and digests in the database.  Users can login using either their username or password.
-
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/auth.gif "Auth Forms")
-
 
 ### Tracks
 
@@ -34,7 +27,7 @@ Elucidate uses BCrypt to securely store usernames, emails and digests in the dat
 
 Users have full access to create, read, update, or destroy their tracks.  Tracks are indexed on the home page by number of annotations.
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Add+Track+Form.png "Add Track")
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Edit+Track+Form.png "Edit Track")
 
 Users can add tracks with just the artist information, track title and lyrics.  If they desire, a user can also add additional information like album art, a youtube link, and production information. Each youtube link is validated before submitting as follows:
 
@@ -47,11 +40,11 @@ validYoutubeLink() {
 }
 ```
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Edit+Track+Form.png "Edit Track")
+
 
 The track form is reused for editing tracks with the track information pre-populated and additional buttons added for update and deletion.
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Track+Show+Page.png "Track Show")
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Track+Show.png "Track Show")
 
 Each track has it's own show page, containing more information about the track (album art, producers, editors etc) as well as an embeddable youtube link to the song itself.  The lyrics are displayed with their corresponding annotations highlighted in yellow.
 
@@ -118,30 +111,9 @@ export const findOffset = (node) => {
 
 ### Search
 
-Elucidate utilizes a single input field that returns results matching either artists, track titles, or song lyrics.  
+Elucidate utilizes a single input field that returns fuzzy matching either artists, track titles, or song lyrics.  
 
-The search returns approximate matches for titles and artists, and strict matches for lyrics using the following database queries:
-
-```Ruby
-def index
-  if params[:query]
-    exact_query = params[:query]
-    exact_fuzzy_query = exact_query.split("").join("%")
-    query = "%#{exact_query}%"
-    fuzzy_query = "%#{exact_fuzzy_query}%"
-
-    @tracks = Track.where("title ILIKE ?", fuzzy_query)
-    @artists = Track.where("artist ILIKE ?", fuzzy_query)
-    @lyrics = Track.where("lyrics ILIKE ?", query)
-    render :search_index
-  else
-    @tracks = Track.all.includes(:annotations)
-    render :index
-  end
-end
-```
-
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Fuzzy+search.gif "Fuzzy Title Search")
+The search uses postgres queries to return fuzzy matches for artists and tracks and exact matches for lyrics in the [track controller](../blob/master/app/controllers/api/tracks_controller.rb)
 
 ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Lyrics+search.gif "Lyric Search")
 
