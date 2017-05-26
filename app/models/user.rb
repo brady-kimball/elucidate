@@ -20,6 +20,8 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Track
 
+  has_many :votes
+
   after_initialize :ensure_session_token
 
   attr_reader :password
