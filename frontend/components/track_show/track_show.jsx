@@ -3,6 +3,7 @@ import TrackShowHeaderContainer from './track_show_header_container';
 import { findOffset, randomId, validRange } from '../../util/annotation_util';
 import AnnotationFormContainer from "../annotations/annotation_form_container";
 import AnnotationContainerShowContainer from "../annotation_containers/annotation_container_show_container";
+import { sortedAnnotationContainers } from '../../reducers/selectors';
 
 class TrackShow extends React.Component {
   componentWillMount() {
@@ -18,7 +19,8 @@ class TrackShow extends React.Component {
     this.state = {
       selection: [],
       currentAnnotationContainer: {},
-      yPos: ""
+      yPos: "",
+      annotationContainers: []
     };
   }
 
@@ -106,8 +108,20 @@ class TrackShow extends React.Component {
     let lines = [];
     let lineNumber = 0;
     let lyricChunk;
+    let renderArray;
+    if (validRange(this.state.selection, this.props.annotationContainers)) {
+      let fakeContainer = {
+        start_index: this.state.selection[0],
+        end_index: this.state.selection[1]
+      };
+      renderArray = sortedAnnotationContainers(
+        this.props.annotationContainers.concat(fakeContainer)
+      );
+    } else {
+      renderArray = this.props.annotationContainers;
+    }
 
-    this.props.annotationContainers.forEach( (annotationContainer, idx) => {
+    renderArray.forEach( (annotationContainer, idx) => {
       lyricChunk = lyrics.slice(lineNumber, annotationContainer.start_index);
       lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
       lyricChunk = lyrics.slice(annotationContainer.start_index, annotationContainer.end_index);
@@ -136,6 +150,12 @@ class TrackShow extends React.Component {
     }
   }
 
+  clearSelection() {
+    this.setState({
+      selection: []
+    });
+  }
+
   renderAnnotation() {
     if (this.state.currentAnnotationContainer.id) {
       return <AnnotationContainerShowContainer container={this.state.currentAnnotationContainer} />;
@@ -145,7 +165,10 @@ class TrackShow extends React.Component {
           <header>
             <h3> Start a discussion! </h3>
           </header>
-          <AnnotationFormContainer selection={this.state.selection} trackId={this.props.track.id}/>
+          <AnnotationFormContainer
+            selection={this.state.selection}
+            clearSelection={this.clearSelection.bind(this)}
+            trackId={this.props.track.id}/>
         </section>
       )
     }

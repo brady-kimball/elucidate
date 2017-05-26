@@ -28,7 +28,8 @@ class AnnotationForm extends React.Component {
         start_index: this.props.selection[0],
         end_index: this.props.selection[1],
         track_id: this.props.trackId,
-      }).then(this.createAnnotationAfterContainer.bind(this))
+      }).then(this.createAnnotationAfterContainer.bind(this));
+      this.props.clearSelection();
     } else {
       this.props.createAnnotation({
         user_id: this.props.currentUser.id,
