@@ -148,6 +148,12 @@ Users can vote on all annotations and comments, which get displayed in descendin
 
 ### User page / Score Tracking
 
-### Artist Page
+Add a user page showing total score of their contributions, as well as their top annotations and comments.
+
+### Artist Page and Albums
+
+Add an album field to the track page, and an artist show page listing all their tracks by album (which link to track show page)
 
 ### Genres and Tags
+
+Add ability to add genres and tags to album.  Change track index page to filter songs by genres and tags.  
