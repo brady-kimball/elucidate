@@ -4,7 +4,7 @@
   flex-direction: column;
   z-index: 10;
   width: 300px;
-  border: 1px solid black;
+  border: none;
 
   .search-results{
     z-index: 9;
@@ -19,7 +19,7 @@
 
     .single-result{
       background: white;
-      margin: 1px 0;
+      margin: 1px 2px;
       display: flex;
       flex-direction: row;
       align-items: center;
