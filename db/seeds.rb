@@ -21,6 +21,18 @@ guest = User.create(
   password: "password"
 )
 
+u2 = User.create(
+  username: "justin",
+  email: "justin.macmillin@gmail.com",
+  password: "password"
+)
+
+u3 = User.create(
+  username: "tom",
+  email: "tom@gmail.com",
+  password: "password"
+)
+
 
 Track.destroy_all
 
@@ -526,6 +538,331 @@ Don't stop me now (because I'm having a good time)
 Don't stop me now (Yes I'm having a good time)
 I don't want to stop at all"
 )
+
+
+t7 = Track.create(
+  title: "17",
+  artist: "Youth Lagoon",
+  user_id: u2.id,
+  producers: "Jeremy Park and Trevor Powers",
+  link: "https://www.youtube.com/watch?v=b4_x063rhX4",
+  lyrics: "Roaming the campground out by the lake where we swam
+We were hunting for snakes
+But we couldn't find them
+Surrounded by nothing
+But the nothing's surrounded by us
+But it's just me in my room
+With my eyes shut
+
+When I was seventeen
+My mother said to me
+'Don't stop imagining. The day that you do is the day that you die.'
+Now I pull a wanton carriage
+Instead of the horses, grazing the lawn
+I was having fun
+We were all having fun
+
+My brain can think faster than I can
+I'm not fast enough
+Who is there to talk to
+That won't lock me up?
+At least God doesn't judge me by the thoughts that aren't mine
+The snakes I couldn't find
+I don't want to find
+
+When I was seventeen
+My mother said to me
+'Don't stop imagining. The day that you do is the day that you die.'
+Now I pull a one ton carriage
+Instead of the horses, grazing the lawn
+I was having fun
+We were all having fun
+When I was seventeen
+My mother said to me
+'Don't stop imagining. The day that you do is the day that you die.'
+Now I pull a one ton carriage
+Instead of the horses, grazing the lawn
+I was having fun
+We were all having fun"
+)
+
+t7.art = File.open('app/assets/images/youth-lagoon-17')
+t7.save!
+
+t8 = Track.create(
+  title: "The Gardener",
+  artist: "The Tallest Man On Earth",
+  user_id: t3.id,
+  link: "https://www.youtube.com/watch?v=3RpBLwaEtrI"
+  lyrics: "I sense a runner in the garden
+Although my judgements known to fail
+Once built a steamboat in a meadow
+Cause I'd forgotten how to sail
+
+I know the runner's going to tell you
+There ain't no cowboy in my hair
+So now he's buried by the daisies
+So I could stay the tallest man in your eyes, babe
+
+I sense a spy up in the chimney
+From all the evidence I've burned
+I guess he'll read it in the smoke now
+And soon to ashes I'll return
+
+I know the spy is going to tell you
+It's not my flag up in the pole
+So now he's buried by the lilies
+So I could stay forever more in your eyes, babe
+
+I sense a leak inside my phone now
+From all the lies I have told
+I know he has your private number
+And soon he'll make that vicious call
+
+I know the leak is going to tell you
+There ain't now puppy on your leash
+So now he'll fertilize the roses
+So I could stay the king you see
+In your eyes, babe
+In your eyes, babe
+
+So now we're dancing through the garden
+And what a garden I have made
+And now that death will grow my jasmine
+I find it soothing I'm afraid
+
+Now there is no need for suspicion
+There ain't no frog kissing your hand
+I won't be lying when I tell you
+That I'm a Gardener
+I'm a man
+In your eyes, babe
+In your eyes, babe
+In your eyes, babe
+In your eyes, babe"
+)
+
+t8.art = File.open('app/assets/images/the-gardener')
+t8.save!
+
+t7 = Track.create(
+  title: "All My Days",
+  artist: "Alexi Murdoch",
+  user_id:  guest.id
+  producers: "Alexi Murdoch",
+  writers: "Alexi Murdoch",
+  link: "https://www.youtube.com/watch?v=HjHvJE1XU7E"
+  lyrics: "[Verse 1]
+Well I have been searching all of my days
+All of my days
+Many a road, you know
+I've been walking on
+All of my days
+And I've been trying to find
+What's been in my mind
+As the days keep turning into night
+
+[Verse 2]
+Well I have been quietly standing in the shade
+All of my days
+Watch the sky breaking on the promise that we made
+All of this rain
+And I've been trying to find
+What's been in my mind
+As the days keep turning into night
+
+[Verse 3]
+Well many a night I found myself with no friends standing near
+All of my days
+I cried aloud
+I shook my hands
+What am I doing here
+All of these days
+For I look around me
+And my eyes confound me
+And it's just too bright
+As the days keep turning into night
+
+[Verse 4]
+Now I see clearly
+It's you I'm looking for
+All of my days
+Soon I'll smile
+I know I'll feel this loneliness no more
+All of my days
+For I look around me
+And it seems you've found me
+And it's coming into sight
+
+[Outro]
+As the days keep turning into night
+As the days keep turning into night
+And even breathing feels all right
+Yes, even breathing feels all right
+Now even breathing feels all right
+It's even breathing
+Feels all right"
+)
+
+t7.art = File.open('app/assets/images/all-my-days')
+t7.save!
+
+t9 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t9.art = File.open()
+t9.save!
+
+t10 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t10.art = File.open()
+t10.save!
+
+t11 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t11.art = File.open()
+t11.save!
+
+t12 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t12.art = File.open()
+t12.save!
+
+t13 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t13.art = File.open()
+t13.save!
+
+t14 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t14.art = File.open()
+t14.save!
+
+t15 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t15.art = File.open()
+t15.save!
+
+t16 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t16.art = File.open()
+t16.save!
+
+t17 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t17.art = File.open()
+t17.save!
+
+t18 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t18.art = File.open()
+t18.save!
+
+t19 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t19.art = File.open()
+t19.save!
+
+t20 = Track.create(
+  title:
+  artist:
+  user_id:
+  producers:
+  writers:
+  link:
+  lyrics:
+)
+
+t20.art = File.open()
+t20.save!
+
 
 AnnotationContainer.destroy_all
 a1 = AnnotationContainer.create(
