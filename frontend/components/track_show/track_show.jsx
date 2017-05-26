@@ -122,6 +122,7 @@ class TrackShow extends React.Component {
       let fakeContainer = {
         start_index: this.state.selection[0],
         end_index: this.state.selection[1],
+        active: true,
         id: -1
       };
       renderArray = sortedAnnotationContainers(
@@ -132,12 +133,29 @@ class TrackShow extends React.Component {
     }
 
     renderArray.forEach( (annotationContainer, idx) => {
-      lyricChunk = lyrics.slice(lineNumber, annotationContainer.start_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'))
-      lyricChunk = lyrics.slice(annotationContainer.start_index, annotationContainer.end_index);
-      lines = lines.concat(this.renderLyricChunk(lyricChunk, `lyrics-annotated`, annotationContainer));
+      let klass;
+      lyricChunk = lyrics.slice(
+        lineNumber, annotationContainer.start_index
+      );
+      lines = lines.concat(this.renderLyricChunk(
+        lyricChunk, 'lyrics-normal')
+      );
+      lyricChunk = lyrics.slice(
+        annotationContainer.start_index, annotationContainer.end_index
+      );
+      if (
+        annotationContainer.active ||
+        (annotationContainer === this.state.currentAnnotationContainer)
+      ) {
+        klass = "lyrics-active";
+      } else {
+        klass = "lyrics-annotated";
+      }
+      lines = lines.concat(
+        this.renderLyricChunk(lyricChunk, klass, annotationContainer)
+      );
       lineNumber = annotationContainer.end_index;
-    })
+    });
 
     lyricChunk = lyrics.slice(lineNumber, lyrics.length);
     lines = lines.concat(this.renderLyricChunk(lyricChunk, 'lyrics-normal'));

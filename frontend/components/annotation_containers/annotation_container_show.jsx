@@ -26,6 +26,7 @@ class AnnotationContainerShow extends React.Component {
 
     return (
       <section className='annotation-container'>
+        <p className="arrow"><i className="arrow left"></i></p>
         <ul className="annotation-items">{this.renderAnnotations()}</ul>
         <AnnotationFormContainer container={container} />
       </section>

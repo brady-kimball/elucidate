@@ -137,13 +137,16 @@
         line-height: 1.5;
 
         .lyrics-annotated {
-        	background: $yellow;
-
+        	background: $light-gray;
 
           &:hover {
             cursor: pointer;
-            background: orange;
+            background: $yellow;
           }
+        }
+
+        .lyrics-active {
+          background: $yellow;
         }
       }
 

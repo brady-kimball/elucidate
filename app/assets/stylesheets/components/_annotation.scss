@@ -65,6 +65,23 @@
       align-items: flex-start;
       width: 100%;
 
+      .arrow {
+        float: left;
+        position: absolute;
+        left: -4.25px;
+        top: 7px;
+
+        .left {
+          border: solid blue;
+          border-width: 0 3px 3px 0;
+          background: white;
+          display: inline-block;
+          padding: 5px;
+          transform: rotate(135deg);
+          -webkit-transform: rotate(135deg);
+        }
+      }
+
       .annotation-items {
 
         margin: 0 5px;
