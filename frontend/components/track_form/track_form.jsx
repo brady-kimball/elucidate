@@ -91,7 +91,9 @@ class TrackForm extends React.Component {
           this.props.history.push(`/tracks/${track.id}`);
         });
     } else {
-      formData.append("track[art]", file);
+      if (file) {
+        formData.append("track[art]", file);
+      }
       this.props.createTrack(formData)
         .then( ({ track }) => {
           this.props.history.push(`/tracks/${track.id}`);

@@ -40,7 +40,9 @@ class SignUpForm extends React.Component {
     formData.append("user[username]", this.state.username);
     formData.append("user[email]", this.state.email);
     formData.append("user[password]", this.state.password);
-    formData.append("user[avatar]", file);
+    if (file) {
+      formData.append("user[avatar]", file);
+    }
     this.props.signup(formData);
   }
 
