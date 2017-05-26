@@ -37,7 +37,7 @@ export const login = user => dispatch => {
     returnedUser => dispatch(receiveCurrentUser(returnedUser)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   ).then(
-    fetchVotes
+    () => dispatch(fetchVotes())
   );
 };
 
@@ -46,6 +46,6 @@ export const logout = () => dispatch => {
     () => dispatch(receiveCurrentUser(null)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   ).then(
-    clearVotes
+    () => dispatch(clearVotes())
   );
 };

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, format: {
-    with: /\A\w*@\w*.\w*\z/,
+    with: /\A\w*.*\w*@\w*.\w*\z/,
     message: "must be of form 'example@website.domain'"
   }
   validates :username, format: {

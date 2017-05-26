@@ -1,24 +1,16 @@
-# README
+# Elucidate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Elucidate live](https://elucidate-me.herokuapp.com/#/ "Elucidate")
 
-Things you may want to cover:
+Elucidate is a webapp and online community inspired by [Genius](genius.com) for sharing song information and lyric interpretation, allowing users to submit tracks, annotations, comments, and vote for their favorite interpretations.  It was built using Ruby on Rails in conjunction with React/Redux and PostgreSQL.
 
-* Ruby version
+## Features & Implementation
 
-* System dependencies
+* Front-end and Back-end user authentication
+* Ability to create, edit, update and destroy tracks
+* Add annotations to lyric snippets by highlighting text
+* Comments on annotations
+* Single search bar for tracks, artist, or lyrics
+* Voting on annotations and comments
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Authentication

@@ -31,8 +31,24 @@
         border-bottom: 2px solid black;
         transition: border-bottom .5s;
       }
+
+      &[type="file"] {
+        margin-bottom: 5px;
+      }
     }
 
+    label {
+      margin: 10px 10px 5px 7px;
+    }
+
+    .login-buttons {
+      display: flex;
+      justify-content: space-around;
+
+      button {
+        width: 40%;
+      }
+    }
     button {
       border: 1px solid $dark-gray;
       margin: 10px 0;

@@ -22,7 +22,7 @@ guest = User.create(
 )
 
 u2 = User.create(
-  username: "justin",
+  username: "justin10",
   email: "justin.macmillin@gmail.com",
   password: "password"
 )
@@ -592,7 +592,7 @@ t7.save!
 t8 = Track.create(
   title: "The Gardener",
   artist: "The Tallest Man On Earth",
-  user_id: t3.id,
+  user_id: u3.id,
   link: "https://www.youtube.com/watch?v=3RpBLwaEtrI",
   lyrics: "I sense a runner in the garden
 Although my judgements known to fail
@@ -857,7 +857,7 @@ t11.save!
 t12 = Track.create(
   title: "Furr",
   artist: "Blitzen Trapper",
-  user_id: u2.id
+  user_id: u2.id,
   link: "https://www.youtube.com/watch?v=CmBgxP56R1I",
   lyrics: "[Verse 1]
 Yeah, when I was only seven-teen,
@@ -1031,7 +1031,7 @@ And it's a pink moon
 Yes, a pink moon"
 )
 
-t14.art = File.open('app/assets/images/pink-moon')
+t14.art = File.open('app/assets/images/pink-moon.jpg')
 t14.save!
 
 t15 = Track.create(
@@ -1082,7 +1082,7 @@ Could not find your way back
 [Chorus 2]"
 )
 
-t15.art = File.open('app/assets/images/coffins.jpg')
+t15.art = File.open('app/assets/images/coffins.png')
 t15.save!
 
 t16 = Track.create(
@@ -1143,7 +1143,7 @@ It's a partial fantasy
 We're living in a land that went astray from history"
 )
 
-t16.art = File.open('app/assets/images/bright-whites')
+t16.art = File.open('app/assets/images/bright-whites.jpg')
 t16.save!
 
 t17 = Track.create(
@@ -1300,7 +1300,7 @@ Eyes that light up, eyes look through you
 Cover up the blank spots, hit me on the head, ah-ooh"
 )
 
-t19.art = File.open('app/assets/images/naive')
+t19.art = File.open('app/assets/images/naive.png')
 t19.save!
 
 t20 = Track.create(
@@ -1358,7 +1358,7 @@ Walk like an Egyptian
 Walk like an Egyptian"
 )
 
-t20.art = File.open()
+t20.art = File.open('app/assets/images/walk.jpg')
 t20.save!
 
 

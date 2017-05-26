@@ -15,6 +15,15 @@ class LogInForm extends React.Component {
     this.props.login(this.state);
   }
 
+  guestLogin(e) {
+    e.preventDefault();
+    let _guest = {
+      userIdentifier: "guest",
+      password: "password"
+    };
+    this.props.login(_guest);
+  }
+
   update(property) {
     return e => {
       e.preventDefault();
@@ -33,7 +42,13 @@ class LogInForm extends React.Component {
                 placeholder="Enter password"
                 value={this.state.password}
                 onChange={this.update("password")}/>
-        <button>Log in</button>
+        <section className="login-buttons">
+          <button type={"button"}
+            onClick={this.guestLogin.bind(this)}>
+            Guest
+          </button>
+          <button>Log in</button>
+        </section>
       </form>
     );
   }
