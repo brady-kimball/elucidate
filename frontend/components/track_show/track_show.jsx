@@ -54,8 +54,6 @@ class TrackShow extends React.Component {
 
       if (track.lyrics.slice(start, end) === selection.toString() ) {
         this.setState({selection: [start, end]});
-        console.log(start);
-        console.log(end);
         break;
       }
     }
