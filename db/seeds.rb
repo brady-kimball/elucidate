@@ -21,13 +21,13 @@ guest = User.create(
   password: "password"
 )
 
-u2 = User.create(
+justin = User.create(
   username: "justin10",
   email: "justin.macmillin@gmail.com",
   password: "password"
 )
 
-u3 = User.create(
+tom = User.create(
   username: "tom",
   email: "tom@gmail.com",
   password: "password"
@@ -543,7 +543,7 @@ I don't want to stop at all"
 t7 = Track.create(
   title: "17",
   artist: "Youth Lagoon",
-  user_id: u2.id,
+  user_id: justin.id,
   producers: "Jeremy Park and Trevor Powers",
   link: "https://www.youtube.com/watch?v=b4_x063rhX4",
   lyrics: "Roaming the campground out by the lake where we swam
@@ -592,7 +592,7 @@ t7.save!
 t8 = Track.create(
   title: "The Gardener",
   artist: "The Tallest Man On Earth",
-  user_id: u3.id,
+  user_id: tom.id,
   link: "https://www.youtube.com/watch?v=3RpBLwaEtrI",
   lyrics: "I sense a runner in the garden
 Although my judgements known to fail
@@ -707,7 +707,7 @@ Feels all right"
 t7.art = File.open('app/assets/images/all-my-days.jpg')
 t7.save!
 
-t9 = Track.create(
+wilhelm = Track.create(
   title: "The Wilhelm Scream",
   artist: "James Blake",
   user_id: guest.id,
@@ -733,7 +733,7 @@ t9.save!
 t10 = Track.create(
   title: "Broadripple is Burning",
   artist: "Margot & the Nuclear So and So's",
-  user_id: u2.id,
+  user_id: justin.id,
   link: "https://www.youtube.com/watch?v=WXTVDUYIZs8",
   lyrics: "Children
 Broadripple is burning
@@ -857,7 +857,7 @@ t11.save!
 t12 = Track.create(
   title: "Furr",
   artist: "Blitzen Trapper",
-  user_id: u2.id,
+  user_id: justin.id,
   link: "https://www.youtube.com/watch?v=CmBgxP56R1I",
   lyrics: "[Verse 1]
 Yeah, when I was only seven-teen,
@@ -1002,7 +1002,7 @@ t13.save!
 t14 = Track.create(
   title: "Pink Moon",
   artist: "Nick Drake",
-  user_id: u2.id,
+  user_id: justin.id,
   producers: "John Wood",
   link: "https://www.youtube.com/watch?v=aXnfhnCoOyo",
   lyrics: "[Verse]
@@ -1088,7 +1088,7 @@ t15.save!
 t16 = Track.create(
   title: "Bright Whites",
   artist: "Kishi Bashi",
-  user_id: u2.id,
+  user_id: justin.id,
   writers: "Kishi Bashi",
   link: "https://www.youtube.com/watch?v=6wcZb80f5VE",
   lyrics: "Keya keya sorya douse ne
@@ -1306,7 +1306,7 @@ t19.save!
 t20 = Track.create(
   title: "Walk Like an Egyptian",
   artist: "The Bangles",
-  user_id: u3.id,
+  user_id: tom.id,
   producers: "David Kahne",
   link: "https://www.youtube.com/watch?v=Cv6tuzHUuuk",
   lyrics: "All the old paintings on the tomb
@@ -1381,6 +1381,12 @@ a3 = AnnotationContainer.create(
   end_index: 150
 )
 
+a4 = AnnotationContainer.create(
+  track_id: wilhelm.id,
+  start_index: 0,
+  end_index: 147
+)
+
 Annotation.destroy_all
 
 a11 = Annotation.create(
@@ -1405,6 +1411,10 @@ a31 = Annotation.create(
   annotation_container_id: a3.id,
   user_id: u1.id,
   body: "“Final show” suggests death, and “best clothes” indicates the following events occur at—or are the result of—a funeral, since the dead are traditionally buried in their finest attire."
+)
+
+wil_a1 = Annotation.create(
+  annotation_container_id: a4.id
 )
 
 Comment.destroy_all
