@@ -41,8 +41,14 @@ export const signup = user => dispatch => {
 
 export const login = user => dispatch => {
   return APIUtil.login(user).then(
-    returnedUser => dispatch(receiveCurrentUser(returnedUser)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    returnedUser => {
+      dispatch(receiveCurrentUser(returnedUser));
+      dispatch(receiveLoading(false));
+    },
+    errors => {
+      dispatch(receiveErrors(errors.responseJSON));
+      dispatch(receiveLoading(false));
+    }
   ).then(
     () => dispatch(fetchVotes())
   );

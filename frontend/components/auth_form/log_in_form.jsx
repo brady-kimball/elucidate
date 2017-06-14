@@ -12,7 +12,10 @@ class LogInForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    if (!this.props.loading) {
+      this.props.receiveLoading(true);
+      this.props.login(this.state);
+    }
   }
 
   guestLogin(e) {
@@ -21,7 +24,10 @@ class LogInForm extends React.Component {
       userIdentifier: "guest",
       password: "password"
     };
-    this.props.login(_guest);
+    if (!this.props.loading) {
+      this.props.receiveLoading(true);
+      this.props.login(_guest);
+    }
   }
 
   update(property) {
@@ -29,6 +35,30 @@ class LogInForm extends React.Component {
       e.preventDefault();
       this.setState({[property]: e.target.value});
     };
+  }
+
+  renderButtons() {
+    if (this.props.loading) {
+      return (
+        <section className="login-buttons">
+          <button className='disabled' type={"button"}
+            onClick={this.guestLogin.bind(this)}>
+            Guest
+          </button>
+          <button className='disabled'>Log In</button>
+        </section>
+      );
+    } else {
+      return (
+        <section className="login-buttons">
+          <button type={"button"}
+            onClick={this.guestLogin.bind(this)}>
+            Guest
+          </button>
+          <button>Log In</button>
+        </section>
+      );
+    }
   }
 
   render() {
@@ -42,13 +72,7 @@ class LogInForm extends React.Component {
                 placeholder="Enter password"
                 value={this.state.password}
                 onChange={this.update("password")}/>
-        <section className="login-buttons">
-          <button type={"button"}
-            onClick={this.guestLogin.bind(this)}>
-            Guest
-          </button>
-          <button>Log in</button>
-        </section>
+        {this.renderButtons()}
       </form>
     );
   }
