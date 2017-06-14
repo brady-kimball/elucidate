@@ -4,7 +4,20 @@
   flex-direction: column;
   z-index: 10;
   width: 300px;
-  border: none;
+
+  ::-webkit-scrollbar {
+  width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  };
 
   .search-results{
     z-index: 9;
@@ -13,6 +26,8 @@
     background: $light-gray;
     overflow-y: auto;
     max-height: 70vh;
+
+
 
     .header {
       font-weight: bolder;
