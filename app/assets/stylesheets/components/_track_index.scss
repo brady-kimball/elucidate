@@ -9,10 +9,6 @@
   .track-index-item{
     border-bottom: 1px solid $light-gray;
 
-    figure {
-      margin: 5px;
-    }
-
     &:hover {
       background: $lightest-gray;
     }
@@ -82,6 +78,7 @@
       }
 
       figure {
+        margin: 5px;
         border: 1px solid black;
         margin-right: 8px;
       }
