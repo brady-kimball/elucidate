@@ -43,7 +43,18 @@ class SignUpForm extends React.Component {
     if (file) {
       formData.append("user[avatar]", file);
     }
-    this.props.signup(formData);
+    if (!this.props.loading) {
+      this.props.receiveLoading(true);
+      this.props.signup(formData);
+    }
+  }
+
+  renderButton() {
+    if (this.props.loading) {
+      return <button className='disabled'>Sign Up</button>;
+    } else {
+      return <button>Sign Up</button>;
+    }
   }
 
   render() {
@@ -71,7 +82,7 @@ class SignUpForm extends React.Component {
           <input  type="file"
                   onChange={this.uploadFile.bind(this)}/>
         {img}
-        <button>Sign Up</button>
+        {this.renderButton()}
       </form>
     );
   }

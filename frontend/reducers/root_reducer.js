@@ -6,6 +6,7 @@ import annotationContainersReducer from './annotation_containers_reducer';
 import commentsReducer from './comments_reducer';
 import searchReducer from './search_reducer';
 import votesReducer from './votes_reducer';
+import loadingReducer from './loading_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   annotationContainers: annotationContainersReducer,
   searchResults: searchReducer,
   comments: commentsReducer,
-  votes: votesReducer
+  votes: votesReducer,
+  loading: loadingReducer
 });
 
 export default rootReducer;

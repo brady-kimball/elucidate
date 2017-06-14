@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import { clearVotes, fetchVotes } from './vote_actions';
+import { receiveLoading } from './loading_actions';
 // Action types, implemented so app breaks if misspelled
 
 export const RECEIVE_USER = "RECEIVE_USER";
@@ -27,8 +28,14 @@ export const clearErrors = () => ({
 
 export const signup = user => dispatch => {
   return APIUtil.signup(user).then(
-    returnedUser => dispatch(receiveCurrentUser(returnedUser)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+    returnedUser => {
+      dispatch(receiveCurrentUser(returnedUser));
+      dispatch(receiveLoading(false));
+    },
+    errors => {
+      dispatch(receiveErrors(errors.responseJSON));
+      dispatch(receiveLoading(false));
+    }
   );
 };
 
