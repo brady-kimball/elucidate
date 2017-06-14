@@ -9,6 +9,10 @@
   .track-index-item{
     border-bottom: 1px solid $light-gray;
 
+    figure {
+      margin: 5px;
+    }
+
     &:hover {
       background: $lightest-gray;
     }
