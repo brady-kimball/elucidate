@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column;
     background: $light-gray;
+    overflow-y: auto;
+    max-height: 70vh;
 
     .header {
       font-weight: bolder;
@@ -24,15 +26,18 @@
       flex-direction: row;
       align-items: center;
       cursor: pointer;
+      min-height: 60px;
+      height: auto;
+      max-height: 70px;
 
       &:hover{
         background: $yellow;
       }
 
       .thumbnail{
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
         object-fit: cover;
         margin: 3px 5px;
       }
