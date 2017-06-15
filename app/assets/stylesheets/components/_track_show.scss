@@ -36,7 +36,11 @@
         .song-art {
           height: 175px;
           width: 175px;
-          object-fit: cover;
+
+          img{
+
+            object-fit: cover;
+          }
           position: relative;
 
           .edit-art {
