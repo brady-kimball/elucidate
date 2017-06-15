@@ -7,11 +7,21 @@ import { sortedAnnotationContainers } from '../../reducers/selectors';
 
 class TrackShow extends React.Component {
   componentWillMount() {
-    this.props.fetchSingleTrack(this.props.match.params.trackId);
-    this.props.fetchAnnotations(this.props.match.params.trackId);
-    this.props.fetchAnnotationContainers(this.props.match.params.trackId);
-    this.props.fetchComments(this.props.match.params.trackId);
-    this.props.fetchVotes();
+    this.props.receiveLoading(true);
+    Promise.all([
+      this.props.fetchSingleTrack(this.props.match.params.trackId),
+      this.props.fetchAnnotations(this.props.match.params.trackId),
+      this.props.fetchAnnotationContainers(this.props.match.params.trackId),
+      this.props.fetchComments(this.props.match.params.trackId),
+      this.props.fetchVotes()
+    ]).then(
+      success => {
+        this.props.receiveLoading(false);
+      },
+      fail => {
+        this.props.receiveLoading(false);
+      }
+    );
   }
 
   componentWillReceiveProps(newProps) {
@@ -230,26 +240,40 @@ class TrackShow extends React.Component {
     }
   }
 
-  render() {
+  checkLoading() {
     let track = this.props.track || {};
-    return(
-      <div className="song-show">
-        <TrackShowHeaderContainer track={track} />
-
+    if (this.props.loading) {
+      return(
+        <main className="song-body">
+          <div className="loader"></div>
+        </main>
+      );
+    } else {
+      return(
         <main className="song-body col-layout">
           <section className="col primary-col lyrics-container">
             {this.editButton(track)}
             <section onMouseUp={this.getRange.bind(this)}
-                      className="lyrics">
+              className="lyrics">
               {this.renderLyrics()}
             </section>
             {this.deleteButton(track)}
           </section>
 
           <section className="col secondary-col annotation-col">
-              {this.renderAnnotation()}
+            {this.renderAnnotation()}
           </section>
         </main>
+      );
+    }
+  }
+
+  render() {
+    let track = this.props.track || {};
+    return(
+      <div className="song-show">
+        <TrackShowHeaderContainer track={track} />
+        {this.checkLoading()}
       </div>
     );
   }

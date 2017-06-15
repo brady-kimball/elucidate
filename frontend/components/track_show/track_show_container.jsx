@@ -7,6 +7,7 @@ import { fetchAnnotationContainers } from '../../actions/annotation_container_ac
 import { destroyAnnotationContainer } from '../../actions/annotation_container_actions';
 import { fetchComments } from '../../actions/comment_actions';
 import { fetchVotes } from '../../actions/vote_actions';
+import { receiveLoading } from '../../actions/loading_actions';
 
 
 const mapStateToProps = (state, { match }) => {
@@ -14,7 +15,8 @@ const mapStateToProps = (state, { match }) => {
     trackIds: Object.keys(state.tracks),
     track: state.tracks[match.params.trackId],
     currentUser: state.session.currentUser,
-    annotationContainers: sortedAnnotationContainers(state.annotationContainers)
+    annotationContainers: sortedAnnotationContainers(state.annotationContainers),
+    loading: state.loading.loading
   };
 };
 
@@ -25,7 +27,8 @@ const mapDispatchToProps = dispatch => ({
   fetchComments: (id) => dispatch(fetchComments(id)),
   deleteTrack: (id) => dispatch(deleteTrack(id)),
   destroyAnnotationContainer: (id) => dispatch(destroyAnnotationContainer(id)),
-  fetchVotes: () => dispatch(fetchVotes())
+  fetchVotes: () => dispatch(fetchVotes()),
+  receiveLoading: bool => dispatch(receiveLoading(bool))
 });
 
 
