@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/track_api_util';
+import { receiveLoading } from './loading_actions';
 
 // Action types
 
@@ -33,13 +34,19 @@ export const receiveErrors = (errors) => ({
 
 export const fetchTracks = () => dispatch => {
   return APIUtil.fetchTracks().then(
-    tracks => dispatch(receiveTracks(tracks))
+    tracks => {
+      dispatch(receiveTracks(tracks));
+      dispatch(receiveLoading(false));
+    }
   );
 };
 
 export const fetchSingleTrack = (id) => dispatch => {
   return APIUtil.fetchSingleTrack(id).then(
-    track => dispatch(receiveTrack(track))
+    track => {
+      dispatch(receiveTrack(track));
+      dispatch(receiveLoading(false));
+    }
   );
 };
 

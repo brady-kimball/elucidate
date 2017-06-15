@@ -5,6 +5,7 @@ import TrackIndexItem from './track_index_item';
 
 class TrackIndex extends React.Component {
   componentWillMount() {
+    this.props.receiveLoading(true)
     this.props.fetchTracks();
   }
 
@@ -19,14 +20,22 @@ class TrackIndex extends React.Component {
   }
 
   render() {
-    return(
-      <section className="track-index">
-        <h3>Top Songs</h3>
-        <ul>
-          {this.renderTracks()}
-        </ul>
-      </section>
-    );
+    if (this.props.loading) {
+      return(
+        <section className="track-index">
+          <div className="loader"></div>
+        </section>
+      );
+    } else {
+      return(
+        <section className="track-index">
+          <h3>Top Songs</h3>
+          <ul>
+            {this.renderTracks()}
+          </ul>
+        </section>
+      );
+    }
   }
 }
 
