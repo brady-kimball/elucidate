@@ -2,7 +2,8 @@ import React from 'react';
 
 class TrackForm extends React.Component {
   componentWillMount() {
-    if (this.props.track && (this.props.currentUser.id !== this.props.track.user_id)) {
+    if (this.props.track &&
+       (this.props.currentUser.id !== this.props.track.user_id)) {
       this.props.history.replace(`/tracks/${this.props.match.params.trackId}`);
     }
     if (!(this.props.track) && this.props.match.params.trackId) {
@@ -78,6 +79,9 @@ class TrackForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.props.loading) {
+      return;
+    }
     if (this.state.link && !this.validYoutubeLink()) {
       alert('Please check the format of your youtube link and try again :)');
       return;
@@ -97,6 +101,7 @@ class TrackForm extends React.Component {
         formData.append("track[art]", file);
       }
       formData.append("track[id]", this.props.track.id);
+      this.props.receiveLoading(true);
       this.props.updateTrack(formData)
         .then( ({ track }) => {
           this.props.history.push(`/tracks/${track.id}`);
@@ -105,6 +110,7 @@ class TrackForm extends React.Component {
       if (file) {
         formData.append("track[art]", file);
       }
+      this.props.receiveLoading(true);
       this.props.createTrack(formData)
         .then( ({ track }) => {
           this.props.history.push(`/tracks/${track.id}`);
@@ -136,13 +142,23 @@ class TrackForm extends React.Component {
 
   renderDeleteButton() {
     if (this.props.track) {
-      return(
-        <button type="button"
-                onClick={this.handleDelete.bind(this)}
-                className="delete">
+      if (this.props.loading) {
+        return(
+          <button className='disabled' type="button"
+            onClick={this.handleDelete.bind(this)}
+            className="delete">
             Delete track
-        </button>
-      );
+          </button>
+        );
+      } else {
+        return(
+          <button type="button"
+            onClick={this.handleDelete.bind(this)}
+            className="delete">
+            Delete track
+          </button>
+        );
+      }
     }
   }
 
@@ -151,6 +167,32 @@ class TrackForm extends React.Component {
       return "Edit Track";
     } else {
       return "Add a Track";
+    }
+  }
+
+  renderButtons() {
+    if (this.props.loading) {
+      return (
+        <section className="buttons">
+          <button className='disabled'
+            type="button"
+            onClick={this.handleBack.bind(this)}>
+            Back
+          </button>
+          <button className='disabled'>{this.buttonText()}</button>
+          {this.renderDeleteButton()}
+        </section>
+      );
+    } else {
+      return(
+        <section className="buttons">
+          <button type="button" onClick={this.handleBack.bind(this)}>
+            Back
+          </button>
+          <button>{this.buttonText()}</button>
+          {this.renderDeleteButton()}
+        </section>
+      );
     }
   }
 
@@ -250,13 +292,7 @@ class TrackForm extends React.Component {
                 </section>
               </section>
               <hr />
-              <section className="buttons">
-                <button type="button" onClick={this.handleBack.bind(this)}>
-                  Back
-                </button>
-                <button>{this.buttonText()}</button>
-                {this.renderDeleteButton()}
-              </section>
+              {this.renderButtons()}
             </form>
           </article>
         </main>

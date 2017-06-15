@@ -96,8 +96,6 @@ hr {
 	Inputs
 */
 
-
-
 input[type="search"] {
 	padding: 5px;
 }
@@ -125,4 +123,9 @@ input[type="search"] {
 @keyframes spin {
 		0% { transform: rotate(0deg); }
 		100% { transform: rotate(360deg); }
+}
+
+.disabled {
+  opacity: .5;
+  cursor: wait;
 }

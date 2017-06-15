@@ -52,20 +52,29 @@ export const fetchSingleTrack = (id) => dispatch => {
 
 export const createTrack = (track) => dispatch => {
   return APIUtil.createTrack(track).then(
-    returnedTrack => dispatch(receiveTrack(returnedTrack)),
+    returnedTrack => {
+      dispatch(receiveLoading(false));
+      return dispatch(receiveTrack(returnedTrack));
+    },
     err => dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const updateTrack = track => dispatch => {
   return APIUtil.updateTrack(track).then(
-    returnedTrack => dispatch(receiveTrack(returnedTrack)),
+    returnedTrack => {
+      dispatch(receiveLoading(false));
+      return dispatch(receiveTrack(returnedTrack));
+    },
     err => dispatch(receiveErrors(err.responseJSON))
   );
 };
 
 export const deleteTrack = id => dispatch => {
   return APIUtil.deleteTrack(id).then(
-    track => dispatch(destroyTrack(track.id))
+    track => {
+      dispatch(receiveLoading(false));
+      return dispatch(destroyTrack(track.id));
+    }
   );
 };
