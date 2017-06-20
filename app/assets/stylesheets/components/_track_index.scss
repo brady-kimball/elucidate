@@ -40,6 +40,10 @@
         height: 80px;
         width: 80px;
         object-fit: cover;
+
+        img {
+          object-fit: cover;
+        }
       }
 
       h3 {
@@ -52,6 +56,10 @@
       figure {
         height: 56px;
         width: 56px;
+
+        img {
+          object-fit: cover;
+        }
       }
       h3, h5 {
         display: inline;
