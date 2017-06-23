@@ -40,7 +40,7 @@
             flex: .8;
             border: 1px solid $dark-gray;
             border-radius: 5px;
-            padding: 3px;
+            padding: 8px;
 
             &:focus {
               border-color: black;
@@ -54,6 +54,7 @@
 
             &:hover {
               border-color: black;
+              color: blue;
             }
           }
         }
@@ -179,7 +180,7 @@
             flex: .8;
             border: 1px solid $dark-gray;
             border-radius: 5px;
-            padding: 3px;
+            padding: 8px;
 
             &:focus {
               border-color: black;
@@ -192,7 +193,9 @@
             border: 1px solid $dark-gray;
 
             &:hover {
+              color: blue;
               border-color: black;
+              box-shadow: none;
             }
           }
         }
