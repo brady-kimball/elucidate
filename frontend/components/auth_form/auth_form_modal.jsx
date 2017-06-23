@@ -37,7 +37,7 @@ class AuthFormModal extends React.Component {
         maxWidth    : '560px',
         minWidth    : '400px',
         height      : 'auto',
-        'z-index'   : 10
+        zIndex      : 10
       }
     };
   }

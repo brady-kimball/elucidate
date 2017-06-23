@@ -2,13 +2,13 @@
 
 [Elucidate live](http://www.elucide.life/ "Elucidate")
 
-Elucidate is a webapp and online community inspired by [Genius](genius.com) for sharing song information and lyric interpretation, allowing users to submit tracks, annotations, comments, and vote for their favorite interpretations.  It was built using Ruby on Rails in conjunction with React/Redux and PostgreSQL.
+Elucidate is a web-app and online community inspired by [Genius](genius.com) for sharing song information and lyric interpretation, allowing users to submit tracks, annotations, comments, and vote for their favorite interpretations.  It was built using Ruby on Rails in conjunction with React/Redux and PostgreSQL.
 
 ## Technologies
 
 Elucidate uses Rails 5.0 for its backend architecture due to the the ease and speed with which it can get multiple RESTful prototypes up and running.  
 
-The front end is written using javascript's React library version 15.5 due it's modularity and lightweight virtual DOM.  React was used in conjunction with react-router 4.1, webpack 2.5 and the redux 3.6 implementation of the flux architecture.  
+The front end is written using JavaScript's React library version 15.5 due it's modularity and lightweight virtual DOM.  React was used in conjunction with react-router 4.1, webpack 2.5 and the redux 3.6 implementation of the flux architecture.  
 
 All images are hosted using amazon web services.
 
@@ -55,7 +55,7 @@ If an annotation already exists for a given slice of lyrics, the user just needs
 
 Adding a brand new annotation is done by simply highlighting the slice of text the user wishes to annotate.  On mouse-up, a form is displayed either prompting the user to log in, or to enter their annotation.  The start and indices are attained with the following slices of code and stored in the database along with the body, container and user ids.  
 
-![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotaion")
+![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Adding+Annotations+Elucidate.gif "Adding annotation")
 
 Note that the function attempts to find the indices beginning with both the anchor node and the focus node to account for highlighting top to bottom versus bottom to top.  
 
@@ -109,7 +109,7 @@ export const findOffset = (node) => {
 
 Elucidate utilizes a single input field that returns fuzzy matching either artists, track titles, or song lyrics.  
 
-The search uses postgres queries to return fuzzy matches for artists and tracks and exact matches for lyrics in the [track controller](../blob/master/app/controllers/api/tracks_controller.rb)
+The search uses PostgreSQL queries to return fuzzy matches for artists and tracks and exact matches for lyrics in the [track controller](../blob/master/app/controllers/api/tracks_controller.rb)
 
 ![alt-text](https://s3-us-west-1.amazonaws.com/elucidate-dev/production-readme-pics/Lyrics+search.gif "Lyric Search")
 
