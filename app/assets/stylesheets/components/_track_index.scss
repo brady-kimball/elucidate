@@ -17,8 +17,6 @@
       border-top: 2px solid black;
     }
 
-
-
     &:nth-child(-n+3) {
       .track-num {
         display: flex;
@@ -46,6 +44,16 @@
         }
       }
 
+      .num-annotations {
+        display: flex;
+        align-items: baseline;
+        color: green;
+
+        .fa {
+          margin-right: 10px;
+        }
+      }
+
       h3 {
         font-size: 1.5rem;
         font-weight: 600;
@@ -61,11 +69,17 @@
           object-fit: cover;
         }
       }
+
       h3, h5 {
         display: inline;
       }
+
       h5:before {
         content: " by "
+      }
+
+      .fa {
+        display: none;
       }
     }
 
@@ -91,8 +105,10 @@
         margin-right: 8px;
       }
 
-
-
+      .num-annotations {
+        margin-left: auto;
+        margin-right: 15px;
+      }
     }
 
   }

@@ -24,8 +24,11 @@ class TrackIndexItem extends React.Component {
             <h3>{track.title}</h3>
             <h5>{track.artist}</h5>
           </section>
+          <section className="num-annotations">
+            <i className="fa fa-level-up fa-lg" aria-hidden="true"></i>
+            <h3>{track.numAnnotations}</h3>
+          </section>
         </section>
-
       </li>
     );
   }
