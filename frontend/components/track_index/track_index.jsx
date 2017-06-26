@@ -29,7 +29,10 @@ class TrackIndex extends React.Component {
     } else {
       return(
         <section className="track-index">
-          <h3>Top Songs</h3>
+          <header>
+            <h3>Top Songs</h3>
+            <h3>Annotations</h3>
+          </header>
           <ul>
             {this.renderTracks()}
           </ul>

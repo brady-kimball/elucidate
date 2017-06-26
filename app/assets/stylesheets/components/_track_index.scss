@@ -6,6 +6,12 @@
     font-weight: 400;
   }
 
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+  }
+
   .track-index-item{
     border-bottom: 1px solid $light-gray;
 
