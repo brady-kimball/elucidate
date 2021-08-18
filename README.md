@@ -1,12 +1,10 @@
 # Elucidate
 
-[Elucidate live](http://www.elucide.life/ "Elucidate")
-
 Elucidate is a web-app and online community inspired by [Genius](genius.com) for sharing song information and lyric interpretation, allowing users to submit tracks, annotations, comments, and vote for their favorite interpretations.  It was built using Ruby on Rails in conjunction with React/Redux and PostgreSQL.
 
 ## Technologies
 
-Elucidate uses Rails 5.0 for its backend architecture due to the the ease and speed with which it can get multiple RESTful prototypes up and running.  
+Elucidate uses Rails 5.0 for its backend architecture due to the ease and speed with which it can get multiple RESTful prototypes up and running.  
 
 The front end is written using JavaScript's React library version 15.5 due it's modularity and lightweight virtual DOM.  React was used in conjunction with react-router 4.1, webpack 2.5 and the redux 3.6 implementation of the flux architecture.  
 
